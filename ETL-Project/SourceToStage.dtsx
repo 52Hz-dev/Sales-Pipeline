@@ -7,12 +7,12 @@
   DTS:CreatorName="NAUU\ADMIN"
   DTS:DTSID="{BBAF894B-08FE-4247-A1AA-97E5B2DB65B0}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="16.0.5314.0"
+  DTS:LastModifiedProductVersion="16.0.5397.1"
   DTS:LocaleID="1033"
   DTS:ObjectName="SourceToStage"
   DTS:PackageType="5"
-  DTS:VersionBuild="15"
-  DTS:VersionGUID="{650E6633-771D-46A9-80AD-E874DCF7866F}">
+  DTS:VersionBuild="24"
+  DTS:VersionGUID="{0A2C18D4-225D-4A53-897E-1DE8CB755141}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -25,7 +25,7 @@
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="1"
           DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=DESKTOP-6QAFHQM\SQLEXPRESS;Initial Catalog=DMX;Provider=SQLOLEDB.1;Integrated Security=SSPI;Auto Translate=False;Application Name=SSIS-Package-{CC2A4709-9B69-4C2A-8BFD-E1ABDBF58E43}NAUU.DMX;" />
+          DTS:ConnectionString="Data Source=NAUU;Initial Catalog=DMX;Provider=SQLOLEDB.1;Integrated Security=SSPI;Auto Translate=False;Application Name=SSIS-Package-{CC2A4709-9B69-4C2A-8BFD-E1ABDBF58E43}NAUU.DMX;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -37,7 +37,7 @@
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="1"
           DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=DESKTOP-6QAFHQM\SQLEXPRESS;Initial Catalog=Stage;Provider=SQLOLEDB.1;Integrated Security=SSPI;Auto Translate=False;Application Name=SSIS-Package-{C6A62204-B01C-46EE-AA70-DC4E495B3A3D}NAUU.Stage;" />
+          DTS:ConnectionString="Data Source=NAUU;Initial Catalog=Stage;Provider=SQLOLEDB.1;Integrated Security=SSPI;Auto Translate=False;Application Name=SSIS-Package-{C6A62204-B01C-46EE-AA70-DC4E495B3A3D}NAUU.Stage;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -49,12 +49,64 @@
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="1"
           DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=DESKTOP-6QAFHQM\SQLEXPRESS;Initial Catalog=TGDD;Provider=SQLOLEDB.1;Integrated Security=SSPI;Auto Translate=False;Application Name=SSIS-Package-{79C7E1AE-9B2D-47F5-96E8-DF1B77B89C45}NAUU.TGDD;" />
+          DTS:ConnectionString="Data Source=NAUU;Initial Catalog=TGDD;Provider=SQLOLEDB.1;Integrated Security=SSPI;Auto Translate=False;Application Name=SSIS-Package-{79C7E1AE-9B2D-47F5-96E8-DF1B77B89C45}NAUU.TGDD;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
   <DTS:Variables />
   <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\DMX_STAGE_2_NDS"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{6C793738-057B-4FA1-A99D-700C03674DEF}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DMX_STAGE_2_NDS">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\DMX_STAGE_2_NDS\Load Dim"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{50668D2D-C2CB-4644-A3D1-0FB55AA9DC96}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Load Dim"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\DMX_STAGE_2_NDS\Load Fact"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{E4E5C117-26B1-4BAE-BE59-BD4DF3858408}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Load Fact"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\DMX_STAGE_2_NDS.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{B7A7BE87-E60A-4B76-9116-5CDFE0D7B50B}"
+          DTS:From="Package\DMX_STAGE_2_NDS\Load Dim"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\DMX_STAGE_2_NDS\Load Fact" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
     <DTS:Executable
       DTS:refId="Package\Load Stage"
       DTS:CreationName="STOCK:SEQUENCE"
@@ -1778,12 +1830,6 @@
                           cachedName="Status"
                           externalMetadataColumnId="Package\Load Stage\DMX2STAGE\EMPLOYEE_DMX_STAGE.Inputs[OLE DB Destination Input].ExternalColumns[Status]"
                           lineageId="Package\Load Stage\DMX2STAGE\Employee.Outputs[OLE DB Source Output].Columns[Status]" />
-                        <inputColumn
-                          refId="Package\Load Stage\DMX2STAGE\EMPLOYEE_DMX_STAGE.Inputs[OLE DB Destination Input].Columns[Female]"
-                          cachedDataType="i4"
-                          cachedName="Female"
-                          externalMetadataColumnId="Package\Load Stage\DMX2STAGE\EMPLOYEE_DMX_STAGE.Inputs[OLE DB Destination Input].ExternalColumns[Female]"
-                          lineageId="Package\Load Stage\DMX2STAGE\Employee.Outputs[OLE DB Source Output].Columns[Female]" />
                       </inputColumns>
                       <externalMetadataColumns
                         isUsed="True">
@@ -1825,8 +1871,7 @@
                           name="HireDate" />
                         <externalMetadataColumn
                           refId="Package\Load Stage\DMX2STAGE\EMPLOYEE_DMX_STAGE.Inputs[OLE DB Destination Input].ExternalColumns[BirthDate]"
-                          dataType="wstr"
-                          length="60"
+                          dataType="dbTimeStamp"
                           name="BirthDate" />
                         <externalMetadataColumn
                           refId="Package\Load Stage\DMX2STAGE\EMPLOYEE_DMX_STAGE.Inputs[OLE DB Destination Input].ExternalColumns[EmailAddress]"
@@ -1900,9 +1945,10 @@
                           length="50"
                           name="Status" />
                         <externalMetadataColumn
-                          refId="Package\Load Stage\DMX2STAGE\EMPLOYEE_DMX_STAGE.Inputs[OLE DB Destination Input].ExternalColumns[Female]"
-                          dataType="i4"
-                          name="Female" />
+                          refId="Package\Load Stage\DMX2STAGE\EMPLOYEE_DMX_STAGE.Inputs[OLE DB Destination Input].ExternalColumns[Gender]"
+                          dataType="wstr"
+                          length="1"
+                          name="Gender" />
                       </externalMetadataColumns>
                     </input>
                   </inputs>
@@ -14020,6 +14066,69 @@
       </DTS:Executables>
     </DTS:Executable>
     <DTS:Executable
+      DTS:refId="Package\NDS2DDS"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{FFAB1BE3-59D7-4205-9EA4-9FF0B3F565F0}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="NDS2DDS">
+      <DTS:Variables />
+      <DTS:Executables />
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\TGDD_STAGE_2_NDS"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{04083CAD-CC87-4B0E-BEEB-528490B57038}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="TGDD_STAGE_2_NDS">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\TGDD_STAGE_2_NDS\Load Dim"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{4869E66D-B71E-4F5C-B621-4D9796009E53}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Load Dim"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\TGDD_STAGE_2_NDS\Load Fact"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{05C2A07B-5E0E-4CCD-A10C-A02B30DD1573}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Load Fact"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\TGDD_STAGE_2_NDS.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{8FA6EFB7-2D80-4EE1-8930-1DDD24051FD3}"
+          DTS:From="Package\TGDD_STAGE_2_NDS\Load Dim"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\TGDD_STAGE_2_NDS\Load Fact" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+    <DTS:Executable
       DTS:refId="Package\Truncate Table"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
@@ -14046,6 +14155,30 @@
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint"
       DTS:To="Package\Load Stage" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{3148156A-EB63-4C29-8077-C2FABC295911}"
+      DTS:From="Package\Load Stage"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\DMX_STAGE_2_NDS" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{D7B0528D-9739-41EE-930B-7AD33BBB6EC1}"
+      DTS:From="Package\DMX_STAGE_2_NDS"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\TGDD_STAGE_2_NDS" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{038D222C-959C-4161-80A2-BD0B2F27BA55}"
+      DTS:From="Package\TGDD_STAGE_2_NDS"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\NDS2DDS" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
@@ -14058,52 +14191,247 @@
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="137.333333333334,41.3333333333334"
+          Size="123.2,41.6"
+          Id="Package\DMX_STAGE_2_NDS\Load Dim"
+          TopLeft="31.0571431293172,7.63529391320742" />
+        <NodeLayout
+          Size="124,41.6"
+          Id="Package\DMX_STAGE_2_NDS\Load Fact"
+          TopLeft="44.6285717296357,90.8117645161892" />
+        <EdgeLayout
+          Id="Package\DMX_STAGE_2_NDS.PrecedenceConstraints[Constraint]"
+          TopLeft="92.6571431293172,49.2352939132074">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="13.9714286003186,41.5764706029817"
+              Start="0,0"
+              End="13.9714286003186,34.0764706029817">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.7882353014909" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16.7882353014909"
+                    Point2="0,20.7882353014909"
+                    Point3="4,20.7882353014909" />
+                  <mssgle:LineSegment
+                    End="9.97142860031856,20.7882353014909" />
+                  <mssgle:CubicBezierSegment
+                    Point1="9.97142860031856,20.7882353014909"
+                    Point2="13.9714286003186,20.7882353014909"
+                    Point3="13.9714286003186,24.7882353014909" />
+                  <mssgle:LineSegment
+                    End="13.9714286003186,34.0764706029817" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="227.2,187.2"
+          Size="227.2,230.4"
+          Id="Package\DMX_STAGE_2_NDS"
+          TopLeft="97.1428573496488,282.223529169118" />
+        <NodeLayout
+          Size="137.6,41.6"
           Id="Package\Load Stage\DMX2STAGE"
           TopLeft="33.3428574028672,31.6588233558056" />
         <NodeLayout
-          Size="144,41.3333333333334"
+          Size="144,41.6"
           Id="Package\Load Stage\TGDD2STAGE"
           TopLeft="251.200000723771,32.4235292374882" />
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="505.333333333334,200"
-          Size="505.333333333334,243.333333333334"
+          PanelSize="468,128"
+          Size="468,171.2"
           Id="Package\Load Stage"
-          TopLeft="88.5714287599739,136.882352821194" />
+          TopLeft="90.7142859073927,91.7647058019178" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="259.2,86.4"
+          Size="259.2,129.6"
+          Id="Package\NDS2DDS"
+          TopLeft="220.714286184129,557.752940875509" />
         <NodeLayout
-          Size="148.666666666667,41.3333333333334"
-          Id="Package\Truncate Table"
-          TopLeft="242.142857658316,36.3058823435571" />
+          Size="123.2,41.6"
+          Id="Package\TGDD_STAGE_2_NDS\Load Dim"
+          TopLeft="80.4000010005065,25.7764705004267" />
+        <NodeLayout
+          Size="124,41.6"
+          Id="Package\TGDD_STAGE_2_NDS\Load Fact"
+          TopLeft="111.114286780175,115.247058657296" />
         <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="316.542857658316,77.9058823435571">
+          Id="Package\TGDD_STAGE_2_NDS.PrecedenceConstraints[Constraint]"
+          TopLeft="142.000001000507,67.3764705004267">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="24.8285711016582,58.9764704776367"
+              EndConnector="31.1142857796685,47.8705881568697"
               Start="0,0"
-              End="24.8285711016582,51.4764704776367">
+              End="31.1142857796685,40.3705881568697">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,25.4882352388184" />
+                    End="0,19.9352940784348" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,25.4882352388184"
-                    Point2="0,29.4882352388184"
-                    Point3="4,29.4882352388184" />
+                    Point1="0,19.9352940784348"
+                    Point2="0,23.9352940784348"
+                    Point3="4,23.9352940784348" />
                   <mssgle:LineSegment
-                    End="20.8285711016582,29.4882352388184" />
+                    End="27.1142857796685,23.9352940784348" />
                   <mssgle:CubicBezierSegment
-                    Point1="20.8285711016582,29.4882352388184"
-                    Point2="24.8285711016582,29.4882352388184"
-                    Point3="24.8285711016582,33.4882352388184" />
+                    Point1="27.1142857796685,23.9352940784348"
+                    Point2="31.1142857796685,23.9352940784348"
+                    Point3="31.1142857796685,27.9352940784348" />
                   <mssgle:LineSegment
-                    End="24.8285711016582,51.4764704776367" />
+                    End="31.1142857796685,40.3705881568697" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="276,212"
+          Size="276,255.2"
+          Id="Package\TGDD_STAGE_2_NDS"
+          TopLeft="389.285715114401,289.023529248883" />
+        <NodeLayout
+          Size="148.8,41.6"
+          Id="Package\Truncate Table"
+          TopLeft="235.000000500254,16.4235294198083" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="309.400000500254,58.0235294198083">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="15.314285407139,33.7411763821095"
+              Start="0,0"
+              End="15.314285407139,26.2411763821095">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,12.8705881910548" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,12.8705881910548"
+                    Point2="0,16.8705881910548"
+                    Point3="4,16.8705881910548" />
+                  <mssgle:LineSegment
+                    End="11.314285407139,16.8705881910548" />
+                  <mssgle:CubicBezierSegment
+                    Point1="11.314285407139,16.8705881910548"
+                    Point2="15.314285407139,16.8705881910548"
+                    Point3="15.314285407139,20.8705881910548" />
+                  <mssgle:LineSegment
+                    End="15.314285407139,26.2411763821095" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="324.714285907393,262.964705801918">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-0.371428557743911,97.3921567005336"
+              Start="0,0"
+              End="-7.87142855774391,97.3921567005336">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,93.3921567005336" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,93.3921567005336"
+                    Point2="0,97.3921567005336"
+                    Point3="-4,97.3921567005336" />
+                  <mssgle:LineSegment
+                    End="-7.87142855774391,97.3921567005336" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="324.342857349649,434.490195835785">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="64.9428577647527,-17.8666665869016"
+              Start="0,0"
+              End="57.4428577647527,-17.8666665869016">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="22.2458721725139,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="22.2458721725139,0"
+                    Point2="26.2458721725139,0"
+                    Point3="26.2458721725139,-4" />
+                  <mssgle:LineSegment
+                    End="26.2458721725139,-13.8666665869016" />
+                  <mssgle:CubicBezierSegment
+                    Point1="26.2458721725139,-13.8666665869016"
+                    Point2="26.2458721725139,-17.8666665869016"
+                    Point3="30.2458721725139,-17.8666665869016" />
+                  <mssgle:LineSegment
+                    End="57.4428577647527,-17.8666665869016" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="389.285715114401,457.823529248883">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-38.9714289302721,99.9294116266258"
+              Start="0,0"
+              End="-38.9714289302721,92.4294116266258">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-34.9714289302721,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-34.9714289302721,0"
+                    Point2="-38.9714289302721,0"
+                    Point3="-38.9714289302721,4" />
+                  <mssgle:LineSegment
+                    End="-38.9714289302721,92.4294116266258" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -14793,6 +15121,19 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
+    design-time-name="Package\Load Stage\DMX2STAGE\ProductVendor">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
     design-time-name="Package\Load Stage\DMX2STAGE\SalesTerritoryHistory">
     <Properties>
       <Property>
@@ -14819,7 +15160,7 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Load Stage\DMX2STAGE\PRODUCT_DMX_STAGE">
+    design-time-name="Package\Load Stage\DMX2STAGE\PRODUCT_SUB_CATEGORY_DMX_STAGE">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -14858,33 +15199,7 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Load Stage\DMX2STAGE\PRODUCT_SUB_CATEGORY_DMX_STAGE">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
     design-time-name="Package\Load Stage\DMX2STAGE\EMPLOYEE_DMX_STAGE">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Load Stage\DMX2STAGE\PRODUCT_MODEL_DMX_STAGE">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -15014,6 +15329,32 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
+    design-time-name="Package\Load Stage\DMX2STAGE\PRODUCT_MODEL_DMX_STAGE">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load Stage\DMX2STAGE\PRODUCT_DMX_STAGE">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
     design-time-name="Package\Load Stage\DMX2STAGE\SalesOrderDetail">
     <Properties>
       <Property>
@@ -15118,19 +15459,6 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Load Stage\DMX2STAGE\ProductVendor">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
     design-time-name="Package\Load Stage\DMX2STAGE\Customer">
     <Properties>
       <Property>
@@ -15149,151 +15477,151 @@
       <GraphLayout
         Capacity="64" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="182.666666666667,42.6666666666667"
-          Id="Package\Load Stage\TGDD2STAGE\STORE_TGDD_STAGE"
-          TopLeft="73.1519274656388,1188.62689056853" />
-        <NodeLayout
-          Size="244,42.6666666666667"
-          Id="Package\Load Stage\TGDD2STAGE\PRODUCT_VENDOR_TGDD_STAGE"
-          TopLeft="376.213152600572,776.403921475012" />
-        <NodeLayout
-          Size="189.333333333334,42.6666666666667"
-          Id="Package\Load Stage\TGDD2STAGE\PERSON_TGDD_STAGE"
-          TopLeft="357.845805622697,357.740989557301" />
-        <NodeLayout
-          Size="176,41.3333333333334"
-          Id="Package\Load Stage\TGDD2STAGE\SalesTerritoryHistory"
-          TopLeft="700.816327894742,873.519514560884" />
-        <NodeLayout
-          Size="163.333333333334,41.3333333333334"
-          Id="Package\Load Stage\TGDD2STAGE\SalesOrderHeader"
-          TopLeft="70.2040816543749,874.123062557199" />
-        <NodeLayout
-          Size="197.333333333334,42.6666666666667"
-          Id="Package\Load Stage\TGDD2STAGE\PRODUCT_TGDD_STAGE"
-          TopLeft="639.478459283444,362.599626430146" />
-        <NodeLayout
-          Size="174.666666666667,41.3333333333334"
-          Id="Package\Load Stage\TGDD2STAGE\ProductSubCategory"
-          TopLeft="60,666.185807570334" />
-        <NodeLayout
-          Size="103.333333333334,41.3333333333334"
-          Id="Package\Load Stage\TGDD2STAGE\Store"
-          TopLeft="60.0000000000001,1082.17497656286" />
-        <NodeLayout
-          Size="281.333333333334,42.6666666666667"
+          Size="281.6,42.4"
           Id="Package\Load Stage\TGDD2STAGE\PRODUCT_SUB_CATEGORY_TGDD_STAGE"
           TopLeft="73.1519274656387,772.637721575997" />
         <NodeLayout
-          Size="201.333333333334,42.6666666666667"
-          Id="Package\Load Stage\TGDD2STAGE\EMPLOYEE_TGDD_STAGE"
-          TopLeft="99.1836735527995,353.974789658286" />
+          Size="244,42.4"
+          Id="Package\Load Stage\TGDD2STAGE\PRODUCT_VENDOR_TGDD_STAGE"
+          TopLeft="376.213152600572,776.403921475012" />
         <NodeLayout
-          Size="237.333333333334,42.6666666666667"
+          Size="189.6,42.4"
+          Id="Package\Load Stage\TGDD2STAGE\PERSON_TGDD_STAGE"
+          TopLeft="357.845805622697,357.740989557301" />
+        <NodeLayout
+          Size="176,41.6"
+          Id="Package\Load Stage\TGDD2STAGE\SalesTerritoryHistory"
+          TopLeft="700.816327894742,873.519514560884" />
+        <NodeLayout
+          Size="163.2,41.6"
+          Id="Package\Load Stage\TGDD2STAGE\SalesOrderHeader"
+          TopLeft="70.2040816543749,874.123062557199" />
+        <NodeLayout
+          Size="237.6,42.4"
           Id="Package\Load Stage\TGDD2STAGE\PRODUCT_MODEL_TGDD_STAGE"
           TopLeft="390.498866916697,564.585807570333" />
         <NodeLayout
-          Size="124,41.3333333333334"
+          Size="174.4,41.6"
+          Id="Package\Load Stage\TGDD2STAGE\ProductSubCategory"
+          TopLeft="60,666.185807570334" />
+        <NodeLayout
+          Size="103.2,41.6"
+          Id="Package\Load Stage\TGDD2STAGE\Store"
+          TopLeft="60.0000000000001,1082.17497656286" />
+        <NodeLayout
+          Size="201.6,42.4"
+          Id="Package\Load Stage\TGDD2STAGE\EMPLOYEE_TGDD_STAGE"
+          TopLeft="99.1836735527995,353.974789658286" />
+        <NodeLayout
+          Size="124,41.6"
           Id="Package\Load Stage\TGDD2STAGE\Employee"
           TopLeft="86.0317460871608,247.522875652623" />
         <NodeLayout
-          Size="192,42.6666666666667"
-          Id="Package\Load Stage\TGDD2STAGE\VENDOR_TGDD_STAGE"
-          TopLeft="347.437642335235,1202.4435106268" />
+          Size="182.4,42.4"
+          Id="Package\Load Stage\TGDD2STAGE\STORE_TGDD_STAGE"
+          TopLeft="73.1519274656388,1188.62689056853" />
         <NodeLayout
-          Size="265.333333333334,42.6666666666667"
+          Size="265.6,42.4"
           Id="Package\Load Stage\TGDD2STAGE\SALES_ORDER_HEADER_TGDD_STAGE"
           TopLeft="83.3560091200137,980.574976562863" />
         <NodeLayout
-          Size="143.333333333334,41.3333333333334"
+          Size="143.2,41.6"
           Id="Package\Load Stage\TGDD2STAGE\SalesTerritory"
           TopLeft="387.551021105433,872.427077587051" />
         <NodeLayout
-          Size="196.666666666667,42.6666666666667"
+          Size="196.8,42.4"
           Id="Package\Load Stage\TGDD2STAGE\ADDRESS_TGDD_STAGE"
           TopLeft="67.1428571580624,178.52941166081" />
         <NodeLayout
-          Size="256,42.6666666666667"
+          Size="256,42.4"
           Id="Package\Load Stage\TGDD2STAGE\PRODUCT_CATEGORY_TGDD_STAGE"
           TopLeft="73.1519274656387,560.81960767132" />
         <NodeLayout
-          Size="142.666666666667,41.3333333333334"
+          Size="142.4,41.6"
           Id="Package\Load Stage\TGDD2STAGE\ProductModel"
           TopLeft="377.346939451058,458.13389356467" />
         <NodeLayout
-          Size="110.666666666667,41.3333333333334"
+          Size="110.4,41.6"
           Id="Package\Load Stage\TGDD2STAGE\Person"
           TopLeft="344.693878157059,251.289075551637" />
         <NodeLayout
-          Size="292,42.6666666666667"
-          Id="Package\Load Stage\TGDD2STAGE\SALES_TERRITORY_HISTORY_TGDD_STAGE"
-          TopLeft="713.968255360381,979.971428566548" />
-        <NodeLayout
-          Size="156,41.3333333333334"
-          Id="Package\Load Stage\TGDD2STAGE\SalesOrderDetail"
-          TopLeft="662.040817608118,672.625770394529" />
-        <NodeLayout
-          Size="205.333333333334,42.6666666666667"
-          Id="Package\Load Stage\TGDD2STAGE\CUSTOMER_TGDD_STAGE"
-          TopLeft="340.714286311852,175.470588134079" />
-        <NodeLayout
-          Size="114.666666666667,41.3333333333334"
-          Id="Package\Load Stage\TGDD2STAGE\Product"
-          TopLeft="626.326531817805,256.147712424483" />
-        <NodeLayout
-          Size="156,41.3333333333334"
-          Id="Package\Load Stage\TGDD2STAGE\ProductCategory"
-          TopLeft="60,454.367693665655" />
-        <NodeLayout
-          Size="113.333333333334,42.6666666666667"
-          Id="Package\Load Stage\TGDD2STAGE\Vendor"
-          TopLeft="334.285714869596,1095.99159662114" />
-        <NodeLayout
-          Size="261.333333333334,42.6666666666667"
-          Id="Package\Load Stage\TGDD2STAGE\SALES_ORDER_DETAIL_TGDD_STAGE"
-          TopLeft="675.192745073756,779.077684400193" />
-        <NodeLayout
-          Size="242.666666666667,42.6666666666667"
+          Size="242.4,42.4"
           Id="Package\Load Stage\TGDD2STAGE\SALES_TERRITORY_TGDD_STAGE"
           TopLeft="400.702948571072,978.878991592715" />
         <NodeLayout
-          Size="115.333333333334,41.3333333333334"
+          Size="192,42.4"
+          Id="Package\Load Stage\TGDD2STAGE\VENDOR_TGDD_STAGE"
+          TopLeft="347.437642335235,1202.4435106268" />
+        <NodeLayout
+          Size="156,41.6"
+          Id="Package\Load Stage\TGDD2STAGE\SalesOrderDetail"
+          TopLeft="662.040817608118,672.625770394529" />
+        <NodeLayout
+          Size="205.6,42.4"
+          Id="Package\Load Stage\TGDD2STAGE\CUSTOMER_TGDD_STAGE"
+          TopLeft="337.857143448627,162.470588145474" />
+        <NodeLayout
+          Size="114.4,41.6"
+          Id="Package\Load Stage\TGDD2STAGE\Product"
+          TopLeft="626.326531817805,256.147712424483" />
+        <NodeLayout
+          Size="113.6,42.4"
+          Id="Package\Load Stage\TGDD2STAGE\Vendor"
+          TopLeft="334.285714869596,1095.99159662114" />
+        <NodeLayout
+          Size="156,41.6"
+          Id="Package\Load Stage\TGDD2STAGE\ProductCategory"
+          TopLeft="60,454.367693665655" />
+        <NodeLayout
+          Size="197.6,42.4"
+          Id="Package\Load Stage\TGDD2STAGE\PRODUCT_TGDD_STAGE"
+          TopLeft="639.478459283444,362.599626430146" />
+        <NodeLayout
+          Size="261.6,42.4"
+          Id="Package\Load Stage\TGDD2STAGE\SALES_ORDER_DETAIL_TGDD_STAGE"
+          TopLeft="675.192745073756,779.077684400193" />
+        <NodeLayout
+          Size="292,42.4"
+          Id="Package\Load Stage\TGDD2STAGE\SALES_TERRITORY_HISTORY_TGDD_STAGE"
+          TopLeft="713.968255360381,979.971428566548" />
+        <NodeLayout
+          Size="115.2,41.6"
           Id="Package\Load Stage\TGDD2STAGE\Address"
           TopLeft="85.7142857690247,60" />
         <NodeLayout
-          Size="148,41.3333333333334"
+          Size="148,41.6"
           Id="Package\Load Stage\TGDD2STAGE\ProductVendor"
           TopLeft="363.061225134934,669.952007469348" />
         <NodeLayout
-          Size="123.333333333334,41.3333333333334"
+          Size="123.2,41.6"
           Id="Package\Load Stage\TGDD2STAGE\Customer"
           TopLeft="344.285714890884,72.2352941069223" />
         <EdgeLayout
-          Id="Package\Load Stage\TGDD2STAGE.Paths[OLE DB Source Output]"
-          TopLeft="390.952381536263,1138.65826328781">
+          Id="Package\Load Stage\TGDD2STAGE.Paths[OLE DB Source Output14]"
+          TopLeft="143.380952435691,101.333333333333">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="52.4852607989723,63.7852473389933"
+              EndConnector="22.0952380557044,77.1960783274767"
               Start="0,0"
-              End="52.4852607989723,56.2852473389933">
+              End="22.0952380557044,69.6960783274767">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,27.8926236694966" />
+                    End="0,34.5980391637383" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,27.8926236694966"
-                    Point2="0,31.8926236694966"
-                    Point3="4,31.8926236694966" />
+                    Point1="0,34.5980391637383"
+                    Point2="0,38.5980391637383"
+                    Point3="4,38.5980391637383" />
                   <mssgle:LineSegment
-                    End="48.4852607989723,31.8926236694966" />
+                    End="18.0952380557044,38.5980391637383" />
                   <mssgle:CubicBezierSegment
-                    Point1="48.4852607989723,31.8926236694966"
-                    Point2="52.4852607989723,31.8926236694966"
-                    Point3="52.4852607989723,35.8926236694966" />
+                    Point1="18.0952380557044,38.5980391637383"
+                    Point2="22.0952380557044,38.5980391637383"
+                    Point3="22.0952380557044,42.5980391637383" />
                   <mssgle:LineSegment
-                    End="52.4852607989723,56.2852473389933" />
+                    End="22.0952380557044,69.6960783274767" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -15303,371 +15631,31 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Load Stage\TGDD2STAGE.Paths[OLE DB Source Output1]"
-          TopLeft="111.666666666667,1123.50830989619">
+          Id="Package\Load Stage\TGDD2STAGE.Paths[OLE DB Source Output13]"
+          TopLeft="405.885714890884,113.835294106922">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="52.8185941323053,65.1185806723365"
+              EndConnector="34.771428557743,48.6352940385517"
               Start="0,0"
-              End="52.8185941323053,57.6185806723365">
+              End="34.771428557743,41.1352940385517">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,28.5592903361683" />
+                    End="0,20.3176470192759" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,28.5592903361683"
-                    Point2="0,32.5592903361683"
-                    Point3="4,32.5592903361683" />
+                    Point1="0,20.3176470192759"
+                    Point2="0,24.3176470192759"
+                    Point3="4,24.3176470192759" />
                   <mssgle:LineSegment
-                    End="48.8185941323053,32.5592903361683" />
+                    End="30.771428557743,24.3176470192759" />
                   <mssgle:CubicBezierSegment
-                    Point1="48.8185941323053,32.5592903361683"
-                    Point2="52.8185941323053,32.5592903361683"
-                    Point3="52.8185941323053,36.5592903361683" />
+                    Point1="30.771428557743,24.3176470192759"
+                    Point2="34.771428557743,24.3176470192759"
+                    Point3="34.771428557743,28.3176470192759" />
                   <mssgle:LineSegment
-                    End="52.8185941323053,57.6185806723365" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Load Stage\TGDD2STAGE.Paths[OLE DB Source Output2]"
-          TopLeft="788.816327894742,914.852847894217">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="71.151927465639,65.1185806723306"
-              Start="0,0"
-              End="71.151927465639,57.6185806723306">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,28.5592903361653" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,28.5592903361653"
-                    Point2="0,32.5592903361653"
-                    Point3="4,32.5592903361653" />
-                  <mssgle:LineSegment
-                    End="67.151927465639,32.5592903361653" />
-                  <mssgle:CubicBezierSegment
-                    Point1="67.151927465639,32.5592903361653"
-                    Point2="71.151927465639,32.5592903361653"
-                    Point3="71.151927465639,36.5592903361653" />
-                  <mssgle:LineSegment
-                    End="71.151927465639,57.6185806723306" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Load Stage\TGDD2STAGE.Paths[OLE DB Source Output3]"
-          TopLeft="459.2176877721,913.760410920384">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="62.8185941323057,65.1185806723306"
-              Start="0,0"
-              End="62.8185941323057,57.6185806723306">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,28.5592903361653" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,28.5592903361653"
-                    Point2="0,32.5592903361653"
-                    Point3="4,32.5592903361653" />
-                  <mssgle:LineSegment
-                    End="58.8185941323057,32.5592903361653" />
-                  <mssgle:CubicBezierSegment
-                    Point1="58.8185941323057,32.5592903361653"
-                    Point2="62.8185941323057,32.5592903361653"
-                    Point3="62.8185941323057,36.5592903361653" />
-                  <mssgle:LineSegment
-                    End="62.8185941323057,57.6185806723306" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Load Stage\TGDD2STAGE.Paths[OLE DB Source Output4]"
-          TopLeft="151.870748321042,915.456395890532">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="64.1519274656388,65.1185806723306"
-              Start="0,0"
-              End="64.1519274656388,57.6185806723306">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,28.5592903361653" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,28.5592903361653"
-                    Point2="0,32.5592903361653"
-                    Point3="4,32.5592903361653" />
-                  <mssgle:LineSegment
-                    End="60.1519274656388,32.5592903361653" />
-                  <mssgle:CubicBezierSegment
-                    Point1="60.1519274656388,32.5592903361653"
-                    Point2="64.1519274656388,32.5592903361653"
-                    Point3="64.1519274656388,36.5592903361653" />
-                  <mssgle:LineSegment
-                    End="64.1519274656388,57.6185806723306" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Load Stage\TGDD2STAGE.Paths[OLE DB Source Output5]"
-          TopLeft="740.040817608118,713.959103727862">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="65.8185941323046,65.1185806723306"
-              Start="0,0"
-              End="65.8185941323046,57.6185806723306">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,28.5592903361653" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,28.5592903361653"
-                    Point2="0,32.5592903361653"
-                    Point3="4,32.5592903361653" />
-                  <mssgle:LineSegment
-                    End="61.8185941323046,32.5592903361653" />
-                  <mssgle:CubicBezierSegment
-                    Point1="61.8185941323046,32.5592903361653"
-                    Point2="65.8185941323046,32.5592903361653"
-                    Point3="65.8185941323046,36.5592903361653" />
-                  <mssgle:LineSegment
-                    End="65.8185941323046,57.6185806723306" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Load Stage\TGDD2STAGE.Paths[OLE DB Source Output6]"
-          TopLeft="437.061225134934,711.285340802681">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="61.151927465638,65.1185806723306"
-              Start="0,0"
-              End="61.151927465638,57.6185806723306">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,28.5592903361653" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,28.5592903361653"
-                    Point2="0,32.5592903361653"
-                    Point3="4,32.5592903361653" />
-                  <mssgle:LineSegment
-                    End="57.151927465638,32.5592903361653" />
-                  <mssgle:CubicBezierSegment
-                    Point1="57.151927465638,32.5592903361653"
-                    Point2="61.151927465638,32.5592903361653"
-                    Point3="61.151927465638,36.5592903361653" />
-                  <mssgle:LineSegment
-                    End="61.151927465638,57.6185806723306" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Load Stage\TGDD2STAGE.Paths[OLE DB Source Output7]"
-          TopLeft="147.333333333333,707.519140903667">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="66.485260798972,65.1185806723297"
-              Start="0,0"
-              End="66.485260798972,57.6185806723297">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,28.5592903361648" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,28.5592903361648"
-                    Point2="0,32.5592903361648"
-                    Point3="4,32.5592903361648" />
-                  <mssgle:LineSegment
-                    End="62.485260798972,32.5592903361648" />
-                  <mssgle:CubicBezierSegment
-                    Point1="62.485260798972,32.5592903361648"
-                    Point2="66.485260798972,32.5592903361648"
-                    Point3="66.485260798972,36.5592903361648" />
-                  <mssgle:LineSegment
-                    End="66.485260798972,57.6185806723297" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Load Stage\TGDD2STAGE.Paths[OLE DB Source Output8]"
-          TopLeft="448.680272784391,499.467226898003">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="60.4852607989724,65.1185806723296"
-              Start="0,0"
-              End="60.4852607989724,57.6185806723296">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,28.5592903361648" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,28.5592903361648"
-                    Point2="0,32.5592903361648"
-                    Point3="4,32.5592903361648" />
-                  <mssgle:LineSegment
-                    End="56.4852607989724,32.5592903361648" />
-                  <mssgle:CubicBezierSegment
-                    Point1="56.4852607989724,32.5592903361648"
-                    Point2="60.4852607989724,32.5592903361648"
-                    Point3="60.4852607989724,36.5592903361648" />
-                  <mssgle:LineSegment
-                    End="60.4852607989724,57.6185806723296" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Load Stage\TGDD2STAGE.Paths[OLE DB Source Output9]"
-          TopLeft="138,495.701026998988">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="63.1519274656387,65.1185806723317"
-              Start="0,0"
-              End="63.1519274656387,57.6185806723317">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,28.5592903361658" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,28.5592903361658"
-                    Point2="0,32.5592903361658"
-                    Point3="4,32.5592903361658" />
-                  <mssgle:LineSegment
-                    End="59.1519274656387,32.5592903361658" />
-                  <mssgle:CubicBezierSegment
-                    Point1="59.1519274656387,32.5592903361658"
-                    Point2="63.1519274656387,32.5592903361658"
-                    Point3="63.1519274656387,36.5592903361658" />
-                  <mssgle:LineSegment
-                    End="63.1519274656387,57.6185806723317" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Load Stage\TGDD2STAGE.Paths[OLE DB Source Output10]"
-          TopLeft="683.659865151138,297.481045757816">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="54.4852607989723,65.1185806723297"
-              Start="0,0"
-              End="54.4852607989723,57.6185806723297">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,28.5592903361648" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,28.5592903361648"
-                    Point2="0,32.5592903361648"
-                    Point3="4,32.5592903361648" />
-                  <mssgle:LineSegment
-                    End="50.4852607989723,32.5592903361648" />
-                  <mssgle:CubicBezierSegment
-                    Point1="50.4852607989723,32.5592903361648"
-                    Point2="54.4852607989723,32.5592903361648"
-                    Point3="54.4852607989723,36.5592903361648" />
-                  <mssgle:LineSegment
-                    End="54.4852607989723,57.6185806723297" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Load Stage\TGDD2STAGE.Paths[OLE DB Source Output11]"
-          TopLeft="400.027211490392,292.62240888497">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="52.4852607989714,65.1185806723307"
-              Start="0,0"
-              End="52.4852607989714,57.6185806723307">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,28.5592903361653" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,28.5592903361653"
-                    Point2="0,32.5592903361653"
-                    Point3="4,32.5592903361653" />
-                  <mssgle:LineSegment
-                    End="48.4852607989714,32.5592903361653" />
-                  <mssgle:CubicBezierSegment
-                    Point1="48.4852607989714,32.5592903361653"
-                    Point2="52.4852607989714,32.5592903361653"
-                    Point3="52.4852607989714,36.5592903361653" />
-                  <mssgle:LineSegment
-                    End="52.4852607989714,57.6185806723307" />
+                    End="34.771428557743,41.1352940385517" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -15711,31 +15699,31 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Load Stage\TGDD2STAGE.Paths[OLE DB Source Output13]"
-          TopLeft="405.952381557551,113.568627440256">
+          Id="Package\Load Stage\TGDD2STAGE.Paths[OLE DB Source Output11]"
+          TopLeft="400.027211490392,292.62240888497">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="37.428571420968,61.9019606938234"
+              EndConnector="52.4852607989714,65.1185806723307"
               Start="0,0"
-              End="37.428571420968,54.4019606938234">
+              End="52.4852607989714,57.6185806723307">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,26.9509803469117" />
+                    End="0,28.5592903361653" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,26.9509803469117"
-                    Point2="0,30.9509803469117"
-                    Point3="4,30.9509803469117" />
+                    Point1="0,28.5592903361653"
+                    Point2="0,32.5592903361653"
+                    Point3="4,32.5592903361653" />
                   <mssgle:LineSegment
-                    End="33.428571420968,30.9509803469117" />
+                    End="48.4852607989714,32.5592903361653" />
                   <mssgle:CubicBezierSegment
-                    Point1="33.428571420968,30.9509803469117"
-                    Point2="37.428571420968,30.9509803469117"
-                    Point3="37.428571420968,34.9509803469117" />
+                    Point1="48.4852607989714,32.5592903361653"
+                    Point2="52.4852607989714,32.5592903361653"
+                    Point3="52.4852607989714,36.5592903361653" />
                   <mssgle:LineSegment
-                    End="37.428571420968,54.4019606938234" />
+                    End="52.4852607989714,57.6185806723307" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -15745,31 +15733,371 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Load Stage\TGDD2STAGE.Paths[OLE DB Source Output14]"
-          TopLeft="143.380952435691,101.333333333333">
+          Id="Package\Load Stage\TGDD2STAGE.Paths[OLE DB Source Output10]"
+          TopLeft="683.659865151138,297.481045757816">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="22.0952380557044,77.1960783274767"
+              EndConnector="54.4852607989723,65.1185806723297"
               Start="0,0"
-              End="22.0952380557044,69.6960783274767">
+              End="54.4852607989723,57.6185806723297">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,34.5980391637383" />
+                    End="0,28.5592903361648" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,34.5980391637383"
-                    Point2="0,38.5980391637383"
-                    Point3="4,38.5980391637383" />
+                    Point1="0,28.5592903361648"
+                    Point2="0,32.5592903361648"
+                    Point3="4,32.5592903361648" />
                   <mssgle:LineSegment
-                    End="18.0952380557044,38.5980391637383" />
+                    End="50.4852607989723,32.5592903361648" />
                   <mssgle:CubicBezierSegment
-                    Point1="18.0952380557044,38.5980391637383"
-                    Point2="22.0952380557044,38.5980391637383"
-                    Point3="22.0952380557044,42.5980391637383" />
+                    Point1="50.4852607989723,32.5592903361648"
+                    Point2="54.4852607989723,32.5592903361648"
+                    Point3="54.4852607989723,36.5592903361648" />
                   <mssgle:LineSegment
-                    End="22.0952380557044,69.6960783274767" />
+                    End="54.4852607989723,57.6185806723297" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load Stage\TGDD2STAGE.Paths[OLE DB Source Output9]"
+          TopLeft="138,495.701026998988">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="63.1519274656387,65.1185806723317"
+              Start="0,0"
+              End="63.1519274656387,57.6185806723317">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,28.5592903361658" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,28.5592903361658"
+                    Point2="0,32.5592903361658"
+                    Point3="4,32.5592903361658" />
+                  <mssgle:LineSegment
+                    End="59.1519274656387,32.5592903361658" />
+                  <mssgle:CubicBezierSegment
+                    Point1="59.1519274656387,32.5592903361658"
+                    Point2="63.1519274656387,32.5592903361658"
+                    Point3="63.1519274656387,36.5592903361658" />
+                  <mssgle:LineSegment
+                    End="63.1519274656387,57.6185806723317" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load Stage\TGDD2STAGE.Paths[OLE DB Source Output8]"
+          TopLeft="448.680272784391,499.467226898003">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="60.4852607989724,65.1185806723296"
+              Start="0,0"
+              End="60.4852607989724,57.6185806723296">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,28.5592903361648" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,28.5592903361648"
+                    Point2="0,32.5592903361648"
+                    Point3="4,32.5592903361648" />
+                  <mssgle:LineSegment
+                    End="56.4852607989724,32.5592903361648" />
+                  <mssgle:CubicBezierSegment
+                    Point1="56.4852607989724,32.5592903361648"
+                    Point2="60.4852607989724,32.5592903361648"
+                    Point3="60.4852607989724,36.5592903361648" />
+                  <mssgle:LineSegment
+                    End="60.4852607989724,57.6185806723296" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load Stage\TGDD2STAGE.Paths[OLE DB Source Output7]"
+          TopLeft="147.333333333333,707.519140903667">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="66.485260798972,65.1185806723297"
+              Start="0,0"
+              End="66.485260798972,57.6185806723297">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,28.5592903361648" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,28.5592903361648"
+                    Point2="0,32.5592903361648"
+                    Point3="4,32.5592903361648" />
+                  <mssgle:LineSegment
+                    End="62.485260798972,32.5592903361648" />
+                  <mssgle:CubicBezierSegment
+                    Point1="62.485260798972,32.5592903361648"
+                    Point2="66.485260798972,32.5592903361648"
+                    Point3="66.485260798972,36.5592903361648" />
+                  <mssgle:LineSegment
+                    End="66.485260798972,57.6185806723297" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load Stage\TGDD2STAGE.Paths[OLE DB Source Output6]"
+          TopLeft="437.061225134934,711.285340802681">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="61.151927465638,65.1185806723306"
+              Start="0,0"
+              End="61.151927465638,57.6185806723306">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,28.5592903361653" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,28.5592903361653"
+                    Point2="0,32.5592903361653"
+                    Point3="4,32.5592903361653" />
+                  <mssgle:LineSegment
+                    End="57.151927465638,32.5592903361653" />
+                  <mssgle:CubicBezierSegment
+                    Point1="57.151927465638,32.5592903361653"
+                    Point2="61.151927465638,32.5592903361653"
+                    Point3="61.151927465638,36.5592903361653" />
+                  <mssgle:LineSegment
+                    End="61.151927465638,57.6185806723306" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load Stage\TGDD2STAGE.Paths[OLE DB Source Output5]"
+          TopLeft="740.040817608118,713.959103727862">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="65.8185941323046,65.1185806723306"
+              Start="0,0"
+              End="65.8185941323046,57.6185806723306">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,28.5592903361653" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,28.5592903361653"
+                    Point2="0,32.5592903361653"
+                    Point3="4,32.5592903361653" />
+                  <mssgle:LineSegment
+                    End="61.8185941323046,32.5592903361653" />
+                  <mssgle:CubicBezierSegment
+                    Point1="61.8185941323046,32.5592903361653"
+                    Point2="65.8185941323046,32.5592903361653"
+                    Point3="65.8185941323046,36.5592903361653" />
+                  <mssgle:LineSegment
+                    End="65.8185941323046,57.6185806723306" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load Stage\TGDD2STAGE.Paths[OLE DB Source Output4]"
+          TopLeft="151.870748321042,915.456395890532">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="64.1519274656388,65.1185806723306"
+              Start="0,0"
+              End="64.1519274656388,57.6185806723306">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,28.5592903361653" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,28.5592903361653"
+                    Point2="0,32.5592903361653"
+                    Point3="4,32.5592903361653" />
+                  <mssgle:LineSegment
+                    End="60.1519274656388,32.5592903361653" />
+                  <mssgle:CubicBezierSegment
+                    Point1="60.1519274656388,32.5592903361653"
+                    Point2="64.1519274656388,32.5592903361653"
+                    Point3="64.1519274656388,36.5592903361653" />
+                  <mssgle:LineSegment
+                    End="64.1519274656388,57.6185806723306" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load Stage\TGDD2STAGE.Paths[OLE DB Source Output3]"
+          TopLeft="459.2176877721,913.760410920384">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="62.8185941323057,65.1185806723306"
+              Start="0,0"
+              End="62.8185941323057,57.6185806723306">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,28.5592903361653" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,28.5592903361653"
+                    Point2="0,32.5592903361653"
+                    Point3="4,32.5592903361653" />
+                  <mssgle:LineSegment
+                    End="58.8185941323057,32.5592903361653" />
+                  <mssgle:CubicBezierSegment
+                    Point1="58.8185941323057,32.5592903361653"
+                    Point2="62.8185941323057,32.5592903361653"
+                    Point3="62.8185941323057,36.5592903361653" />
+                  <mssgle:LineSegment
+                    End="62.8185941323057,57.6185806723306" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load Stage\TGDD2STAGE.Paths[OLE DB Source Output2]"
+          TopLeft="788.816327894742,914.852847894217">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="71.151927465639,65.1185806723306"
+              Start="0,0"
+              End="71.151927465639,57.6185806723306">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,28.5592903361653" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,28.5592903361653"
+                    Point2="0,32.5592903361653"
+                    Point3="4,32.5592903361653" />
+                  <mssgle:LineSegment
+                    End="67.151927465639,32.5592903361653" />
+                  <mssgle:CubicBezierSegment
+                    Point1="67.151927465639,32.5592903361653"
+                    Point2="71.151927465639,32.5592903361653"
+                    Point3="71.151927465639,36.5592903361653" />
+                  <mssgle:LineSegment
+                    End="71.151927465639,57.6185806723306" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load Stage\TGDD2STAGE.Paths[OLE DB Source Output1]"
+          TopLeft="111.666666666667,1123.50830989619">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="52.8185941323053,65.1185806723365"
+              Start="0,0"
+              End="52.8185941323053,57.6185806723365">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,28.5592903361683" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,28.5592903361683"
+                    Point2="0,32.5592903361683"
+                    Point3="4,32.5592903361683" />
+                  <mssgle:LineSegment
+                    End="48.8185941323053,32.5592903361683" />
+                  <mssgle:CubicBezierSegment
+                    Point1="48.8185941323053,32.5592903361683"
+                    Point2="52.8185941323053,32.5592903361683"
+                    Point3="52.8185941323053,36.5592903361683" />
+                  <mssgle:LineSegment
+                    End="52.8185941323053,57.6185806723365" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load Stage\TGDD2STAGE.Paths[OLE DB Source Output]"
+          TopLeft="390.952381536263,1138.65826328781">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="52.4852607989723,63.7852473389933"
+              Start="0,0"
+              End="52.4852607989723,56.2852473389933">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27.8926236694966" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,27.8926236694966"
+                    Point2="0,31.8926236694966"
+                    Point3="4,31.8926236694966" />
+                  <mssgle:LineSegment
+                    End="48.4852607989723,31.8926236694966" />
+                  <mssgle:CubicBezierSegment
+                    Point1="48.4852607989723,31.8926236694966"
+                    Point2="52.4852607989723,31.8926236694966"
+                    Point3="52.4852607989723,35.8926236694966" />
+                  <mssgle:LineSegment
+                    End="52.4852607989723,56.2852473389933" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -15782,7 +16110,7 @@
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Load Stage\TGDD2STAGE\STORE_TGDD_STAGE">
+    design-time-name="Package\Load Stage\TGDD2STAGE\PRODUCT_SUB_CATEGORY_TGDD_STAGE">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -15847,7 +16175,7 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Load Stage\TGDD2STAGE\PRODUCT_TGDD_STAGE">
+    design-time-name="Package\Load Stage\TGDD2STAGE\PRODUCT_MODEL_TGDD_STAGE">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -15886,33 +16214,7 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Load Stage\TGDD2STAGE\PRODUCT_SUB_CATEGORY_TGDD_STAGE">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
     design-time-name="Package\Load Stage\TGDD2STAGE\EMPLOYEE_TGDD_STAGE">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Load Stage\TGDD2STAGE\PRODUCT_MODEL_TGDD_STAGE">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -15938,7 +16240,7 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Load Stage\TGDD2STAGE\VENDOR_TGDD_STAGE">
+    design-time-name="Package\Load Stage\TGDD2STAGE\STORE_TGDD_STAGE">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -16029,7 +16331,20 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Load Stage\TGDD2STAGE\SALES_TERRITORY_HISTORY_TGDD_STAGE">
+    design-time-name="Package\Load Stage\TGDD2STAGE\SALES_TERRITORY_TGDD_STAGE">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load Stage\TGDD2STAGE\VENDOR_TGDD_STAGE">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -16081,6 +16396,19 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
+    design-time-name="Package\Load Stage\TGDD2STAGE\Vendor">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
     design-time-name="Package\Load Stage\TGDD2STAGE\ProductCategory">
     <Properties>
       <Property>
@@ -16094,7 +16422,7 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Load Stage\TGDD2STAGE\Vendor">
+    design-time-name="Package\Load Stage\TGDD2STAGE\PRODUCT_TGDD_STAGE">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -16120,7 +16448,7 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Load Stage\TGDD2STAGE\SALES_TERRITORY_TGDD_STAGE">
+    design-time-name="Package\Load Stage\TGDD2STAGE\SALES_TERRITORY_HISTORY_TGDD_STAGE">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
