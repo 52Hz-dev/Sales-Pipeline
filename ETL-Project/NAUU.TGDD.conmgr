@@ -1,0 +1,12 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="NAUU.TGDD"
+  DTS:DTSID="{79C7E1AE-9B2D-47F5-96E8-DF1B77B89C45}"
+  DTS:CreationName="OLEDB">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectRetryCount="1"
+      DTS:ConnectRetryInterval="5"
+      DTS:ConnectionString="Data Source=NAUU;Initial Catalog=TGDD;Provider=SQLOLEDB.1;Integrated Security=SSPI;Auto Translate=False;Application Name=SSIS-Package-{79C7E1AE-9B2D-47F5-96E8-DF1B77B89C45}NAUU.TGDD;" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>
