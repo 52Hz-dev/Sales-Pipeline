@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="SourceToStage"
   DTS:PackageType="5"
-  DTS:VersionBuild="198"
-  DTS:VersionGUID="{8748388F-E911-46F6-938D-F3E2D38C72ED}">
+  DTS:VersionBuild="200"
+  DTS:VersionGUID="{0C7DB5B9-AD9E-4572-BE50-8C8647BC811B}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -129,7 +129,6 @@
       DTS:refId="Package\Load Stage"
       DTS:CreationName="STOCK:SEQUENCE"
       DTS:Description="Sequence Container"
-      DTS:Disabled="True"
       DTS:DTSID="{B07048C6-A444-4700-BF97-1AAADC4F583E}"
       DTS:ExecutableType="STOCK:SEQUENCE"
       DTS:LocaleID="-1"
@@ -318,6 +317,24 @@
                           lineageId="Package\Load Stage\DMX2STAGE\Address.Outputs[OLE DB Source Output].Columns[CountryRegionName]"
                           name="CountryRegionName"
                           truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Load Stage\DMX2STAGE\Address.Outputs[OLE DB Source Output].Columns[CREATEDATE]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Load Stage\DMX2STAGE\Address.Outputs[OLE DB Source Output].ExternalColumns[CREATEDATE]"
+                          lineageId="Package\Load Stage\DMX2STAGE\Address.Outputs[OLE DB Source Output].Columns[CREATEDATE]"
+                          name="CREATEDATE"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Load Stage\DMX2STAGE\Address.Outputs[OLE DB Source Output].Columns[UPDATEDATE]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Load Stage\DMX2STAGE\Address.Outputs[OLE DB Source Output].ExternalColumns[UPDATEDATE]"
+                          lineageId="Package\Load Stage\DMX2STAGE\Address.Outputs[OLE DB Source Output].Columns[UPDATEDATE]"
+                          name="UPDATEDATE"
+                          truncationRowDisposition="FailComponent" />
                       </outputColumns>
                       <externalMetadataColumns
                         isUsed="True">
@@ -373,6 +390,14 @@
                           dataType="wstr"
                           length="50"
                           name="CountryRegionName" />
+                        <externalMetadataColumn
+                          refId="Package\Load Stage\DMX2STAGE\Address.Outputs[OLE DB Source Output].ExternalColumns[CREATEDATE]"
+                          dataType="dbTimeStamp"
+                          name="CREATEDATE" />
+                        <externalMetadataColumn
+                          refId="Package\Load Stage\DMX2STAGE\Address.Outputs[OLE DB Source Output].ExternalColumns[UPDATEDATE]"
+                          dataType="dbTimeStamp"
+                          name="UPDATEDATE" />
                       </externalMetadataColumns>
                     </output>
                     <output
@@ -443,6 +468,16 @@
                           length="50"
                           lineageId="Package\Load Stage\DMX2STAGE\Address.Outputs[OLE DB Source Error Output].Columns[CountryRegionName]"
                           name="CountryRegionName" />
+                        <outputColumn
+                          refId="Package\Load Stage\DMX2STAGE\Address.Outputs[OLE DB Source Error Output].Columns[CREATEDATE]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\Load Stage\DMX2STAGE\Address.Outputs[OLE DB Source Error Output].Columns[CREATEDATE]"
+                          name="CREATEDATE" />
+                        <outputColumn
+                          refId="Package\Load Stage\DMX2STAGE\Address.Outputs[OLE DB Source Error Output].Columns[UPDATEDATE]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\Load Stage\DMX2STAGE\Address.Outputs[OLE DB Source Error Output].Columns[UPDATEDATE]"
+                          name="UPDATEDATE" />
                         <outputColumn
                           refId="Package\Load Stage\DMX2STAGE\Address.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
                           dataType="i4"
@@ -1164,10 +1199,11 @@
                           truncationRowDisposition="FailComponent" />
                         <outputColumn
                           refId="Package\Load Stage\DMX2STAGE\Employee.Outputs[OLE DB Source Output].Columns[BirthDate]"
-                          dataType="dbTimeStamp"
+                          dataType="wstr"
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
                           externalMetadataColumnId="Package\Load Stage\DMX2STAGE\Employee.Outputs[OLE DB Source Output].ExternalColumns[BirthDate]"
+                          length="60"
                           lineageId="Package\Load Stage\DMX2STAGE\Employee.Outputs[OLE DB Source Output].Columns[BirthDate]"
                           name="BirthDate"
                           truncationRowDisposition="FailComponent" />
@@ -1331,6 +1367,24 @@
                           lineageId="Package\Load Stage\DMX2STAGE\Employee.Outputs[OLE DB Source Output].Columns[Female]"
                           name="Female"
                           truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Load Stage\DMX2STAGE\Employee.Outputs[OLE DB Source Output].Columns[CREATEDATE]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Load Stage\DMX2STAGE\Employee.Outputs[OLE DB Source Output].ExternalColumns[CREATEDATE]"
+                          lineageId="Package\Load Stage\DMX2STAGE\Employee.Outputs[OLE DB Source Output].Columns[CREATEDATE]"
+                          name="CREATEDATE"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Load Stage\DMX2STAGE\Employee.Outputs[OLE DB Source Output].Columns[UPDATEDATE]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Load Stage\DMX2STAGE\Employee.Outputs[OLE DB Source Output].ExternalColumns[UPDATEDATE]"
+                          lineageId="Package\Load Stage\DMX2STAGE\Employee.Outputs[OLE DB Source Output].Columns[UPDATEDATE]"
+                          name="UPDATEDATE"
+                          truncationRowDisposition="FailComponent" />
                       </outputColumns>
                       <externalMetadataColumns
                         isUsed="True">
@@ -1450,6 +1504,14 @@
                           refId="Package\Load Stage\DMX2STAGE\Employee.Outputs[OLE DB Source Output].ExternalColumns[Female]"
                           dataType="i4"
                           name="Female" />
+                        <externalMetadataColumn
+                          refId="Package\Load Stage\DMX2STAGE\Employee.Outputs[OLE DB Source Output].ExternalColumns[CREATEDATE]"
+                          dataType="dbTimeStamp"
+                          name="CREATEDATE" />
+                        <externalMetadataColumn
+                          refId="Package\Load Stage\DMX2STAGE\Employee.Outputs[OLE DB Source Output].ExternalColumns[UPDATEDATE]"
+                          dataType="dbTimeStamp"
+                          name="UPDATEDATE" />
                       </externalMetadataColumns>
                     </output>
                     <output
@@ -1600,6 +1662,16 @@
                           lineageId="Package\Load Stage\DMX2STAGE\Employee.Outputs[OLE DB Source Error Output].Columns[Female]"
                           name="Female" />
                         <outputColumn
+                          refId="Package\Load Stage\DMX2STAGE\Employee.Outputs[OLE DB Source Error Output].Columns[CREATEDATE]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\Load Stage\DMX2STAGE\Employee.Outputs[OLE DB Source Error Output].Columns[CREATEDATE]"
+                          name="CREATEDATE" />
+                        <outputColumn
+                          refId="Package\Load Stage\DMX2STAGE\Employee.Outputs[OLE DB Source Error Output].Columns[UPDATEDATE]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\Load Stage\DMX2STAGE\Employee.Outputs[OLE DB Source Error Output].Columns[UPDATEDATE]"
+                          name="UPDATEDATE" />
+                        <outputColumn
                           refId="Package\Load Stage\DMX2STAGE\Employee.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
                           dataType="i4"
                           lineageId="Package\Load Stage\DMX2STAGE\Employee.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
@@ -1742,7 +1814,8 @@
                           lineageId="Package\Load Stage\DMX2STAGE\Employee.Outputs[OLE DB Source Output].Columns[HireDate]" />
                         <inputColumn
                           refId="Package\Load Stage\DMX2STAGE\EMPLOYEE_DMX_STAGE.Inputs[OLE DB Destination Input].Columns[BirthDate]"
-                          cachedDataType="dbTimeStamp"
+                          cachedDataType="wstr"
+                          cachedLength="60"
                           cachedName="BirthDate"
                           externalMetadataColumnId="Package\Load Stage\DMX2STAGE\EMPLOYEE_DMX_STAGE.Inputs[OLE DB Destination Input].ExternalColumns[BirthDate]"
                           lineageId="Package\Load Stage\DMX2STAGE\Employee.Outputs[OLE DB Source Output].Columns[BirthDate]" />
@@ -14093,7 +14166,6 @@
       DTS:refId="Package\TRUNCATE STG"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
-      DTS:Disabled="True"
       DTS:DTSID="{C333BC63-5E4E-465D-8FB7-C31F7FACBCF6}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
@@ -14133,18 +14205,18 @@
         <NodeLayout
           Size="137.6,41.6"
           Id="Package\Load Stage\DMX2STAGE"
-          TopLeft="33.3428574028672,31.6588233558056" />
+          TopLeft="59.7714288876982,83.6588233102255" />
         <NodeLayout
           Size="144,41.6"
           Id="Package\Load Stage\TGDD2STAGE"
-          TopLeft="336.200000904714,33.1882351191708" />
+          TopLeft="341.200000915358,83.6588233102255" />
         <ContainerLayout
           HeaderHeight="43.2"
           IsExpanded="True"
-          PanelSize="605.6,117.6"
-          Size="605.6,160.8"
+          PanelSize="605.6,224.8"
+          Size="605.6,268"
           Id="Package\Load Stage"
-          TopLeft="569.21128526561,118.135690097741" />
+          TopLeft="569.21128526561,95.1945136472616" />
         <NodeLayout
           Size="152.8,41.6"
           Id="Package\TRUNCATE STG"
@@ -14155,14 +14227,14 @@
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,48.241572475483"
+              EndConnector="0,25.3003960250037"
               Start="0,0"
-              End="0,40.741572475483">
+              End="0,17.8003960250037">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,40.741572475483" />
+                    End="0,17.8003960250037" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
