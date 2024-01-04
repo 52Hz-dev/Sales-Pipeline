@@ -7,12 +7,12 @@
   DTS:CreatorName="NAUU\ADMIN"
   DTS:DTSID="{C6B14102-178B-488A-978F-59FEB0E0E68D}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="16.0.5314.0"
+  DTS:LastModifiedProductVersion="16.0.5397.1"
   DTS:LocaleID="1033"
   DTS:ObjectName="NDStoDDS"
   DTS:PackageType="5"
-  DTS:VersionBuild="56"
-  DTS:VersionGUID="{CF6132E1-A640-492B-B531-53EB9D5C079C}">
+  DTS:VersionBuild="77"
+  DTS:VersionGUID="{4FB10C5B-8515-4EEB-A467-38BB3B6E87E7}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -25,7 +25,7 @@
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="1"
           DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=LAPTOP-BI3CVGIH;Initial Catalog=DDS;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Package1-{8ACDEE2D-BF88-45A8-B23A-B889F32BCCB2}LAPTOP-BI3CVGIH.DDS;" />
+          DTS:ConnectionString="Data Source=NAUU;Initial Catalog=DDS;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Package1-{8ACDEE2D-BF88-45A8-B23A-B889F32BCCB2}LAPTOP-BI3CVGIH.DDS;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -37,7 +37,7 @@
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="1"
           DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=LAPTOP-BI3CVGIH;Initial Catalog=METADATA;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+          DTS:ConnectionString="Data Source=NAUU;Initial Catalog=MetaData;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-NDStoDDS-{5FC1C9D2-AF0D-48E5-A234-90FE2F7701EA}LAPTOP-BI3CVGIH.METADATA;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -49,7 +49,7 @@
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="1"
           DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=LAPTOP-BI3CVGIH;Initial Catalog=NDS;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Package1-{EA2579D8-8B24-4C65-84B8-30822F573CA1}LAPTOP-BI3CVGIH.NDS;" />
+          DTS:ConnectionString="Data Source=NAUU;Initial Catalog=NDS;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Package1-{EA2579D8-8B24-4C65-84B8-30822F573CA1}LAPTOP-BI3CVGIH.NDS;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
@@ -100,6 +100,7 @@
           DTS:refId="Package\NDS2DDS\Get CET n LSET"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
+          DTS:Disabled="True"
           DTS:DTSID="{AE0E3D4C-5C23-4C64-80E1-7A94FE7E5E2E}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
@@ -125,6 +126,7 @@
           DTS:refId="Package\NDS2DDS\Get CET n LSET 1"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
+          DTS:Disabled="True"
           DTS:DTSID="{75a036dd-f003-4447-85ac-61fa9bc4e204}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
@@ -150,6 +152,7 @@
           DTS:refId="Package\NDS2DDS\Get CET n LSET 2"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
+          DTS:Disabled="True"
           DTS:DTSID="{fc2e3e2f-d9e1-4669-a9c4-c85a824018b6}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
@@ -175,6 +178,7 @@
           DTS:refId="Package\NDS2DDS\Get CET n LSET 3"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
+          DTS:Disabled="True"
           DTS:DTSID="{189a0734-4fb1-4b5f-9737-fa912db486a1}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
@@ -200,6 +204,7 @@
           DTS:refId="Package\NDS2DDS\Get CET n LSET 4"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
+          DTS:Disabled="True"
           DTS:DTSID="{f0d7bf3e-ff50-468b-8929-d4209793e980}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
@@ -250,6 +255,7 @@
           DTS:refId="Package\NDS2DDS\Load Address Dim"
           DTS:CreationName="Microsoft.Pipeline"
           DTS:Description="Data Flow Task"
+          DTS:Disabled="True"
           DTS:DTSID="{6d5da5e4-4192-4d91-b4a7-f3bf5bf3d2bf}"
           DTS:ExecutableType="Microsoft.Pipeline"
           DTS:LocaleID="-1"
@@ -2580,6 +2586,7 @@ where [refTable].[addresskey] = ?</property>
           DTS:refId="Package\NDS2DDS\Load Customer Dim"
           DTS:CreationName="Microsoft.Pipeline"
           DTS:Description="Data Flow Task"
+          DTS:Disabled="True"
           DTS:DTSID="{24e4a872-679b-4cb8-836a-323e2a7d34b6}"
           DTS:ExecutableType="Microsoft.Pipeline"
           DTS:LocaleID="-1"
@@ -5042,6 +5049,7 @@ where [refTable].[customerkey] = ?</property>
           DTS:refId="Package\NDS2DDS\Load Date Dim"
           DTS:CreationName="Microsoft.Pipeline"
           DTS:Description="Data Flow Task"
+          DTS:Disabled="True"
           DTS:DTSID="{b7de08b4-c05e-4f83-aaf9-a84b2697c4a5}"
           DTS:ExecutableType="Microsoft.Pipeline"
           DTS:LocaleID="-1"
@@ -7639,118 +7647,14 @@ where [refTable].[dateid] = ?</property>
                       name="OLE DB Destination Input">
                       <inputColumns>
                         <inputColumn
-                          refId="Package\NDS2DDS\Load Fact\Fact.Inputs[OLE DB Destination Input].Columns[ProductKey]"
-                          cachedDataType="i4"
-                          cachedName="ProductKey"
-                          externalMetadataColumnId="Package\NDS2DDS\Load Fact\Fact.Inputs[OLE DB Destination Input].ExternalColumns[productkey]"
-                          lineageId="Package\NDS2DDS\Load Fact\Merge Join 3.Outputs[Merge Join Output].Columns[ProductKey]" />
-                        <inputColumn
-                          refId="Package\NDS2DDS\Load Fact\Fact.Inputs[OLE DB Destination Input].Columns[CustomerID]"
-                          cachedDataType="i4"
-                          cachedName="CustomerID"
-                          externalMetadataColumnId="Package\NDS2DDS\Load Fact\Fact.Inputs[OLE DB Destination Input].ExternalColumns[customerkey]"
-                          lineageId="Package\NDS2DDS\Load Fact\Merge Join 3.Outputs[Merge Join Output].Columns[CustomerID]" />
-                        <inputColumn
-                          refId="Package\NDS2DDS\Load Fact\Fact.Inputs[OLE DB Destination Input].Columns[UnitPrice]"
-                          cachedDataType="r8"
-                          cachedName="UnitPrice"
-                          externalMetadataColumnId="Package\NDS2DDS\Load Fact\Fact.Inputs[OLE DB Destination Input].ExternalColumns[UnitPrice]"
-                          lineageId="Package\NDS2DDS\Load Fact\Merge Join 3.Outputs[Merge Join Output].Columns[UnitPrice]" />
-                        <inputColumn
-                          refId="Package\NDS2DDS\Load Fact\Fact.Inputs[OLE DB Destination Input].Columns[OrderQty]"
-                          cachedDataType="r8"
-                          cachedName="OrderQty"
-                          externalMetadataColumnId="Package\NDS2DDS\Load Fact\Fact.Inputs[OLE DB Destination Input].ExternalColumns[OrderQty]"
-                          lineageId="Package\NDS2DDS\Load Fact\Merge Join 3.Outputs[Merge Join Output].Columns[OrderQty]" />
-                        <inputColumn
-                          refId="Package\NDS2DDS\Load Fact\Fact.Inputs[OLE DB Destination Input].Columns[UnitPriceDiscount]"
-                          cachedDataType="r8"
-                          cachedName="UnitPriceDiscount"
-                          externalMetadataColumnId="Package\NDS2DDS\Load Fact\Fact.Inputs[OLE DB Destination Input].ExternalColumns[UnitPriceDiscount]"
-                          lineageId="Package\NDS2DDS\Load Fact\Merge Join 3.Outputs[Merge Join Output].Columns[UnitPriceDiscount]" />
-                        <inputColumn
-                          refId="Package\NDS2DDS\Load Fact\Fact.Inputs[OLE DB Destination Input].Columns[StandardCost]"
-                          cachedDataType="cy"
-                          cachedName="StandardCost"
-                          externalMetadataColumnId="Package\NDS2DDS\Load Fact\Fact.Inputs[OLE DB Destination Input].ExternalColumns[StandardCost]"
-                          lineageId="Package\NDS2DDS\Load Fact\Merge Join 3.Outputs[Merge Join Output].Columns[StandardCost]" />
-                        <inputColumn
-                          refId="Package\NDS2DDS\Load Fact\Fact.Inputs[OLE DB Destination Input].Columns[TotalAmount]"
-                          cachedDataType="r8"
-                          cachedName="TotalAmount"
-                          externalMetadataColumnId="Package\NDS2DDS\Load Fact\Fact.Inputs[OLE DB Destination Input].ExternalColumns[TotalAmount]"
-                          lineageId="Package\NDS2DDS\Load Fact\Derived Column 1 1.Outputs[Derived Column Output].Columns[TotalAmount]" />
-                        <inputColumn
-                          refId="Package\NDS2DDS\Load Fact\Fact.Inputs[OLE DB Destination Input].Columns[Margin]"
-                          cachedDataType="r8"
-                          cachedName="Margin"
-                          externalMetadataColumnId="Package\NDS2DDS\Load Fact\Fact.Inputs[OLE DB Destination Input].ExternalColumns[Margin]"
-                          lineageId="Package\NDS2DDS\Load Fact\Derived Column 1 1.Outputs[Derived Column Output].Columns[Margin]" />
-                        <inputColumn
-                          refId="Package\NDS2DDS\Load Fact\Fact.Inputs[OLE DB Destination Input].Columns[DateDiff]"
-                          cachedDataType="i4"
-                          cachedName="DateDiff"
-                          externalMetadataColumnId="Package\NDS2DDS\Load Fact\Fact.Inputs[OLE DB Destination Input].ExternalColumns[DistanceTime]"
-                          lineageId="Package\NDS2DDS\Load Fact\Derived Column 1 1.Outputs[Derived Column Output].Columns[DateDiff]" />
-                        <inputColumn
                           refId="Package\NDS2DDS\Load Fact\Fact.Inputs[OLE DB Destination Input].Columns[SalesOrderDetailID]"
                           cachedDataType="i4"
                           cachedName="SalesOrderDetailID"
                           externalMetadataColumnId="Package\NDS2DDS\Load Fact\Fact.Inputs[OLE DB Destination Input].ExternalColumns[orderdetailkey]"
                           lineageId="Package\NDS2DDS\Load Fact\Merge Join 3.Outputs[Merge Join Output].Columns[SalesOrderDetailID]" />
-                        <inputColumn
-                          refId="Package\NDS2DDS\Load Fact\Fact.Inputs[OLE DB Destination Input].Columns[SalesOrderKey]"
-                          cachedDataType="i4"
-                          cachedName="SalesOrderKey"
-                          externalMetadataColumnId="Package\NDS2DDS\Load Fact\Fact.Inputs[OLE DB Destination Input].ExternalColumns[orderheaderkey]"
-                          lineageId="Package\NDS2DDS\Load Fact\Merge Join 3.Outputs[Merge Join Output].Columns[SalesOrderKey]" />
-                        <inputColumn
-                          refId="Package\NDS2DDS\Load Fact\Fact.Inputs[OLE DB Destination Input].Columns[ShipToAddressID]"
-                          cachedDataType="i4"
-                          cachedName="ShipToAddressID"
-                          externalMetadataColumnId="Package\NDS2DDS\Load Fact\Fact.Inputs[OLE DB Destination Input].ExternalColumns[addresskey]"
-                          lineageId="Package\NDS2DDS\Load Fact\Merge Join 3.Outputs[Merge Join Output].Columns[ShipToAddressID]" />
-                        <inputColumn
-                          refId="Package\NDS2DDS\Load Fact\Fact.Inputs[OLE DB Destination Input].Columns[Copy of OnlineOrderFlag]"
-                          cachedDataType="i4"
-                          cachedName="Copy of OnlineOrderFlag"
-                          externalMetadataColumnId="Package\NDS2DDS\Load Fact\Fact.Inputs[OLE DB Destination Input].ExternalColumns[TypeOrderID]"
-                          lineageId="Package\NDS2DDS\Load Fact\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of OnlineOrderFlag]" />
-                        <inputColumn
-                          refId="Package\NDS2DDS\Load Fact\Fact.Inputs[OLE DB Destination Input].Columns[TerritoryID]"
-                          cachedDataType="i4"
-                          cachedName="TerritoryID"
-                          externalMetadataColumnId="Package\NDS2DDS\Load Fact\Fact.Inputs[OLE DB Destination Input].ExternalColumns[TerritoryKey]"
-                          lineageId="Package\NDS2DDS\Load Fact\Merge Join 3.Outputs[Merge Join Output].Columns[TerritoryID]" />
-                        <inputColumn
-                          refId="Package\NDS2DDS\Load Fact\Fact.Inputs[OLE DB Destination Input].Columns[dateid]"
-                          cachedDataType="i4"
-                          cachedName="dateid"
-                          externalMetadataColumnId="Package\NDS2DDS\Load Fact\Fact.Inputs[OLE DB Destination Input].ExternalColumns[dateorderid]"
-                          lineageId="Package\NDS2DDS\Load Fact\Merge Join 3.Outputs[Merge Join Output].Columns[dateid]" />
-                        <inputColumn
-                          refId="Package\NDS2DDS\Load Fact\Fact.Inputs[OLE DB Destination Input].Columns[shipdatekey]"
-                          cachedDataType="i4"
-                          cachedName="shipdatekey"
-                          externalMetadataColumnId="Package\NDS2DDS\Load Fact\Fact.Inputs[OLE DB Destination Input].ExternalColumns[shipdateid]"
-                          lineageId="Package\NDS2DDS\Load Fact\Merge Join 3.Outputs[Merge Join Output].Columns[shipdatekey]" />
-                        <inputColumn
-                          refId="Package\NDS2DDS\Load Fact\Fact.Inputs[OLE DB Destination Input].Columns[duedatekey]"
-                          cachedDataType="i4"
-                          cachedName="duedatekey"
-                          externalMetadataColumnId="Package\NDS2DDS\Load Fact\Fact.Inputs[OLE DB Destination Input].ExternalColumns[duedateid]"
-                          lineageId="Package\NDS2DDS\Load Fact\Merge Join 3.Outputs[Merge Join Output].Columns[duedatekey]" />
                       </inputColumns>
                       <externalMetadataColumns
                         isUsed="True">
-                        <externalMetadataColumn
-                          refId="Package\NDS2DDS\Load Fact\Fact.Inputs[OLE DB Destination Input].ExternalColumns[productkey]"
-                          dataType="i4"
-                          name="productkey" />
-                        <externalMetadataColumn
-                          refId="Package\NDS2DDS\Load Fact\Fact.Inputs[OLE DB Destination Input].ExternalColumns[customerkey]"
-                          dataType="i4"
-                          name="customerkey" />
                         <externalMetadataColumn
                           refId="Package\NDS2DDS\Load Fact\Fact.Inputs[OLE DB Destination Input].ExternalColumns[UnitPrice]"
                           dataType="r8"
@@ -7763,6 +7667,14 @@ where [refTable].[dateid] = ?</property>
                           refId="Package\NDS2DDS\Load Fact\Fact.Inputs[OLE DB Destination Input].ExternalColumns[OrderQty]"
                           dataType="i4"
                           name="OrderQty" />
+                        <externalMetadataColumn
+                          refId="Package\NDS2DDS\Load Fact\Fact.Inputs[OLE DB Destination Input].ExternalColumns[productkey]"
+                          dataType="i4"
+                          name="productkey" />
+                        <externalMetadataColumn
+                          refId="Package\NDS2DDS\Load Fact\Fact.Inputs[OLE DB Destination Input].ExternalColumns[customerkey]"
+                          dataType="i4"
+                          name="customerkey" />
                         <externalMetadataColumn
                           refId="Package\NDS2DDS\Load Fact\Fact.Inputs[OLE DB Destination Input].ExternalColumns[StandardCost]"
                           dataType="r8"
@@ -7946,232 +7858,6 @@ where [refTable].[orderdetailkey] = ?</property>
                       exclusionGroup="1"
                       name="Lookup Match Output"
                       synchronousInputId="Package\NDS2DDS\Load Fact\Lookup.Inputs[Lookup Input]">
-                      <outputColumns>
-                        <outputColumn
-                          refId="Package\NDS2DDS\Load Fact\Lookup.Outputs[Lookup Match Output].Columns[productkey]"
-                          dataType="i4"
-                          errorOrTruncationOperation="Copy Column"
-                          lineageId="Package\NDS2DDS\Load Fact\Lookup.Outputs[Lookup Match Output].Columns[productkey]"
-                          name="productkey"
-                          truncationRowDisposition="FailComponent">
-                          <properties>
-                            <property
-                              dataType="System.String"
-                              description="Specifies the column in the reference table from which a column is copied."
-                              name="CopyFromReferenceColumn">productkey</property>
-                          </properties>
-                        </outputColumn>
-                        <outputColumn
-                          refId="Package\NDS2DDS\Load Fact\Lookup.Outputs[Lookup Match Output].Columns[customerkey]"
-                          dataType="i4"
-                          errorOrTruncationOperation="Copy Column"
-                          lineageId="Package\NDS2DDS\Load Fact\Lookup.Outputs[Lookup Match Output].Columns[customerkey]"
-                          name="customerkey"
-                          truncationRowDisposition="FailComponent">
-                          <properties>
-                            <property
-                              dataType="System.String"
-                              description="Specifies the column in the reference table from which a column is copied."
-                              name="CopyFromReferenceColumn">customerkey</property>
-                          </properties>
-                        </outputColumn>
-                        <outputColumn
-                          refId="Package\NDS2DDS\Load Fact\Lookup.Outputs[Lookup Match Output].Columns[UnitPrice]"
-                          dataType="r8"
-                          errorOrTruncationOperation="Copy Column"
-                          lineageId="Package\NDS2DDS\Load Fact\Lookup.Outputs[Lookup Match Output].Columns[UnitPrice]"
-                          name="UnitPrice"
-                          truncationRowDisposition="FailComponent">
-                          <properties>
-                            <property
-                              dataType="System.String"
-                              description="Specifies the column in the reference table from which a column is copied."
-                              name="CopyFromReferenceColumn">UnitPrice</property>
-                          </properties>
-                        </outputColumn>
-                        <outputColumn
-                          refId="Package\NDS2DDS\Load Fact\Lookup.Outputs[Lookup Match Output].Columns[UnitPriceDiscount]"
-                          dataType="r8"
-                          errorOrTruncationOperation="Copy Column"
-                          lineageId="Package\NDS2DDS\Load Fact\Lookup.Outputs[Lookup Match Output].Columns[UnitPriceDiscount]"
-                          name="UnitPriceDiscount"
-                          truncationRowDisposition="FailComponent">
-                          <properties>
-                            <property
-                              dataType="System.String"
-                              description="Specifies the column in the reference table from which a column is copied."
-                              name="CopyFromReferenceColumn">UnitPriceDiscount</property>
-                          </properties>
-                        </outputColumn>
-                        <outputColumn
-                          refId="Package\NDS2DDS\Load Fact\Lookup.Outputs[Lookup Match Output].Columns[OrderQty]"
-                          dataType="i4"
-                          errorOrTruncationOperation="Copy Column"
-                          lineageId="Package\NDS2DDS\Load Fact\Lookup.Outputs[Lookup Match Output].Columns[OrderQty]"
-                          name="OrderQty"
-                          truncationRowDisposition="FailComponent">
-                          <properties>
-                            <property
-                              dataType="System.String"
-                              description="Specifies the column in the reference table from which a column is copied."
-                              name="CopyFromReferenceColumn">OrderQty</property>
-                          </properties>
-                        </outputColumn>
-                        <outputColumn
-                          refId="Package\NDS2DDS\Load Fact\Lookup.Outputs[Lookup Match Output].Columns[StandardCost]"
-                          dataType="r8"
-                          errorOrTruncationOperation="Copy Column"
-                          lineageId="Package\NDS2DDS\Load Fact\Lookup.Outputs[Lookup Match Output].Columns[StandardCost]"
-                          name="StandardCost"
-                          truncationRowDisposition="FailComponent">
-                          <properties>
-                            <property
-                              dataType="System.String"
-                              description="Specifies the column in the reference table from which a column is copied."
-                              name="CopyFromReferenceColumn">StandardCost</property>
-                          </properties>
-                        </outputColumn>
-                        <outputColumn
-                          refId="Package\NDS2DDS\Load Fact\Lookup.Outputs[Lookup Match Output].Columns[TotalAmount]"
-                          dataType="r8"
-                          errorOrTruncationOperation="Copy Column"
-                          lineageId="Package\NDS2DDS\Load Fact\Lookup.Outputs[Lookup Match Output].Columns[TotalAmount]"
-                          name="TotalAmount"
-                          truncationRowDisposition="FailComponent">
-                          <properties>
-                            <property
-                              dataType="System.String"
-                              description="Specifies the column in the reference table from which a column is copied."
-                              name="CopyFromReferenceColumn">TotalAmount</property>
-                          </properties>
-                        </outputColumn>
-                        <outputColumn
-                          refId="Package\NDS2DDS\Load Fact\Lookup.Outputs[Lookup Match Output].Columns[Margin]"
-                          dataType="r8"
-                          errorOrTruncationOperation="Copy Column"
-                          lineageId="Package\NDS2DDS\Load Fact\Lookup.Outputs[Lookup Match Output].Columns[Margin]"
-                          name="Margin"
-                          truncationRowDisposition="FailComponent">
-                          <properties>
-                            <property
-                              dataType="System.String"
-                              description="Specifies the column in the reference table from which a column is copied."
-                              name="CopyFromReferenceColumn">Margin</property>
-                          </properties>
-                        </outputColumn>
-                        <outputColumn
-                          refId="Package\NDS2DDS\Load Fact\Lookup.Outputs[Lookup Match Output].Columns[DistanceTime]"
-                          dataType="i4"
-                          errorOrTruncationOperation="Copy Column"
-                          lineageId="Package\NDS2DDS\Load Fact\Lookup.Outputs[Lookup Match Output].Columns[DistanceTime]"
-                          name="DistanceTime"
-                          truncationRowDisposition="FailComponent">
-                          <properties>
-                            <property
-                              dataType="System.String"
-                              description="Specifies the column in the reference table from which a column is copied."
-                              name="CopyFromReferenceColumn">DistanceTime</property>
-                          </properties>
-                        </outputColumn>
-                        <outputColumn
-                          refId="Package\NDS2DDS\Load Fact\Lookup.Outputs[Lookup Match Output].Columns[orderdetailkey]"
-                          dataType="i4"
-                          errorOrTruncationOperation="Copy Column"
-                          lineageId="Package\NDS2DDS\Load Fact\Lookup.Outputs[Lookup Match Output].Columns[orderdetailkey]"
-                          name="orderdetailkey"
-                          truncationRowDisposition="FailComponent">
-                          <properties>
-                            <property
-                              dataType="System.String"
-                              description="Specifies the column in the reference table from which a column is copied."
-                              name="CopyFromReferenceColumn">orderdetailkey</property>
-                          </properties>
-                        </outputColumn>
-                        <outputColumn
-                          refId="Package\NDS2DDS\Load Fact\Lookup.Outputs[Lookup Match Output].Columns[orderheaderkey]"
-                          dataType="i4"
-                          errorOrTruncationOperation="Copy Column"
-                          lineageId="Package\NDS2DDS\Load Fact\Lookup.Outputs[Lookup Match Output].Columns[orderheaderkey]"
-                          name="orderheaderkey"
-                          truncationRowDisposition="FailComponent">
-                          <properties>
-                            <property
-                              dataType="System.String"
-                              description="Specifies the column in the reference table from which a column is copied."
-                              name="CopyFromReferenceColumn">orderheaderkey</property>
-                          </properties>
-                        </outputColumn>
-                        <outputColumn
-                          refId="Package\NDS2DDS\Load Fact\Lookup.Outputs[Lookup Match Output].Columns[addresskey]"
-                          dataType="i4"
-                          errorOrTruncationOperation="Copy Column"
-                          lineageId="Package\NDS2DDS\Load Fact\Lookup.Outputs[Lookup Match Output].Columns[addresskey]"
-                          name="addresskey"
-                          truncationRowDisposition="FailComponent">
-                          <properties>
-                            <property
-                              dataType="System.String"
-                              description="Specifies the column in the reference table from which a column is copied."
-                              name="CopyFromReferenceColumn">addresskey</property>
-                          </properties>
-                        </outputColumn>
-                        <outputColumn
-                          refId="Package\NDS2DDS\Load Fact\Lookup.Outputs[Lookup Match Output].Columns[dateorderid]"
-                          dataType="i4"
-                          errorOrTruncationOperation="Copy Column"
-                          lineageId="Package\NDS2DDS\Load Fact\Lookup.Outputs[Lookup Match Output].Columns[dateorderid]"
-                          name="dateorderid"
-                          truncationRowDisposition="FailComponent">
-                          <properties>
-                            <property
-                              dataType="System.String"
-                              description="Specifies the column in the reference table from which a column is copied."
-                              name="CopyFromReferenceColumn">dateorderid</property>
-                          </properties>
-                        </outputColumn>
-                        <outputColumn
-                          refId="Package\NDS2DDS\Load Fact\Lookup.Outputs[Lookup Match Output].Columns[shipdateid]"
-                          dataType="i4"
-                          errorOrTruncationOperation="Copy Column"
-                          lineageId="Package\NDS2DDS\Load Fact\Lookup.Outputs[Lookup Match Output].Columns[shipdateid]"
-                          name="shipdateid"
-                          truncationRowDisposition="FailComponent">
-                          <properties>
-                            <property
-                              dataType="System.String"
-                              description="Specifies the column in the reference table from which a column is copied."
-                              name="CopyFromReferenceColumn">shipdateid</property>
-                          </properties>
-                        </outputColumn>
-                        <outputColumn
-                          refId="Package\NDS2DDS\Load Fact\Lookup.Outputs[Lookup Match Output].Columns[duedateid]"
-                          dataType="i4"
-                          errorOrTruncationOperation="Copy Column"
-                          lineageId="Package\NDS2DDS\Load Fact\Lookup.Outputs[Lookup Match Output].Columns[duedateid]"
-                          name="duedateid"
-                          truncationRowDisposition="FailComponent">
-                          <properties>
-                            <property
-                              dataType="System.String"
-                              description="Specifies the column in the reference table from which a column is copied."
-                              name="CopyFromReferenceColumn">duedateid</property>
-                          </properties>
-                        </outputColumn>
-                        <outputColumn
-                          refId="Package\NDS2DDS\Load Fact\Lookup.Outputs[Lookup Match Output].Columns[TypeOrderID]"
-                          dataType="i4"
-                          errorOrTruncationOperation="Copy Column"
-                          lineageId="Package\NDS2DDS\Load Fact\Lookup.Outputs[Lookup Match Output].Columns[TypeOrderID]"
-                          name="TypeOrderID"
-                          truncationRowDisposition="FailComponent">
-                          <properties>
-                            <property
-                              dataType="System.String"
-                              description="Specifies the column in the reference table from which a column is copied."
-                              name="CopyFromReferenceColumn">TypeOrderID</property>
-                          </properties>
-                        </outputColumn>
-                      </outputColumns>
                       <externalMetadataColumns />
                     </output>
                     <output
@@ -10195,7 +9881,7 @@ where [refTable].[orderdetailkey] = ?</property>
                       dataType="System.Int32"
                       description="Specifies the type of join to perform."
                       name="JoinType"
-                      typeConverter="JoinType">2</property>
+                      typeConverter="JoinType">1</property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the number of columns in the ordering key."
@@ -17170,125 +16856,100 @@ where [refTable].[orderdetailkey] = ?</property>
                   name="Data Conversion Output"
                   startId="Package\NDS2DDS\Load Fact\Data Conversion.Outputs[Data Conversion Output]" />
                 <path
+                  refId="Package\NDS2DDS\Load Fact.Paths[Derived Column Output1]"
+                  endId="Package\NDS2DDS\Load Fact\Sort 4 1 1.Inputs[Sort Input]"
+                  name="Derived Column Output"
+                  startId="Package\NDS2DDS\Load Fact\Derived Column 1 2.Outputs[Derived Column Output]" />
+                <path
                   refId="Package\NDS2DDS\Load Fact.Paths[Derived Column Output]"
+                  endId="Package\NDS2DDS\Load Fact\Lookup.Inputs[Lookup Input]"
+                  name="Derived Column Output"
+                  startId="Package\NDS2DDS\Load Fact\Derived Column 1 1.Outputs[Derived Column Output]" />
+                <path
+                  refId="Package\NDS2DDS\Load Fact.Paths[Derived Column Output4]"
                   endId="Package\NDS2DDS\Load Fact\Sort 2.Inputs[Sort Input]"
                   name="Derived Column Output"
                   startId="Package\NDS2DDS\Load Fact\Derived Column.Outputs[Derived Column Output]" />
                 <path
-                  refId="Package\NDS2DDS\Load Fact.Paths[Derived Column Output1]"
+                  refId="Package\NDS2DDS\Load Fact.Paths[Derived Column Output3]"
                   endId="Package\NDS2DDS\Load Fact\Sort 4 1.Inputs[Sort Input]"
                   name="Derived Column Output"
                   startId="Package\NDS2DDS\Load Fact\Derived Column 1.Outputs[Derived Column Output]" />
                 <path
                   refId="Package\NDS2DDS\Load Fact.Paths[Derived Column Output2]"
-                  endId="Package\NDS2DDS\Load Fact\Lookup.Inputs[Lookup Input]"
-                  name="Derived Column Output"
-                  startId="Package\NDS2DDS\Load Fact\Derived Column 1 1.Outputs[Derived Column Output]" />
-                <path
-                  refId="Package\NDS2DDS\Load Fact.Paths[Derived Column Output3]"
                   endId="Package\NDS2DDS\Load Fact\Sort 4 1 1 1.Inputs[Sort Input]"
                   name="Derived Column Output"
                   startId="Package\NDS2DDS\Load Fact\Derived Column 1 2 1.Outputs[Derived Column Output]" />
-                <path
-                  refId="Package\NDS2DDS\Load Fact.Paths[Derived Column Output4]"
-                  endId="Package\NDS2DDS\Load Fact\Sort 4 1 1.Inputs[Sort Input]"
-                  name="Derived Column Output"
-                  startId="Package\NDS2DDS\Load Fact\Derived Column 1 2.Outputs[Derived Column Output]" />
                 <path
                   refId="Package\NDS2DDS\Load Fact.Paths[Lookup No Match Output]"
                   endId="Package\NDS2DDS\Load Fact\Data Conversion.Inputs[Data Conversion Input]"
                   name="Lookup No Match Output"
                   startId="Package\NDS2DDS\Load Fact\Lookup.Outputs[Lookup No Match Output]" />
                 <path
-                  refId="Package\NDS2DDS\Load Fact.Paths[Merge Join Output]"
-                  endId="Package\NDS2DDS\Load Fact\Sort.Inputs[Sort Input]"
+                  refId="Package\NDS2DDS\Load Fact.Paths[Merge Join Output4]"
+                  endId="Package\NDS2DDS\Load Fact\Derived Column.Inputs[Derived Column Input]"
                   name="Merge Join Output"
-                  startId="Package\NDS2DDS\Load Fact\Merge Join 2.Outputs[Merge Join Output]" />
-                <path
-                  refId="Package\NDS2DDS\Load Fact.Paths[Merge Join Output1]"
-                  endId="Package\NDS2DDS\Load Fact\Sort 4.Inputs[Sort Input]"
-                  name="Merge Join Output"
-                  startId="Package\NDS2DDS\Load Fact\Merge Join 1.Outputs[Merge Join Output]" />
-                <path
-                  refId="Package\NDS2DDS\Load Fact.Paths[Merge Join Output2]"
-                  endId="Package\NDS2DDS\Load Fact\Derived Column 1 1.Inputs[Derived Column Input]"
-                  name="Merge Join Output"
-                  startId="Package\NDS2DDS\Load Fact\Merge Join 3.Outputs[Merge Join Output]" />
+                  startId="Package\NDS2DDS\Load Fact\Merge Join 5.Outputs[Merge Join Output]" />
                 <path
                   refId="Package\NDS2DDS\Load Fact.Paths[Merge Join Output3]"
                   endId="Package\NDS2DDS\Load Fact\Sort 7.Inputs[Sort Input]"
                   name="Merge Join Output"
                   startId="Package\NDS2DDS\Load Fact\Merge Join.Outputs[Merge Join Output]" />
                 <path
-                  refId="Package\NDS2DDS\Load Fact.Paths[Merge Join Output4]"
-                  endId="Package\NDS2DDS\Load Fact\Derived Column.Inputs[Derived Column Input]"
+                  refId="Package\NDS2DDS\Load Fact.Paths[Merge Join Output1]"
+                  endId="Package\NDS2DDS\Load Fact\Sort.Inputs[Sort Input]"
                   name="Merge Join Output"
-                  startId="Package\NDS2DDS\Load Fact\Merge Join 5.Outputs[Merge Join Output]" />
+                  startId="Package\NDS2DDS\Load Fact\Merge Join 2.Outputs[Merge Join Output]" />
                 <path
-                  refId="Package\NDS2DDS\Load Fact.Paths[OLE DB Source Output5]"
-                  endId="Package\NDS2DDS\Load Fact\Sort OrderHeaderID 1.Inputs[Sort Input]"
-                  name="OLE DB Source Output"
-                  startId="Package\NDS2DDS\Load Fact\SaleOrderDetail_NDS.Outputs[OLE DB Source Output]" />
+                  refId="Package\NDS2DDS\Load Fact.Paths[Merge Join Output2]"
+                  endId="Package\NDS2DDS\Load Fact\Derived Column 1 1.Inputs[Derived Column Input]"
+                  name="Merge Join Output"
+                  startId="Package\NDS2DDS\Load Fact\Merge Join 3.Outputs[Merge Join Output]" />
+                <path
+                  refId="Package\NDS2DDS\Load Fact.Paths[Merge Join Output]"
+                  endId="Package\NDS2DDS\Load Fact\Sort 4.Inputs[Sort Input]"
+                  name="Merge Join Output"
+                  startId="Package\NDS2DDS\Load Fact\Merge Join 1.Outputs[Merge Join Output]" />
                 <path
                   refId="Package\NDS2DDS\Load Fact.Paths[OLE DB Source Output4]"
-                  endId="Package\NDS2DDS\Load Fact\Derived Column 1.Inputs[Derived Column Input]"
-                  name="OLE DB Source Output"
-                  startId="Package\NDS2DDS\Load Fact\Map OrderDate.Outputs[OLE DB Source Output]" />
-                <path
-                  refId="Package\NDS2DDS\Load Fact.Paths[OLE DB Source Output3]"
                   endId="Package\NDS2DDS\Load Fact\Sort 3.Inputs[Sort Input]"
                   name="OLE DB Source Output"
                   startId="Package\NDS2DDS\Load Fact\Product_NDS.Outputs[OLE DB Source Output]" />
                 <path
-                  refId="Package\NDS2DDS\Load Fact.Paths[OLE DB Source Output1]"
+                  refId="Package\NDS2DDS\Load Fact.Paths[OLE DB Source Output]"
                   endId="Package\NDS2DDS\Load Fact\Derived Column 1 2.Inputs[Derived Column Input]"
                   name="OLE DB Source Output"
                   startId="Package\NDS2DDS\Load Fact\Map ShipDate.Outputs[OLE DB Source Output]" />
                 <path
-                  refId="Package\NDS2DDS\Load Fact.Paths[OLE DB Source Output]"
+                  refId="Package\NDS2DDS\Load Fact.Paths[OLE DB Source Output2]"
+                  endId="Package\NDS2DDS\Load Fact\Sort OrderHeaderID 1.Inputs[Sort Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\NDS2DDS\Load Fact\SaleOrderDetail_NDS.Outputs[OLE DB Source Output]" />
+                <path
+                  refId="Package\NDS2DDS\Load Fact.Paths[OLE DB Source Output3]"
                   endId="Package\NDS2DDS\Load Fact\Sort OrderHeaderID 2.Inputs[Sort Input]"
                   name="OLE DB Source Output"
                   startId="Package\NDS2DDS\Load Fact\SaleOrderHeader_NDS.Outputs[OLE DB Source Output]" />
                 <path
-                  refId="Package\NDS2DDS\Load Fact.Paths[OLE DB Source Output2]"
+                  refId="Package\NDS2DDS\Load Fact.Paths[OLE DB Source Output1]"
                   endId="Package\NDS2DDS\Load Fact\Derived Column 1 2 1.Inputs[Derived Column Input]"
                   name="OLE DB Source Output"
                   startId="Package\NDS2DDS\Load Fact\Map DueDate.Outputs[OLE DB Source Output]" />
                 <path
-                  refId="Package\NDS2DDS\Load Fact.Paths[Sort Output8]"
-                  endId="Package\NDS2DDS\Load Fact\Merge Join 1.Inputs[Merge Join Left Input]"
-                  name="Sort Output"
-                  startId="Package\NDS2DDS\Load Fact\Sort 2.Outputs[Sort Output]" />
+                  refId="Package\NDS2DDS\Load Fact.Paths[OLE DB Source Output5]"
+                  endId="Package\NDS2DDS\Load Fact\Derived Column 1.Inputs[Derived Column Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\NDS2DDS\Load Fact\Map OrderDate.Outputs[OLE DB Source Output]" />
                 <path
-                  refId="Package\NDS2DDS\Load Fact.Paths[Sort Output]"
+                  refId="Package\NDS2DDS\Load Fact.Paths[Sort Output5]"
                   endId="Package\NDS2DDS\Load Fact\Merge Join 2.Inputs[Merge Join Left Input]"
                   name="Sort Output"
                   startId="Package\NDS2DDS\Load Fact\Sort 4.Outputs[Sort Output]" />
                 <path
-                  refId="Package\NDS2DDS\Load Fact.Paths[Sort Output1]"
+                  refId="Package\NDS2DDS\Load Fact.Paths[Sort Output4]"
                   endId="Package\NDS2DDS\Load Fact\Merge Join 2.Inputs[Merge Join Right Input]"
                   name="Sort Output"
                   startId="Package\NDS2DDS\Load Fact\Sort 4 1 1.Outputs[Sort Output]" />
-                <path
-                  refId="Package\NDS2DDS\Load Fact.Paths[Sort Output2]"
-                  endId="Package\NDS2DDS\Load Fact\Merge Join 3.Inputs[Merge Join Left Input]"
-                  name="Sort Output"
-                  startId="Package\NDS2DDS\Load Fact\Sort.Outputs[Sort Output]" />
-                <path
-                  refId="Package\NDS2DDS\Load Fact.Paths[Sort Output3]"
-                  endId="Package\NDS2DDS\Load Fact\Merge Join 3.Inputs[Merge Join Right Input]"
-                  name="Sort Output"
-                  startId="Package\NDS2DDS\Load Fact\Sort 4 1 1 1.Outputs[Sort Output]" />
-                <path
-                  refId="Package\NDS2DDS\Load Fact.Paths[Sort Output4]"
-                  endId="Package\NDS2DDS\Load Fact\Merge Join 5.Inputs[Merge Join Right Input]"
-                  name="Sort Output"
-                  startId="Package\NDS2DDS\Load Fact\Sort 3.Outputs[Sort Output]" />
-                <path
-                  refId="Package\NDS2DDS\Load Fact.Paths[Sort Output5]"
-                  endId="Package\NDS2DDS\Load Fact\Merge Join.Inputs[Merge Join Right Input]"
-                  name="Sort Output"
-                  startId="Package\NDS2DDS\Load Fact\Sort OrderHeaderID 2.Outputs[Sort Output]" />
                 <path
                   refId="Package\NDS2DDS\Load Fact.Paths[Sort Output6]"
                   endId="Package\NDS2DDS\Load Fact\Merge Join 5.Inputs[Merge Join Left Input]"
@@ -17296,14 +16957,39 @@ where [refTable].[orderdetailkey] = ?</property>
                   startId="Package\NDS2DDS\Load Fact\Sort 7.Outputs[Sort Output]" />
                 <path
                   refId="Package\NDS2DDS\Load Fact.Paths[Sort Output7]"
-                  endId="Package\NDS2DDS\Load Fact\Merge Join 1.Inputs[Merge Join Right Input]"
+                  endId="Package\NDS2DDS\Load Fact\Merge Join.Inputs[Merge Join Right Input]"
                   name="Sort Output"
-                  startId="Package\NDS2DDS\Load Fact\Sort 4 1.Outputs[Sort Output]" />
+                  startId="Package\NDS2DDS\Load Fact\Sort OrderHeaderID 2.Outputs[Sort Output]" />
+                <path
+                  refId="Package\NDS2DDS\Load Fact.Paths[Sort Output8]"
+                  endId="Package\NDS2DDS\Load Fact\Merge Join 5.Inputs[Merge Join Right Input]"
+                  name="Sort Output"
+                  startId="Package\NDS2DDS\Load Fact\Sort 3.Outputs[Sort Output]" />
+                <path
+                  refId="Package\NDS2DDS\Load Fact.Paths[Sort Output3]"
+                  endId="Package\NDS2DDS\Load Fact\Merge Join 3.Inputs[Merge Join Left Input]"
+                  name="Sort Output"
+                  startId="Package\NDS2DDS\Load Fact\Sort.Outputs[Sort Output]" />
                 <path
                   refId="Package\NDS2DDS\Load Fact.Paths[Sort Output9]"
                   endId="Package\NDS2DDS\Load Fact\Merge Join.Inputs[Merge Join Left Input]"
                   name="Sort Output"
                   startId="Package\NDS2DDS\Load Fact\Sort OrderHeaderID 1.Outputs[Sort Output]" />
+                <path
+                  refId="Package\NDS2DDS\Load Fact.Paths[Sort Output1]"
+                  endId="Package\NDS2DDS\Load Fact\Merge Join 1.Inputs[Merge Join Right Input]"
+                  name="Sort Output"
+                  startId="Package\NDS2DDS\Load Fact\Sort 4 1.Outputs[Sort Output]" />
+                <path
+                  refId="Package\NDS2DDS\Load Fact.Paths[Sort Output]"
+                  endId="Package\NDS2DDS\Load Fact\Merge Join 1.Inputs[Merge Join Left Input]"
+                  name="Sort Output"
+                  startId="Package\NDS2DDS\Load Fact\Sort 2.Outputs[Sort Output]" />
+                <path
+                  refId="Package\NDS2DDS\Load Fact.Paths[Sort Output2]"
+                  endId="Package\NDS2DDS\Load Fact\Merge Join 3.Inputs[Merge Join Right Input]"
+                  name="Sort Output"
+                  startId="Package\NDS2DDS\Load Fact\Sort 4 1 1 1.Outputs[Sort Output]" />
               </paths>
             </pipeline>
           </DTS:ObjectData>
@@ -17312,6 +16998,7 @@ where [refTable].[orderdetailkey] = ?</property>
           DTS:refId="Package\NDS2DDS\Load Product Dim"
           DTS:CreationName="Microsoft.Pipeline"
           DTS:Description="Data Flow Task"
+          DTS:Disabled="True"
           DTS:DTSID="{9fb8c1cc-54b3-4509-b6fd-bb7aa640ef84}"
           DTS:ExecutableType="Microsoft.Pipeline"
           DTS:LocaleID="-1"
@@ -20706,24 +20393,24 @@ where [refTable].[productkey] = ?</property>
                   startId="Package\NDS2DDS\Load Product Dim\Slowly Changing Dimension.Outputs[New Output]" />
                 <path
                   refId="Package\NDS2DDS\Load Product Dim.Paths[OLE DB Source Output3]"
-                  endId="Package\NDS2DDS\Load Product Dim\Sort 5.Inputs[Sort Input]"
+                  endId="Package\NDS2DDS\Load Product Dim\Sort.Inputs[Sort Input]"
                   name="OLE DB Source Output"
-                  startId="Package\NDS2DDS\Load Product Dim\ProductCategory_NDS.Outputs[OLE DB Source Output]" />
+                  startId="Package\NDS2DDS\Load Product Dim\Product_NDS.Outputs[OLE DB Source Output]" />
                 <path
                   refId="Package\NDS2DDS\Load Product Dim.Paths[OLE DB Source Output2]"
-                  endId="Package\NDS2DDS\Load Product Dim\Sort 3.Inputs[Sort Input]"
-                  name="OLE DB Source Output"
-                  startId="Package\NDS2DDS\Load Product Dim\ProductSubCategory_NDS.Outputs[OLE DB Source Output]" />
-                <path
-                  refId="Package\NDS2DDS\Load Product Dim.Paths[OLE DB Source Output1]"
                   endId="Package\NDS2DDS\Load Product Dim\Sort 1.Inputs[Sort Input]"
                   name="OLE DB Source Output"
                   startId="Package\NDS2DDS\Load Product Dim\ProductModel_NDS.Outputs[OLE DB Source Output]" />
                 <path
-                  refId="Package\NDS2DDS\Load Product Dim.Paths[OLE DB Source Output]"
-                  endId="Package\NDS2DDS\Load Product Dim\Sort.Inputs[Sort Input]"
+                  refId="Package\NDS2DDS\Load Product Dim.Paths[OLE DB Source Output1]"
+                  endId="Package\NDS2DDS\Load Product Dim\Sort 3.Inputs[Sort Input]"
                   name="OLE DB Source Output"
-                  startId="Package\NDS2DDS\Load Product Dim\Product_NDS.Outputs[OLE DB Source Output]" />
+                  startId="Package\NDS2DDS\Load Product Dim\ProductSubCategory_NDS.Outputs[OLE DB Source Output]" />
+                <path
+                  refId="Package\NDS2DDS\Load Product Dim.Paths[OLE DB Source Output]"
+                  endId="Package\NDS2DDS\Load Product Dim\Sort 5.Inputs[Sort Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\NDS2DDS\Load Product Dim\ProductCategory_NDS.Outputs[OLE DB Source Output]" />
                 <path
                   refId="Package\NDS2DDS\Load Product Dim.Paths[Sort Output]"
                   endId="Package\NDS2DDS\Load Product Dim\Merge Join 1.Inputs[Merge Join Right Input]"
@@ -20762,6 +20449,7 @@ where [refTable].[productkey] = ?</property>
           DTS:refId="Package\NDS2DDS\Load Territory Dim"
           DTS:CreationName="Microsoft.Pipeline"
           DTS:Description="Data Flow Task"
+          DTS:Disabled="True"
           DTS:DTSID="{aa58e835-6399-4a9e-b350-35267bbd5043}"
           DTS:ExecutableType="Microsoft.Pipeline"
           DTS:LocaleID="-1"
@@ -21791,6 +21479,7 @@ where [refTable].[TerritoryKey] = ?</property>
           DTS:refId="Package\NDS2DDS\Load TypeOrder Dim"
           DTS:CreationName="Microsoft.Pipeline"
           DTS:Description="Data Flow Task"
+          DTS:Disabled="True"
           DTS:DTSID="{8d2eefdb-7012-407e-b047-fdfc6e166898}"
           DTS:ExecutableType="Microsoft.Pipeline"
           DTS:LocaleID="-1"
@@ -22839,6 +22528,7 @@ where [refTable].[TypeOrderID] = ?</property>
           DTS:refId="Package\NDS2DDS\Set LSET"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
+          DTS:Disabled="True"
           DTS:DTSID="{3ff596d7-9a1e-4c4b-8981-a7d3e06a2cde}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
@@ -22863,6 +22553,7 @@ where [refTable].[TypeOrderID] = ?</property>
           DTS:refId="Package\NDS2DDS\Set LSET 1"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
+          DTS:Disabled="True"
           DTS:DTSID="{423a502a-50ed-4569-9e12-c21ce912683c}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
@@ -22887,6 +22578,7 @@ where [refTable].[TypeOrderID] = ?</property>
           DTS:refId="Package\NDS2DDS\Set LSET 2"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
+          DTS:Disabled="True"
           DTS:DTSID="{d940aec8-beb5-4e01-bec7-cf04723a0bdf}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
@@ -22911,6 +22603,7 @@ where [refTable].[TypeOrderID] = ?</property>
           DTS:refId="Package\NDS2DDS\Set LSET 3"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
+          DTS:Disabled="True"
           DTS:DTSID="{ee008085-ae8c-42d9-a674-9c3f680c352b}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
@@ -22935,6 +22628,7 @@ where [refTable].[TypeOrderID] = ?</property>
           DTS:refId="Package\NDS2DDS\Set LSET 4"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
+          DTS:Disabled="True"
           DTS:DTSID="{4101d48c-0d0d-4d07-94a3-e83144057ac7}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
@@ -23141,79 +22835,79 @@ where [refTable].[TypeOrderID] = ?</property>
       <GraphLayout
         Capacity="64" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="153.333333333334,42.6666666666667"
+          Size="153.6,42.4"
           Id="Package\NDS2DDS\Get CET n LSET"
           TopLeft="20.708320844298,28" />
         <NodeLayout
-          Size="162.666666666667,42.6666666666667"
+          Size="162.4,42.4"
           Id="Package\NDS2DDS\Get CET n LSET 1"
           TopLeft="10.7083212913328,103.416660622756" />
         <NodeLayout
-          Size="162.666666666667,42.6666666666667"
+          Size="162.4,42.4"
           Id="Package\NDS2DDS\Get CET n LSET 2"
           TopLeft="6.74999994412065,168.214745703124" />
         <NodeLayout
-          Size="162.666666666667,42.6666666666667"
+          Size="162.4,42.4"
           Id="Package\NDS2DDS\Get CET n LSET 3"
           TopLeft="5.5,242.764738047503" />
         <NodeLayout
-          Size="162.666666666667,42.6666666666667"
+          Size="162.4,42.4"
           Id="Package\NDS2DDS\Get CET n LSET 4"
           TopLeft="4.27976225961447,325.998062516434" />
         <NodeLayout
-          Size="162.666666666667,42.6666666666667"
+          Size="162.4,42.4"
           Id="Package\NDS2DDS\Get CET n LSET 5"
           TopLeft="5.5,409.781401645723" />
         <NodeLayout
-          Size="165.333333333334,42.6666666666667"
+          Size="165.6,42.4"
           Id="Package\NDS2DDS\Load Address Dim"
           TopLeft="223.93448654921,93.0568849601831" />
         <NodeLayout
-          Size="172,42.6666666666667"
+          Size="172,42.4"
           Id="Package\NDS2DDS\Load Customer Dim"
           TopLeft="262.916620789718,244.933330109914" />
         <NodeLayout
-          Size="149.333333333334,42.6666666666667"
+          Size="149.6,42.4"
           Id="Package\NDS2DDS\Load Date Dim"
           TopLeft="566.041607238975,164.266665922801" />
         <NodeLayout
-          Size="125.333333333334,42.6666666666667"
+          Size="125.6,42.4"
           Id="Package\NDS2DDS\Load Fact"
           TopLeft="237.291621935246,410.583325739702" />
         <NodeLayout
-          Size="166,42"
+          Size="166.4,41.6"
           Id="Package\NDS2DDS\Load Product Dim"
           TopLeft="206.779753207159,31.9647303608886" />
         <NodeLayout
-          Size="168,42.6666666666667"
+          Size="168,42.4"
           Id="Package\NDS2DDS\Load Territory Dim"
           TopLeft="225.18448649333,326.406873833189" />
         <NodeLayout
-          Size="177.333333333334,42.6666666666667"
+          Size="177.6,42.4"
           Id="Package\NDS2DDS\Load TypeOrder Dim"
           TopLeft="190.499967701734,166.383325367768" />
         <NodeLayout
-          Size="121.333333333334,42.6666666666667"
+          Size="121.6,42.4"
           Id="Package\NDS2DDS\Set LSET"
           TopLeft="426.779743372393,35.6813940210971" />
         <NodeLayout
-          Size="131.333333333334,42.6666666666667"
+          Size="131.2,42.4"
           Id="Package\NDS2DDS\Set LSET 1"
           TopLeft="434.904743009177,98.8147282222742" />
         <NodeLayout
-          Size="131.333333333334,44.6666666666667"
+          Size="131.2,44.8"
           Id="Package\NDS2DDS\Set LSET 2"
           TopLeft="413.654743959127,163.664745920084" />
         <NodeLayout
-          Size="131.333333333334,42.6666666666667"
+          Size="131.2,42.4"
           Id="Package\NDS2DDS\Set LSET 3"
           TopLeft="526.154738929986,248.248064221127" />
         <NodeLayout
-          Size="131.333333333334,42.6666666666667"
+          Size="129.6,41.6"
           Id="Package\NDS2DDS\Set LSET 4"
           TopLeft="469.904741444556,314.86473451414" />
         <NodeLayout
-          Size="131.333333333334,42.6666666666667"
+          Size="131.2,42.4"
           Id="Package\NDS2DDS\Set LSET 5"
           TopLeft="472.404741332797,411.031401490752" />
         <EdgeLayout
@@ -23444,30 +23138,30 @@ where [refTable].[TypeOrderID] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\NDS2DDS.PrecedenceConstraints[Constraint 15]"
-          TopLeft="535.571408111223,357.531401180807">
+          TopLeft="534.704741444556,356.46473451414">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-448.738074777889,52.2500004649158"
+              EndConnector="-448.004741444556,53.316667131583"
               Start="0,0"
-              End="-448.738074777889,44.7500004649158">
+              End="-448.004741444556,45.816667131583">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,22.1250002324579" />
+                    End="0,22.6583335657915" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,22.1250002324579"
-                    Point2="0,26.1250002324579"
-                    Point3="-4,26.1250002324579" />
+                    Point1="0,22.6583335657915"
+                    Point2="0,26.6583335657915"
+                    Point3="-4,26.6583335657915" />
                   <mssgle:LineSegment
-                    End="-444.738074777889,26.1250002324579" />
+                    End="-444.004741444556,26.6583335657915" />
                   <mssgle:CubicBezierSegment
-                    Point1="-444.738074777889,26.1250002324579"
-                    Point2="-448.738074777889,26.1250002324579"
-                    Point3="-448.738074777889,30.1250002324579" />
+                    Point1="-444.004741444556,26.6583335657915"
+                    Point2="-448.004741444556,26.6583335657915"
+                    Point3="-448.004741444556,30.6583335657915" />
                   <mssgle:LineSegment
-                    End="-448.738074777889,44.7500004649158" />
+                    End="-448.004741444556,45.816667131583" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -23600,30 +23294,30 @@ where [refTable].[TypeOrderID] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\NDS2DDS.PrecedenceConstraints[Constraint 5]"
-          TopLeft="393.18448649333,347.740207166522">
+          TopLeft="393.18448649333,347.606873833189">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="76.7202549512261,-11.5421393190483"
+              EndConnector="76.7202549512259,-11.942139319049"
               Start="0,0"
-              End="69.2202549512261,-11.5421393190483">
+              End="69.2202549512259,-11.942139319049">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="34.360127475613,0" />
+                    End="34.3601274756129,0" />
                   <mssgle:CubicBezierSegment
-                    Point1="34.360127475613,0"
-                    Point2="38.360127475613,0"
-                    Point3="38.360127475613,-4" />
+                    Point1="34.3601274756129,0"
+                    Point2="38.3601274756129,0"
+                    Point3="38.3601274756129,-4" />
                   <mssgle:LineSegment
-                    End="38.360127475613,-7.54213931904826" />
+                    End="38.3601274756129,-7.94213931904898" />
                   <mssgle:CubicBezierSegment
-                    Point1="38.360127475613,-7.54213931904826"
-                    Point2="38.360127475613,-11.5421393190483"
-                    Point3="42.360127475613,-11.5421393190483" />
+                    Point1="38.3601274756129,-7.94213931904898"
+                    Point2="38.3601274756129,-11.942139319049"
+                    Point3="42.3601274756129,-11.942139319049" />
                   <mssgle:LineSegment
-                    End="69.2202549512261,-11.5421393190483" />
+                    End="69.2202549512259,-11.942139319049" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -23723,8 +23417,8 @@ where [refTable].[TypeOrderID] = ?</property>
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="720.666666666667,536"
-          Size="720.666666666667,578.666666666667"
+          PanelSize="720.8,536"
+          Size="720.8,579.2"
           Id="Package\NDS2DDS"
           TopLeft="119.821435324467,62.2980419981322" />
       </GraphLayout>
@@ -25173,982 +24867,42 @@ where [refTable].[TypeOrderID] = ?</property>
       <GraphLayout
         Capacity="64" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="152,42.6666666666667"
-          Id="Package\NDS2DDS\Load Fact\Map OrderDate"
-          TopLeft="960.124959642069,386.966653056543" />
-        <NodeLayout
-          Size="98.6666666666667,42.6666666666667"
+          Size="98.4,42.4"
           Id="Package\NDS2DDS\Load Fact\Fact"
           TopLeft="177.083325417092,673.148139538589" />
         <NodeLayout
-          Size="140,42.6666666666667"
-          Id="Package\NDS2DDS\Load Fact\Merge Join 1"
-          TopLeft="750.624969126658,613.083316751322" />
-        <NodeLayout
-          Size="108,42.6666666666667"
-          Id="Package\NDS2DDS\Load Fact\Sort 3"
-          TopLeft="914.999959096314,239.199988594056" />
-        <NodeLayout
-          Size="145.333333333334,42.6666666666667"
-          Id="Package\NDS2DDS\Load Fact\Map ShipDate"
-          TopLeft="1140.20829118354,605.166652868192" />
-        <NodeLayout
-          Size="140,42.6666666666667"
-          Id="Package\NDS2DDS\Load Fact\Merge Join 2"
-          TopLeft="721.999978482724,814.333330740531" />
-        <NodeLayout
-          Size="140,42.6666666666667"
-          Id="Package\NDS2DDS\Load Fact\Merge Join 3"
-          TopLeft="870.999974042178,979.666655788819" />
-        <NodeLayout
-          Size="140,42.6666666666667"
-          Id="Package\NDS2DDS\Load Fact\Merge Join 5"
-          TopLeft="579.999976754189,327.333318456015" />
-        <NodeLayout
-          Size="108,42.6666666666667"
-          Id="Package\NDS2DDS\Load Fact\Sort 4"
-          TopLeft="600.62497583218,706.033312319121" />
-        <NodeLayout
-          Size="154.666666666667,42.6666666666667"
-          Id="Package\NDS2DDS\Load Fact\Derived Column 1 2"
-          TopLeft="1077.45829333303,734.916646734874" />
-        <NodeLayout
-          Size="178.666666666667,42.6666666666667"
+          Size="178.4,42.4"
           Id="Package\NDS2DDS\Load Fact\SaleOrderDetail_NDS"
           TopLeft="129.500000834465,50.1666683952013" />
         <NodeLayout
-          Size="126.666666666667,42.6666666666667"
-          Id="Package\NDS2DDS\Load Fact\Sort 4 1 1"
-          TopLeft="1099.9582923272,835.949977030751" />
-        <NodeLayout
-          Size="108,42.6666666666667"
-          Id="Package\NDS2DDS\Load Fact\Sort 2"
-          TopLeft="548.124978179113,596.183317557176" />
-        <NodeLayout
-          Size="141.333333333334,42.6666666666667"
-          Id="Package\NDS2DDS\Load Fact\Product_NDS"
-          TopLeft="839.249964389951,136.466665054957" />
-        <NodeLayout
-          Size="113.333333333334,42.6666666666667"
-          Id="Package\NDS2DDS\Load Fact\Lookup"
-          TopLeft="139.999993741513,945.066646334331" />
-        <NodeLayout
-          Size="131.333333333334,42.6666666666667"
-          Id="Package\NDS2DDS\Load Fact\Merge Join"
-          TopLeft="289.374989746139,287.683320346674" />
-        <NodeLayout
-          Size="108,42.6666666666667"
-          Id="Package\NDS2DDS\Load Fact\Sort 7"
-          TopLeft="234.999992176891,407.933314612707" />
-        <NodeLayout
-          Size="173.333333333334,42.6666666666667"
-          Id="Package\NDS2DDS\Load Fact\Derived Column 1 1"
-          TopLeft="420.874983480201,977.166636619968" />
-        <NodeLayout
-          Size="154.666666666667,42.6666666666667"
-          Id="Package\NDS2DDS\Load Fact\Derived Column 1"
-          TopLeft="897.374961791562,516.716646923225" />
-        <NodeLayout
-          Size="154.666666666667,42.6666666666667"
-          Id="Package\NDS2DDS\Load Fact\Derived Column 1 2 1"
-          TopLeft="1222.45828901169,925.583312090241" />
-        <NodeLayout
-          Size="185.333333333334,42.6666666666667"
-          Id="Package\NDS2DDS\Load Fact\SaleOrderHeader_NDS"
-          TopLeft="581.333321710428,50.1666683952013" />
-        <NodeLayout
-          Size="182.666666666667,42.6666666666667"
-          Id="Package\NDS2DDS\Load Fact\Sort OrderHeaderID 1"
-          TopLeft="127.999996185303,165.999995052815" />
-        <NodeLayout
-          Size="154.666666666667,42.6666666666667"
-          Id="Package\NDS2DDS\Load Fact\Derived Column"
-          TopLeft="639.999971389771,521.949975111486" />
-        <NodeLayout
-          Size="117.333333333334,42.6666666666667"
-          Id="Package\NDS2DDS\Load Fact\Sort 4 1"
-          TopLeft="919.874960785733,617.749977219106" />
-        <NodeLayout
-          Size="144,42.6666666666667"
-          Id="Package\NDS2DDS\Load Fact\Map DueDate"
-          TopLeft="1285.2082868622,795.833318223561" />
-        <NodeLayout
-          Size="182.666666666667,42.6666666666667"
-          Id="Package\NDS2DDS\Load Fact\Sort OrderHeaderID 2"
-          TopLeft="617.833315928778,165.66666478912" />
-        <NodeLayout
-          Size="98.6666666666667,42.6666666666667"
-          Id="Package\NDS2DDS\Load Fact\Sort"
-          TopLeft="727.99997830391,933.666657159726" />
-        <NodeLayout
-          Size="157.333333333334,42.6666666666667"
+          Size="157.6,42.4"
           Id="Package\NDS2DDS\Load Fact\Data Conversion"
           TopLeft="191.999994277954,811.999980270863" />
         <NodeLayout
-          Size="117.333333333334,42.6666666666667"
-          Id="Package\NDS2DDS\Load Fact\Sort 4 1 1 1"
-          TopLeft="1106.95829211859,1001.61664313118" />
-        <EdgeLayout
-          Id="Package\NDS2DDS\Load Fact.Paths[Sort Output7]"
-          TopLeft="919.874960785733,636.749980318547">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-29.2499916590751,0"
-              Start="0,0"
-              End="-21.7499916590751,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="-21.7499916590751,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\NDS2DDS\Load Fact.Paths[Sort Output6]"
-          TopLeft="305.666658843558,407.933314612707">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="322.333317910631,-37.9333294900254"
-              Start="0,0"
-              End="322.333317910631,-30.4333294900254">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,-15.0443969775742" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,-15.0443969775742"
-                    Point2="0,-19.0443969775742"
-                    Point3="4,-19.0443969775742" />
-                  <mssgle:LineSegment
-                    End="318.333317910631,-19.0443969775742" />
-                  <mssgle:CubicBezierSegment
-                    Point1="318.333317910631,-19.0443969775742"
-                    Point2="322.333317910631,-19.0443969775742"
-                    Point3="322.333317910631,-23.0443969775742" />
-                  <mssgle:LineSegment
-                    End="322.333317910631,-30.4333294900254" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\NDS2DDS\Load Fact.Paths[Sort Output5]"
-          TopLeft="709.166649262111,208.333331455787">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-333.56943729375,79.3499888908871"
-              Start="0,0"
-              End="-333.56943729375,71.8499888908871">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,43.0369542974065" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,43.0369542974065"
-                    Point2="0,47.0369542974065"
-                    Point3="-4,47.0369542974065" />
-                  <mssgle:LineSegment
-                    End="-329.56943729375,47.0369542974065" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-329.56943729375,47.0369542974065"
-                    Point2="-333.56943729375,47.0369542974065"
-                    Point3="-333.56943729375,51.0369542974065" />
-                  <mssgle:LineSegment
-                    End="-333.56943729375,71.8499888908871" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\NDS2DDS\Load Fact.Paths[Sort Output4]"
-          TopLeft="968.999959096314,281.866655260723">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-318.999982342125,45.4666631952923"
-              Start="0,0"
-              End="-318.999982342125,37.9666631952923">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,18.7333315976462" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,18.7333315976462"
-                    Point2="0,22.7333315976462"
-                    Point3="-4,22.7333315976462" />
-                  <mssgle:LineSegment
-                    End="-314.999982342125,22.7333315976462" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-314.999982342125,22.7333315976462"
-                    Point2="-318.999982342125,22.7333315976462"
-                    Point3="-318.999982342125,26.7333315976462" />
-                  <mssgle:LineSegment
-                    End="-318.999982342125,37.9666631952923" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\NDS2DDS\Load Fact.Paths[Sort Output3]"
-          TopLeft="1106.95829211859,1022.94997646451">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-95.958318076409,-21.9499873423593"
-              Start="0,0"
-              End="-88.458318076409,-21.9499873423593">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="-43.9791590382045,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-43.9791590382045,0"
-                    Point2="-47.9791590382045,0"
-                    Point3="-47.9791590382045,-4" />
-                  <mssgle:LineSegment
-                    End="-47.9791590382045,-17.9499873423593" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-47.9791590382045,-17.9499873423593"
-                    Point2="-47.9791590382045,-21.9499873423593"
-                    Point3="-51.9791590382045,-21.9499873423593" />
-                  <mssgle:LineSegment
-                    End="-88.458318076409,-21.9499873423593" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\NDS2DDS\Load Fact.Paths[Sort Output2]"
-          TopLeft="826.666644970576,954.999990493059">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="44.3333290716013,45.9999986290933"
-              Start="0,0"
-              End="36.8333290716013,45.9999986290933">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="18.1666645358006,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="18.1666645358006,0"
-                    Point2="22.1666645358006,0"
-                    Point3="22.1666645358006,4" />
-                  <mssgle:LineSegment
-                    End="22.1666645358006,41.9999986290933" />
-                  <mssgle:CubicBezierSegment
-                    Point1="22.1666645358006,41.9999986290933"
-                    Point2="22.1666645358006,45.9999986290933"
-                    Point3="26.1666645358006,45.9999986290933" />
-                  <mssgle:LineSegment
-                    End="36.8333290716013,45.9999986290933" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\NDS2DDS\Load Fact.Paths[Sort Output1]"
-          TopLeft="1099.9582923272,857.283310364084">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-237.958313844476,-21.6166462902198"
-              Start="0,0"
-              End="-230.458313844476,-21.6166462902198">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="-114.979156922238,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-114.979156922238,0"
-                    Point2="-118.979156922238,0"
-                    Point3="-118.979156922238,-4" />
-                  <mssgle:LineSegment
-                    End="-118.979156922238,-17.6166462902198" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-118.979156922238,-17.6166462902198"
-                    Point2="-118.979156922238,-21.6166462902198"
-                    Point3="-122.979156922238,-21.6166462902198" />
-                  <mssgle:LineSegment
-                    End="-230.458313844476,-21.6166462902198" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\NDS2DDS\Load Fact.Paths[Sort Output]"
-          TopLeft="654.62497583218,748.699978985788">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="137.375002650544,65.6333517547436"
-              Start="0,0"
-              End="137.375002650544,58.1333517547436">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,28.8166758773718" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,28.8166758773718"
-                    Point2="0,32.8166758773718"
-                    Point3="4,32.8166758773718" />
-                  <mssgle:LineSegment
-                    End="133.375002650544,32.8166758773718" />
-                  <mssgle:CubicBezierSegment
-                    Point1="133.375002650544,32.8166758773718"
-                    Point2="137.375002650544,32.8166758773718"
-                    Point3="137.375002650544,36.8166758773718" />
-                  <mssgle:LineSegment
-                    End="137.375002650544,58.1333517547436" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\NDS2DDS\Load Fact.Paths[OLE DB Source Output5]"
-          TopLeft="219.083331843217,92.833335061868">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,73.166659990947"
-              Start="0,0"
-              End="0,65.666659990947">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,65.666659990947" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\NDS2DDS\Load Fact.Paths[OLE DB Source Output4]"
-          TopLeft="1036.12495964207,429.63331972321">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-61.4166645171736,87.0833272000153"
-              Start="0,0"
-              End="-61.4166645171736,79.5833272000153">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,39.5416636000076" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,39.5416636000076"
-                    Point2="0,43.5416636000076"
-                    Point3="-4,43.5416636000076" />
-                  <mssgle:LineSegment
-                    End="-57.4166645171736,43.5416636000076" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-57.4166645171736,43.5416636000076"
-                    Point2="-61.4166645171736,43.5416636000076"
-                    Point3="-61.4166645171736,47.5416636000076" />
-                  <mssgle:LineSegment
-                    End="-61.4166645171736,79.5833272000153" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\NDS2DDS\Load Fact.Paths[OLE DB Source Output3]"
-          TopLeft="909.916631056618,179.133331721624">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="59.0833280396964,60.0666568724324"
-              Start="0,0"
-              End="59.0833280396964,52.5666568724324">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,26.0333284362162" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,26.0333284362162"
-                    Point2="0,30.0333284362162"
-                    Point3="4,30.0333284362162" />
-                  <mssgle:LineSegment
-                    End="55.0833280396964,30.0333284362162" />
-                  <mssgle:CubicBezierSegment
-                    Point1="55.0833280396964,30.0333284362162"
-                    Point2="59.0833280396964,30.0333284362162"
-                    Point3="59.0833280396964,34.0333284362162" />
-                  <mssgle:LineSegment
-                    End="59.0833280396964,52.5666568724324" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\NDS2DDS\Load Fact.Paths[OLE DB Source Output2]"
-          TopLeft="1357.2082868622,838.499984890228">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-57.4166645171767,87.0833272000133"
-              Start="0,0"
-              End="-57.4166645171767,79.5833272000133">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,39.5416636000066" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,39.5416636000066"
-                    Point2="0,43.5416636000066"
-                    Point3="-4,43.5416636000066" />
-                  <mssgle:LineSegment
-                    End="-53.4166645171767,43.5416636000066" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-53.4166645171767,43.5416636000066"
-                    Point2="-57.4166645171767,43.5416636000066"
-                    Point3="-57.4166645171767,47.5416636000066" />
-                  <mssgle:LineSegment
-                    End="-57.4166645171767,79.5833272000133" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\NDS2DDS\Load Fact.Paths[OLE DB Source Output1]"
-          TopLeft="1212.87495785021,647.833319534859">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-58.0833311838435,87.0833272000153"
-              Start="0,0"
-              End="-58.0833311838435,79.5833272000153">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,39.5416636000077" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,39.5416636000077"
-                    Point2="0,43.5416636000077"
-                    Point3="-4,43.5416636000077" />
-                  <mssgle:LineSegment
-                    End="-54.0833311838435,43.5416636000077" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-54.0833311838435,43.5416636000077"
-                    Point2="-58.0833311838435,43.5416636000077"
-                    Point3="-58.0833311838435,47.5416636000077" />
-                  <mssgle:LineSegment
-                    End="-58.0833311838435,79.5833272000153" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\NDS2DDS\Load Fact.Paths[OLE DB Source Output]"
-          TopLeft="673.999988377095,92.833335061868">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="35.1666608850168,72.833329727252"
-              Start="0,0"
-              End="35.1666608850168,65.333329727252">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,32.416664863626" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,32.416664863626"
-                    Point2="0,36.416664863626"
-                    Point3="4,36.416664863626" />
-                  <mssgle:LineSegment
-                    End="31.1666608850168,36.416664863626" />
-                  <mssgle:CubicBezierSegment
-                    Point1="31.1666608850168,36.416664863626"
-                    Point2="35.1666608850168,36.416664863626"
-                    Point3="35.1666608850168,40.416664863626" />
-                  <mssgle:LineSegment
-                    End="35.1666608850168,65.333329727252" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\NDS2DDS\Load Fact.Paths[Merge Join Output4]"
-          TopLeft="671.999976754189,369.999985122682">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="45.3333279689153,151.949989988804"
-              Start="0,0"
-              End="45.3333279689153,144.449989988804">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,57.8101654191746" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,57.8101654191746"
-                    Point2="0,61.8101654191746"
-                    Point3="4,61.8101654191746" />
-                  <mssgle:LineSegment
-                    End="41.3333279689153,61.8101654191746" />
-                  <mssgle:CubicBezierSegment
-                    Point1="41.3333279689153,61.8101654191746"
-                    Point2="45.3333279689153,61.8101654191746"
-                    Point3="45.3333279689153,65.8101654191746" />
-                  <mssgle:LineSegment
-                    End="45.3333279689153,144.449989988804" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\NDS2DDS\Load Fact.Paths[Merge Join Output3]"
-          TopLeft="355.041656412805,330.34998701334">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-66.0416642359147,77.5833275993667"
-              Start="0,0"
-              End="-66.0416642359147,70.0833275993667">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,34.7916637996834" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,34.7916637996834"
-                    Point2="0,38.7916637996834"
-                    Point3="-4,38.7916637996834" />
-                  <mssgle:LineSegment
-                    End="-62.0416642359147,38.7916637996834" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-62.0416642359147,38.7916637996834"
-                    Point2="-66.0416642359147,38.7916637996834"
-                    Point3="-66.0416642359147,42.7916637996834" />
-                  <mssgle:LineSegment
-                    End="-66.0416642359147,70.0833275993667" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\NDS2DDS\Load Fact.Paths[Merge Join Output2]"
-          TopLeft="870.999974042178,1006.77776689993">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-276.791657228643,-8.27779694662922"
-              Start="0,0"
-              End="-269.291657228643,-8.27779694662922">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="-112.719373530151,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-112.719373530151,0"
-                    Point2="-116.719373530151,0"
-                    Point3="-116.719373530151,-4" />
-                  <mssgle:LineSegment
-                    End="-116.719373530151,-4.27779694662922" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-116.719373530151,-4.27779694662922"
-                    Point2="-116.719373530151,-8.27779694662922"
-                    Point3="-120.719373530151,-8.27779694662922" />
-                  <mssgle:LineSegment
-                    End="-269.291657228643,-8.27779694662922" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\NDS2DDS\Load Fact.Paths[Merge Join Output1]"
-          TopLeft="820.624969126658,655.749983417988">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-165.999993294478,50.2833289011322"
-              Start="0,0"
-              End="-165.999993294478,42.7833289011322">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,21.1416644505661" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,21.1416644505661"
-                    Point2="0,25.1416644505661"
-                    Point3="-4,25.1416644505661" />
-                  <mssgle:LineSegment
-                    End="-161.999993294478,25.1416644505661" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-161.999993294478,25.1416644505661"
-                    Point2="-165.999993294478,25.1416644505661"
-                    Point3="-165.999993294478,29.1416644505661" />
-                  <mssgle:LineSegment
-                    End="-165.999993294478,42.7833289011322" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\NDS2DDS\Load Fact.Paths[Merge Join Output]"
-          TopLeft="791.999978482724,856.999997407198">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-14.6666668454807,76.6666597525282"
-              Start="0,0"
-              End="-14.6666668454807,69.1666597525282">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,34.3333298762641" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,34.3333298762641"
-                    Point2="0,38.3333298762641"
-                    Point3="-4,38.3333298762641" />
-                  <mssgle:LineSegment
-                    End="-10.6666668454807,38.3333298762641" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-10.6666668454807,38.3333298762641"
-                    Point2="-14.6666668454807,38.3333298762641"
-                    Point3="-14.6666668454807,42.3333298762641" />
-                  <mssgle:LineSegment
-                    End="-14.6666668454807,69.1666597525282" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+          Size="112.8,41.6"
+          Id="Package\NDS2DDS\Load Fact\Lookup"
+          TopLeft="215.171429026066,929.823529294463" />
         <EdgeLayout
           Id="Package\NDS2DDS\Load Fact.Paths[Lookup No Match Output]"
-          TopLeft="179.111104852624,945.066646334331">
+          TopLeft="271.18571165201,929.823529294463">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="91.5555560919968,-90.3999993968013"
+              EndConnector="0,-75.4235490236001"
               Start="0,0"
-              End="91.5555560919968,-82.8999993968013">
+              End="0,-67.9235490236001">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,-32.9150809601787" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,-32.9150809601787"
-                    Point2="0,-36.9150809601787"
-                    Point3="4,-36.9150809601787" />
-                  <mssgle:LineSegment
-                    End="87.5555560919968,-36.9150809601787" />
-                  <mssgle:CubicBezierSegment
-                    Point1="87.5555560919968,-36.9150809601787"
-                    Point2="91.5555560919968,-36.9150809601787"
-                    Point3="91.5555560919968,-40.9150809601787" />
-                  <mssgle:LineSegment
-                    End="91.5555560919968,-82.8999993968013" />
+                    End="0,-67.9235490236001" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-10.0286086727516,-31.9150809601787,111.6127734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\NDS2DDS\Load Fact.Paths[Derived Column Output4]"
-          TopLeft="1154.79162666636,777.58331340154">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="8.49999899417003,58.3666636292103"
-              Start="0,0"
-              End="8.49999899417003,50.8666636292103">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,25.1833318146051" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,25.1833318146051"
-                    Point2="0,29.1833318146051"
-                    Point3="4,29.1833318146051" />
-                  <mssgle:LineSegment
-                    End="4.49999899417003,29.1833318146051" />
-                  <mssgle:CubicBezierSegment
-                    Point1="4.49999899417003,29.1833318146051"
-                    Point2="8.49999899417003,29.1833318146051"
-                    Point3="8.49999899417003,33.1833318146051" />
-                  <mssgle:LineSegment
-                    End="8.49999899417003,50.8666636292103" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\NDS2DDS\Load Fact.Paths[Derived Column Output3]"
-          TopLeft="1299.79162234502,968.249978756907">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-134.166663559766,33.3666643742714"
-              Start="0,0"
-              End="-134.166663559766,25.8666643742714">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,12.6833321871357" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,12.6833321871357"
-                    Point2="0,16.6833321871357"
-                    Point3="-4,16.6833321871357" />
-                  <mssgle:LineSegment
-                    End="-130.166663559766,16.6833321871357" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-130.166663559766,16.6833321871357"
-                    Point2="-134.166663559766,16.6833321871357"
-                    Point3="-134.166663559766,20.6833321871357" />
-                  <mssgle:LineSegment
-                    End="-134.166663559766,25.8666643742714" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\NDS2DDS\Load Fact.Paths[Derived Column Output2]"
-          TopLeft="420.874983480201,998.499969953301">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-167.541656405355,-32.0999902856369"
-              Start="0,0"
-              End="-160.041656405355,-32.0999902856369">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="-79.7708282026775,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-79.7708282026775,0"
-                    Point2="-83.7708282026775,0"
-                    Point3="-83.7708282026775,-4" />
-                  <mssgle:LineSegment
-                    End="-83.7708282026775,-28.0999902856369" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-83.7708282026775,-28.0999902856369"
-                    Point2="-83.7708282026775,-32.0999902856369"
-                    Point3="-87.7708282026775,-32.0999902856369" />
-                  <mssgle:LineSegment
-                    End="-160.041656405355,-32.0999902856369" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\NDS2DDS\Load Fact.Paths[Derived Column Output1]"
-          TopLeft="976.624961288647,559.383313589892">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,58.366663629214"
-              Start="0,0"
-              End="0,50.866663629214">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,50.866663629214" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\NDS2DDS\Load Fact.Paths[Derived Column Output]"
-          TopLeft="717.333304723104,564.616641778153">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-115.208326543992,31.5666757790239"
-              Start="0,0"
-              End="-115.208326543992,24.0666757790239">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,11.7833378895119" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,11.7833378895119"
-                    Point2="0,15.7833378895119"
-                    Point3="-4,15.7833378895119" />
-                  <mssgle:LineSegment
-                    End="-111.208326543992,15.7833378895119" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-111.208326543992,15.7833378895119"
-                    Point2="-115.208326543992,15.7833378895119"
-                    Point3="-115.208326543992,19.7833378895119" />
-                  <mssgle:LineSegment
-                    End="-115.208326543992,24.0666757790239" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
+              BoundingBox="-55.80638671875,-39.7664620118001,111.6127734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -26183,9 +24937,797 @@ where [refTable].[TypeOrderID] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="173.6,42.4"
+          Id="Package\NDS2DDS\Load Fact\Derived Column 1 1"
+          TopLeft="420.874983480201,977.166636619968" />
+        <EdgeLayout
+          Id="Package\NDS2DDS\Load Fact.Paths[Derived Column Output]"
+          TopLeft="420.874983480201,998.366636619968">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-92.9035544541349,-47.743107325505"
+              Start="0,0"
+              End="-85.4035544541349,-47.743107325505">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-42.4517772270675,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-42.4517772270675,0"
+                    Point2="-46.4517772270675,0"
+                    Point3="-46.4517772270675,-4" />
+                  <mssgle:LineSegment
+                    End="-46.4517772270675,-43.743107325505" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-46.4517772270675,-43.743107325505"
+                    Point2="-46.4517772270675,-47.743107325505"
+                    Point3="-50.4517772270675,-47.743107325505" />
+                  <mssgle:LineSegment
+                    End="-85.4035544541349,-47.743107325505" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="140,42.4"
+          Id="Package\NDS2DDS\Load Fact\Merge Join 2"
+          TopLeft="721.999978482724,814.333330740531" />
+        <NodeLayout
+          Size="140,42.4"
+          Id="Package\NDS2DDS\Load Fact\Merge Join 3"
+          TopLeft="870.999974042178,979.666655788819" />
+        <NodeLayout
+          Size="126.4,42.4"
+          Id="Package\NDS2DDS\Load Fact\Sort 4 1 1"
+          TopLeft="1099.9582923272,835.949977030751" />
+        <NodeLayout
+          Size="154.4,42.4"
+          Id="Package\NDS2DDS\Load Fact\Derived Column 1 2 1"
+          TopLeft="1222.45828901169,925.583312090241" />
+        <NodeLayout
+          Size="144,42.4"
+          Id="Package\NDS2DDS\Load Fact\Map DueDate"
+          TopLeft="1285.2082868622,795.833318223561" />
+        <NodeLayout
+          Size="98.4,42.4"
+          Id="Package\NDS2DDS\Load Fact\Sort"
+          TopLeft="727.99997830391,933.666657159726" />
+        <NodeLayout
+          Size="117.6,42.4"
+          Id="Package\NDS2DDS\Load Fact\Sort 4 1 1 1"
+          TopLeft="1106.95829211859,1001.61664313118" />
+        <NodeLayout
+          Size="140,42.4"
+          Id="Package\NDS2DDS\Load Fact\Merge Join 1"
+          TopLeft="750.624969126658,613.083316751322" />
+        <NodeLayout
+          Size="145.6,42.4"
+          Id="Package\NDS2DDS\Load Fact\Map ShipDate"
+          TopLeft="1140.20829118354,605.166652868192" />
+        <NodeLayout
+          Size="108,42.4"
+          Id="Package\NDS2DDS\Load Fact\Sort 2"
+          TopLeft="548.124978179113,596.183317557176" />
+        <NodeLayout
+          Size="117.6,42.4"
+          Id="Package\NDS2DDS\Load Fact\Sort 4 1"
+          TopLeft="919.874960785733,617.749977219106" />
+        <NodeLayout
+          Size="108,42.4"
+          Id="Package\NDS2DDS\Load Fact\Sort 4"
+          TopLeft="600.62497583218,706.033312319121" />
+        <NodeLayout
+          Size="154.4,42.4"
+          Id="Package\NDS2DDS\Load Fact\Derived Column 1 2"
+          TopLeft="1077.45829333303,734.916646734874" />
+        <EdgeLayout
+          Id="Package\NDS2DDS\Load Fact.Paths[Sort Output]"
+          TopLeft="656.124978179113,617.51665089051">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="94.4999909475451,16.8999991941453"
+              Start="0,0"
+              End="86.9999909475451,16.8999991941453">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="43.2499954737726,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="43.2499954737726,0"
+                    Point2="47.2499954737726,0"
+                    Point3="47.2499954737726,4" />
+                  <mssgle:LineSegment
+                    End="47.2499954737726,12.8999991941453" />
+                  <mssgle:CubicBezierSegment
+                    Point1="47.2499954737726,12.8999991941453"
+                    Point2="47.2499954737726,16.8999991941453"
+                    Point3="51.2499954737726,16.8999991941453" />
+                  <mssgle:LineSegment
+                    End="86.9999909475451,16.8999991941453" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\NDS2DDS\Load Fact.Paths[Sort Output1]"
+          TopLeft="919.874960785733,636.749980318547">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-29.2499916590751,0"
+              Start="0,0"
+              End="-21.7499916590751,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-21.7499916590751,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\NDS2DDS\Load Fact.Paths[Merge Join Output]"
+          TopLeft="820.624969126658,655.749983417988">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-165.999993294478,50.2833289011322"
+              Start="0,0"
+              End="-165.999993294478,42.7833289011322">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.1416644505661" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,21.1416644505661"
+                    Point2="0,25.1416644505661"
+                    Point3="-4,25.1416644505661" />
+                  <mssgle:LineSegment
+                    End="-161.999993294478,25.1416644505661" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-161.999993294478,25.1416644505661"
+                    Point2="-165.999993294478,25.1416644505661"
+                    Point3="-165.999993294478,29.1416644505661" />
+                  <mssgle:LineSegment
+                    End="-165.999993294478,42.7833289011322" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\NDS2DDS\Load Fact.Paths[OLE DB Source Output]"
+          TopLeft="1212.87495785021,647.833319534859">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-58.0833311838435,87.0833272000153"
+              Start="0,0"
+              End="-58.0833311838435,79.5833272000153">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,39.5416636000077" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,39.5416636000077"
+                    Point2="0,43.5416636000077"
+                    Point3="-4,43.5416636000077" />
+                  <mssgle:LineSegment
+                    End="-54.0833311838435,43.5416636000077" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-54.0833311838435,43.5416636000077"
+                    Point2="-58.0833311838435,43.5416636000077"
+                    Point3="-58.0833311838435,47.5416636000077" />
+                  <mssgle:LineSegment
+                    End="-58.0833311838435,79.5833272000153" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\NDS2DDS\Load Fact.Paths[Sort Output2]"
+          TopLeft="1106.95829211859,1022.94997646451">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-95.958318076409,-21.9499873423593"
+              Start="0,0"
+              End="-88.458318076409,-21.9499873423593">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-43.9791590382045,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-43.9791590382045,0"
+                    Point2="-47.9791590382045,0"
+                    Point3="-47.9791590382045,-4" />
+                  <mssgle:LineSegment
+                    End="-47.9791590382045,-17.9499873423593" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-47.9791590382045,-17.9499873423593"
+                    Point2="-47.9791590382045,-21.9499873423593"
+                    Point3="-51.9791590382045,-21.9499873423593" />
+                  <mssgle:LineSegment
+                    End="-88.458318076409,-21.9499873423593" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\NDS2DDS\Load Fact.Paths[OLE DB Source Output1]"
+          TopLeft="1357.2082868622,838.499984890228">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-57.4166645171767,87.0833272000133"
+              Start="0,0"
+              End="-57.4166645171767,79.5833272000133">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,39.5416636000066" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,39.5416636000066"
+                    Point2="0,43.5416636000066"
+                    Point3="-4,43.5416636000066" />
+                  <mssgle:LineSegment
+                    End="-53.4166645171767,43.5416636000066" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-53.4166645171767,43.5416636000066"
+                    Point2="-57.4166645171767,43.5416636000066"
+                    Point3="-57.4166645171767,47.5416636000066" />
+                  <mssgle:LineSegment
+                    End="-57.4166645171767,79.5833272000133" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\NDS2DDS\Load Fact.Paths[Sort Output3]"
+          TopLeft="826.666644970576,954.999990493059">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="44.3333290716013,45.9999986290933"
+              Start="0,0"
+              End="36.8333290716013,45.9999986290933">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="18.1666645358006,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="18.1666645358006,0"
+                    Point2="22.1666645358006,0"
+                    Point3="22.1666645358006,4" />
+                  <mssgle:LineSegment
+                    End="22.1666645358006,41.9999986290933" />
+                  <mssgle:CubicBezierSegment
+                    Point1="22.1666645358006,41.9999986290933"
+                    Point2="22.1666645358006,45.9999986290933"
+                    Point3="26.1666645358006,45.9999986290933" />
+                  <mssgle:LineSegment
+                    End="36.8333290716013,45.9999986290933" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\NDS2DDS\Load Fact.Paths[Sort Output4]"
+          TopLeft="1099.9582923272,857.283310364084">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-237.958313844476,-21.6166462902198"
+              Start="0,0"
+              End="-230.458313844476,-21.6166462902198">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-114.979156922238,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-114.979156922238,0"
+                    Point2="-118.979156922238,0"
+                    Point3="-118.979156922238,-4" />
+                  <mssgle:LineSegment
+                    End="-118.979156922238,-17.6166462902198" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-118.979156922238,-17.6166462902198"
+                    Point2="-118.979156922238,-21.6166462902198"
+                    Point3="-122.979156922238,-21.6166462902198" />
+                  <mssgle:LineSegment
+                    End="-230.458313844476,-21.6166462902198" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\NDS2DDS\Load Fact.Paths[Sort Output5]"
+          TopLeft="654.62497583218,748.699978985788">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="137.375002650544,65.6333517547436"
+              Start="0,0"
+              End="137.375002650544,58.1333517547436">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,28.8166758773718" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,28.8166758773718"
+                    Point2="0,32.8166758773718"
+                    Point3="4,32.8166758773718" />
+                  <mssgle:LineSegment
+                    End="133.375002650544,32.8166758773718" />
+                  <mssgle:CubicBezierSegment
+                    Point1="133.375002650544,32.8166758773718"
+                    Point2="137.375002650544,32.8166758773718"
+                    Point3="137.375002650544,36.8166758773718" />
+                  <mssgle:LineSegment
+                    End="137.375002650544,58.1333517547436" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\NDS2DDS\Load Fact.Paths[Merge Join Output1]"
+          TopLeft="791.999978482724,856.999997407198">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-14.6666668454807,76.6666597525282"
+              Start="0,0"
+              End="-14.6666668454807,69.1666597525282">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,34.3333298762641" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,34.3333298762641"
+                    Point2="0,38.3333298762641"
+                    Point3="-4,38.3333298762641" />
+                  <mssgle:LineSegment
+                    End="-10.6666668454807,38.3333298762641" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-10.6666668454807,38.3333298762641"
+                    Point2="-14.6666668454807,38.3333298762641"
+                    Point3="-14.6666668454807,42.3333298762641" />
+                  <mssgle:LineSegment
+                    End="-14.6666668454807,69.1666597525282" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\NDS2DDS\Load Fact.Paths[Derived Column Output1]"
+          TopLeft="1154.79162666636,777.58331340154">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="8.49999899417003,58.3666636292103"
+              Start="0,0"
+              End="8.49999899417003,50.8666636292103">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,25.1833318146051" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,25.1833318146051"
+                    Point2="0,29.1833318146051"
+                    Point3="4,29.1833318146051" />
+                  <mssgle:LineSegment
+                    End="4.49999899417003,29.1833318146051" />
+                  <mssgle:CubicBezierSegment
+                    Point1="4.49999899417003,29.1833318146051"
+                    Point2="8.49999899417003,29.1833318146051"
+                    Point3="8.49999899417003,33.1833318146051" />
+                  <mssgle:LineSegment
+                    End="8.49999899417003,50.8666636292103" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\NDS2DDS\Load Fact.Paths[Derived Column Output2]"
+          TopLeft="1299.79162234502,968.249978756907">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-134.166663559766,33.3666643742714"
+              Start="0,0"
+              End="-134.166663559766,25.8666643742714">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,12.6833321871357" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,12.6833321871357"
+                    Point2="0,16.6833321871357"
+                    Point3="-4,16.6833321871357" />
+                  <mssgle:LineSegment
+                    End="-130.166663559766,16.6833321871357" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-130.166663559766,16.6833321871357"
+                    Point2="-134.166663559766,16.6833321871357"
+                    Point3="-134.166663559766,20.6833321871357" />
+                  <mssgle:LineSegment
+                    End="-134.166663559766,25.8666643742714" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\NDS2DDS\Load Fact.Paths[Merge Join Output2]"
+          TopLeft="870.999974042178,1006.77776689993">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-276.791657228643,-8.27779694662922"
+              Start="0,0"
+              End="-269.291657228643,-8.27779694662922">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-112.719373530151,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-112.719373530151,0"
+                    Point2="-116.719373530151,0"
+                    Point3="-116.719373530151,-4" />
+                  <mssgle:LineSegment
+                    End="-116.719373530151,-4.27779694662922" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-116.719373530151,-4.27779694662922"
+                    Point2="-116.719373530151,-8.27779694662922"
+                    Point3="-120.719373530151,-8.27779694662922" />
+                  <mssgle:LineSegment
+                    End="-269.291657228643,-8.27779694662922" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="141.6,42.4"
+          Id="Package\NDS2DDS\Load Fact\Product_NDS"
+          TopLeft="839.249964389951,136.466665054957" />
+        <NodeLayout
+          Size="185.6,42.4"
+          Id="Package\NDS2DDS\Load Fact\SaleOrderHeader_NDS"
+          TopLeft="581.333321710428,50.1666683952013" />
+        <NodeLayout
+          Size="154.4,42.4"
+          Id="Package\NDS2DDS\Load Fact\Derived Column 1"
+          TopLeft="897.374961791562,516.716646923225" />
+        <NodeLayout
+          Size="154.4,42.4"
+          Id="Package\NDS2DDS\Load Fact\Derived Column"
+          TopLeft="639.999971389771,521.949975111486" />
+        <NodeLayout
+          Size="152,42.4"
+          Id="Package\NDS2DDS\Load Fact\Map OrderDate"
+          TopLeft="960.124959642069,386.966653056543" />
+        <NodeLayout
+          Size="108,42.4"
+          Id="Package\NDS2DDS\Load Fact\Sort 3"
+          TopLeft="914.999959096314,239.199988594056" />
+        <NodeLayout
+          Size="140,42.4"
+          Id="Package\NDS2DDS\Load Fact\Merge Join 5"
+          TopLeft="579.999976754189,327.333318456015" />
+        <NodeLayout
+          Size="131.2,42.4"
+          Id="Package\NDS2DDS\Load Fact\Merge Join"
+          TopLeft="289.374989746139,287.683320346674" />
+        <NodeLayout
+          Size="108,42.4"
+          Id="Package\NDS2DDS\Load Fact\Sort 7"
+          TopLeft="234.999992176891,407.933314612707" />
+        <NodeLayout
+          Size="182.4,42.4"
+          Id="Package\NDS2DDS\Load Fact\Sort OrderHeaderID 1"
+          TopLeft="127.999996185303,165.999995052815" />
+        <EdgeLayout
+          Id="Package\NDS2DDS\Load Fact.Paths[OLE DB Source Output2]"
+          TopLeft="219.083331843217,92.833335061868">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,73.166659990947"
+              Start="0,0"
+              End="0,65.666659990947">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,65.666659990947" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="182.4,42.4"
+          Id="Package\NDS2DDS\Load Fact\Sort OrderHeaderID 2"
+          TopLeft="617.833315928778,165.66666478912" />
+        <EdgeLayout
+          Id="Package\NDS2DDS\Load Fact.Paths[OLE DB Source Output3]"
+          TopLeft="673.999988377095,92.833335061868">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="35.1666608850168,72.833329727252"
+              Start="0,0"
+              End="35.1666608850168,65.333329727252">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,32.416664863626" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,32.416664863626"
+                    Point2="0,36.416664863626"
+                    Point3="4,36.416664863626" />
+                  <mssgle:LineSegment
+                    End="31.1666608850168,36.416664863626" />
+                  <mssgle:CubicBezierSegment
+                    Point1="31.1666608850168,36.416664863626"
+                    Point2="35.1666608850168,36.416664863626"
+                    Point3="35.1666608850168,40.416664863626" />
+                  <mssgle:LineSegment
+                    End="35.1666608850168,65.333329727252" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\NDS2DDS\Load Fact.Paths[Sort Output6]"
+          TopLeft="305.666658843558,407.933314612707">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="322.333317910631,-37.9333294900254"
+              Start="0,0"
+              End="322.333317910631,-30.4333294900254">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,-15.0443969775742" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,-15.0443969775742"
+                    Point2="0,-19.0443969775742"
+                    Point3="4,-19.0443969775742" />
+                  <mssgle:LineSegment
+                    End="318.333317910631,-19.0443969775742" />
+                  <mssgle:CubicBezierSegment
+                    Point1="318.333317910631,-19.0443969775742"
+                    Point2="322.333317910631,-19.0443969775742"
+                    Point3="322.333317910631,-23.0443969775742" />
+                  <mssgle:LineSegment
+                    End="322.333317910631,-30.4333294900254" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\NDS2DDS\Load Fact.Paths[Sort Output7]"
+          TopLeft="709.166649262111,208.333331455787">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-333.56943729375,79.3499888908871"
+              Start="0,0"
+              End="-333.56943729375,71.8499888908871">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,43.0369542974065" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,43.0369542974065"
+                    Point2="0,47.0369542974065"
+                    Point3="-4,47.0369542974065" />
+                  <mssgle:LineSegment
+                    End="-329.56943729375,47.0369542974065" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-329.56943729375,47.0369542974065"
+                    Point2="-333.56943729375,47.0369542974065"
+                    Point3="-333.56943729375,51.0369542974065" />
+                  <mssgle:LineSegment
+                    End="-333.56943729375,71.8499888908871" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\NDS2DDS\Load Fact.Paths[Sort Output8]"
+          TopLeft="968.999959096314,281.866655260723">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-318.999982342125,45.4666631952923"
+              Start="0,0"
+              End="-318.999982342125,37.9666631952923">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.7333315976462" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,18.7333315976462"
+                    Point2="0,22.7333315976462"
+                    Point3="-4,22.7333315976462" />
+                  <mssgle:LineSegment
+                    End="-314.999982342125,22.7333315976462" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-314.999982342125,22.7333315976462"
+                    Point2="-318.999982342125,22.7333315976462"
+                    Point3="-318.999982342125,26.7333315976462" />
+                  <mssgle:LineSegment
+                    End="-318.999982342125,37.9666631952923" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\NDS2DDS\Load Fact.Paths[OLE DB Source Output4]"
+          TopLeft="909.916631056618,179.133331721624">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="59.0833280396964,60.0666568724324"
+              Start="0,0"
+              End="59.0833280396964,52.5666568724324">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.0333284362162" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26.0333284362162"
+                    Point2="0,30.0333284362162"
+                    Point3="4,30.0333284362162" />
+                  <mssgle:LineSegment
+                    End="55.0833280396964,30.0333284362162" />
+                  <mssgle:CubicBezierSegment
+                    Point1="55.0833280396964,30.0333284362162"
+                    Point2="59.0833280396964,30.0333284362162"
+                    Point3="59.0833280396964,34.0333284362162" />
+                  <mssgle:LineSegment
+                    End="59.0833280396964,52.5666568724324" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\NDS2DDS\Load Fact.Paths[Merge Join Output3]"
+          TopLeft="355.041656412805,330.34998701334">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-66.0416642359147,77.5833275993667"
+              Start="0,0"
+              End="-66.0416642359147,70.0833275993667">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,34.7916637996834" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,34.7916637996834"
+                    Point2="0,38.7916637996834"
+                    Point3="-4,38.7916637996834" />
+                  <mssgle:LineSegment
+                    End="-62.0416642359147,38.7916637996834" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-62.0416642359147,38.7916637996834"
+                    Point2="-66.0416642359147,38.7916637996834"
+                    Point3="-66.0416642359147,42.7916637996834" />
+                  <mssgle:LineSegment
+                    End="-66.0416642359147,70.0833275993667" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -26219,45 +25761,131 @@ where [refTable].[TypeOrderID] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\NDS2DDS\Load Fact.Paths[Sort Output8]"
-          TopLeft="656.124978179113,617.51665089051">
+          Id="Package\NDS2DDS\Load Fact.Paths[Derived Column Output3]"
+          TopLeft="976.624961288647,559.383313589892">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="94.4999909475451,16.8999991941453"
+              EndConnector="0,58.366663629214"
               Start="0,0"
-              End="86.9999909475451,16.8999991941453">
+              End="0,50.866663629214">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="43.2499954737726,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="43.2499954737726,0"
-                    Point2="47.2499954737726,0"
-                    Point3="47.2499954737726,4" />
-                  <mssgle:LineSegment
-                    End="47.2499954737726,12.8999991941453" />
-                  <mssgle:CubicBezierSegment
-                    Point1="47.2499954737726,12.8999991941453"
-                    Point2="47.2499954737726,16.8999991941453"
-                    Point3="51.2499954737726,16.8999991941453" />
-                  <mssgle:LineSegment
-                    End="86.9999909475451,16.8999991941453" />
+                    End="0,50.866663629214" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\NDS2DDS\Load Fact.Paths[Derived Column Output4]"
+          TopLeft="717.333304723104,564.616641778153">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-115.208326543992,31.5666757790239"
+              Start="0,0"
+              End="-115.208326543992,24.0666757790239">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,11.7833378895119" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,11.7833378895119"
+                    Point2="0,15.7833378895119"
+                    Point3="-4,15.7833378895119" />
+                  <mssgle:LineSegment
+                    End="-111.208326543992,15.7833378895119" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-111.208326543992,15.7833378895119"
+                    Point2="-115.208326543992,15.7833378895119"
+                    Point3="-115.208326543992,19.7833378895119" />
+                  <mssgle:LineSegment
+                    End="-115.208326543992,24.0666757790239" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\NDS2DDS\Load Fact.Paths[OLE DB Source Output5]"
+          TopLeft="1036.12495964207,429.63331972321">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-61.4166645171736,87.0833272000153"
+              Start="0,0"
+              End="-61.4166645171736,79.5833272000153">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,39.5416636000076" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,39.5416636000076"
+                    Point2="0,43.5416636000076"
+                    Point3="-4,43.5416636000076" />
+                  <mssgle:LineSegment
+                    End="-57.4166645171736,43.5416636000076" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-57.4166645171736,43.5416636000076"
+                    Point2="-61.4166645171736,43.5416636000076"
+                    Point3="-61.4166645171736,47.5416636000076" />
+                  <mssgle:LineSegment
+                    End="-61.4166645171736,79.5833272000153" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\NDS2DDS\Load Fact.Paths[Merge Join Output4]"
+          TopLeft="671.999976754189,369.999985122682">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="45.3333279689153,151.949989988804"
+              Start="0,0"
+              End="45.3333279689153,144.449989988804">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,57.8101654191746" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,57.8101654191746"
+                    Point2="0,61.8101654191746"
+                    Point3="4,61.8101654191746" />
+                  <mssgle:LineSegment
+                    End="41.3333279689153,61.8101654191746" />
+                  <mssgle:CubicBezierSegment
+                    Point1="41.3333279689153,61.8101654191746"
+                    Point2="45.3333279689153,61.8101654191746"
+                    Point3="45.3333279689153,65.8101654191746" />
+                  <mssgle:LineSegment
+                    End="45.3333279689153,144.449989988804" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -26276,152 +25904,92 @@ where [refTable].[TypeOrderID] = ?</property>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\NDS2DDS\Load Fact\SaleOrderDetail_NDS">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\NDS2DDS\Load Fact\Lookup">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:string">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[Sales_Fact]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:string">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
   <TaskHost
     design-time-name="Package\NDS2DDS\Load Product Dim">
     <LayoutInfo>
       <GraphLayout
         Capacity="64" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="108,42.6666666666667"
+          Size="108,42.4"
           Id="Package\NDS2DDS\Load Product Dim\Sort 5"
           TopLeft="152.166666666667,518.833333333333" />
         <NodeLayout
-          Size="108,42.6666666666667"
+          Size="108,42.4"
           Id="Package\NDS2DDS\Load Product Dim\Sort 1"
           TopLeft="321.166666666667,108.166666666666" />
         <NodeLayout
-          Size="113.333333333334,42.6666666666667"
+          Size="113.6,42.4"
           Id="Package\NDS2DDS\Load Product Dim\Lookup"
           TopLeft="318.5,724.166666666666" />
         <NodeLayout
-          Size="141.333333333334,42.6666666666667"
+          Size="141.6,42.4"
           Id="Package\NDS2DDS\Load Product Dim\Product_NDS"
           TopLeft="88.5,5.49999999999993" />
         <NodeLayout
-          Size="198.666666666667,42"
+          Size="198.4,41.6"
           Id="Package\NDS2DDS\Load Product Dim\OLE DB Destination 1 1 1"
           TopLeft="482.833327164253,824.500000089406" />
         <NodeLayout
-          Size="131.333333333334,42.6666666666667"
+          Size="131.2,42.4"
           Id="Package\NDS2DDS\Load Product Dim\Merge Join"
           TopLeft="309.5,210.833333333333" />
         <NodeLayout
-          Size="184,42.6666666666667"
+          Size="184,42.4"
           Id="Package\NDS2DDS\Load Product Dim\ProductCategory_NDS"
           TopLeft="60.1666666666667,416.166666666666" />
         <NodeLayout
-          Size="108,42.6666666666667"
+          Size="108,42.4"
           Id="Package\NDS2DDS\Load Product Dim\Sort 4"
           TopLeft="321.166666666667,518.833333333333" />
         <NodeLayout
-          Size="108,42.6666666666667"
+          Size="108,42.4"
           Id="Package\NDS2DDS\Load Product Dim\Sort 2"
           TopLeft="321.166666666667,313.499999999999" />
         <NodeLayout
-          Size="108,42.6666666666667"
+          Size="108,42.4"
           Id="Package\NDS2DDS\Load Product Dim\Sort 3"
           TopLeft="152.166666666667,313.499999999999" />
         <NodeLayout
-          Size="140,42.6666666666667"
+          Size="140,42.4"
           Id="Package\NDS2DDS\Load Product Dim\Merge Join 1"
           TopLeft="305.166666666667,416.166666666666" />
         <NodeLayout
-          Size="169.333333333334,42.6666666666667"
+          Size="169.6,42.4"
           Id="Package\NDS2DDS\Load Product Dim\ProductModel_NDS"
           TopLeft="290.5,5.49999999999993" />
         <NodeLayout
-          Size="209.333333333334,42.6666666666667"
+          Size="209.6,42.4"
           Id="Package\NDS2DDS\Load Product Dim\Slowly Changing Dimension"
           TopLeft="5.50000000000013,826.833333333333" />
         <NodeLayout
-          Size="140,42.6666666666667"
+          Size="140,42.4"
           Id="Package\NDS2DDS\Load Product Dim\Merge Join 2"
           TopLeft="305.166666666667,621.499999999999" />
         <NodeLayout
-          Size="166.666666666667,42.6666666666667"
+          Size="166.4,42.4"
           Id="Package\NDS2DDS\Load Product Dim\OLE DB Command"
           TopLeft="252.833333333333,929.5" />
         <NodeLayout
-          Size="164,42.6666666666667"
+          Size="164,42.4"
           Id="Package\NDS2DDS\Load Product Dim\Insert Destination"
           TopLeft="28.1666666666668,929.5" />
         <NodeLayout
-          Size="98.6666666666667,42.6666666666667"
+          Size="98.4,42.4"
           Id="Package\NDS2DDS\Load Product Dim\Sort"
           TopLeft="161.833333333333,108.166666666666" />
         <NodeLayout
-          Size="201.333333333334,42.6666666666667"
+          Size="201.6,42.4"
           Id="Package\NDS2DDS\Load Product Dim\ProductSubCategory_NDS"
           TopLeft="47.5,210.833333333333" />
         <EdgeLayout
           Id="Package\NDS2DDS\Load Product Dim.Paths[OLE DB Source Output1]"
-          TopLeft="375.166666666667,48.1666666666666">
+          TopLeft="148.166666666667,253.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,59.9999999999999"
+              EndConnector="58,59.9999999999999"
               Start="0,0"
-              End="0,52.4999999999999">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.4999999999999" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\NDS2DDS\Load Product Dim.Paths[OLE DB Source Output]"
-          TopLeft="159.166666666667,48.1666666666666">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="52,59.9999999999999"
-              Start="0,0"
-              End="52,52.4999999999999">
+              End="58,52.4999999999999">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -26432,21 +26000,53 @@ where [refTable].[TypeOrderID] = ?</property>
                     Point2="0,29.9999999999999"
                     Point3="4,29.9999999999999" />
                   <mssgle:LineSegment
-                    End="48,29.9999999999999" />
+                    End="54,29.9999999999999" />
                   <mssgle:CubicBezierSegment
-                    Point1="48,29.9999999999999"
-                    Point2="52,29.9999999999999"
-                    Point3="52,33.9999999999999" />
+                    Point1="54,29.9999999999999"
+                    Point2="58,29.9999999999999"
+                    Point3="58,33.9999999999999" />
                   <mssgle:LineSegment
-                    End="52,52.4999999999999" />
+                    End="58,52.4999999999999" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\NDS2DDS\Load Product Dim.Paths[OLE DB Source Output]"
+          TopLeft="152.166666666667,458.833333333333">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="54,59.9999999999999"
+              Start="0,0"
+              End="54,52.4999999999999">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,25.9999999999999" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,25.9999999999999"
+                    Point2="0,29.9999999999999"
+                    Point3="4,29.9999999999999" />
+                  <mssgle:LineSegment
+                    End="50,29.9999999999999" />
+                  <mssgle:CubicBezierSegment
+                    Point1="50,29.9999999999999"
+                    Point2="54,29.9999999999999"
+                    Point3="54,33.9999999999999" />
+                  <mssgle:LineSegment
+                    End="54,52.4999999999999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -26504,9 +26104,7 @@ where [refTable].[TypeOrderID] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -26528,9 +26126,7 @@ where [refTable].[TypeOrderID] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -26552,9 +26148,7 @@ where [refTable].[TypeOrderID] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -26696,9 +26290,7 @@ where [refTable].[TypeOrderID] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -26732,9 +26324,7 @@ where [refTable].[TypeOrderID] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -26768,9 +26358,7 @@ where [refTable].[TypeOrderID] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -26804,9 +26392,7 @@ where [refTable].[TypeOrderID] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -26840,9 +26426,7 @@ where [refTable].[TypeOrderID] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -26876,20 +26460,18 @@ where [refTable].[TypeOrderID] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\NDS2DDS\Load Product Dim.Paths[OLE DB Source Output3]"
-          TopLeft="152.166666666667,458.833333333333">
+          TopLeft="159.166666666667,48.1666666666666">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="54,59.9999999999999"
+              EndConnector="52,59.9999999999999"
               Start="0,0"
-              End="54,52.4999999999999">
+              End="52,52.4999999999999">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -26900,57 +26482,41 @@ where [refTable].[TypeOrderID] = ?</property>
                     Point2="0,29.9999999999999"
                     Point3="4,29.9999999999999" />
                   <mssgle:LineSegment
-                    End="50,29.9999999999999" />
+                    End="48,29.9999999999999" />
                   <mssgle:CubicBezierSegment
-                    Point1="50,29.9999999999999"
-                    Point2="54,29.9999999999999"
-                    Point3="54,33.9999999999999" />
+                    Point1="48,29.9999999999999"
+                    Point2="52,29.9999999999999"
+                    Point3="52,33.9999999999999" />
                   <mssgle:LineSegment
-                    End="54,52.4999999999999" />
+                    End="52,52.4999999999999" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\NDS2DDS\Load Product Dim.Paths[OLE DB Source Output2]"
-          TopLeft="148.166666666667,253.5">
+          TopLeft="375.166666666667,48.1666666666666">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="58,59.9999999999999"
+              EndConnector="0,59.9999999999999"
               Start="0,0"
-              End="58,52.4999999999999">
+              End="0,52.4999999999999">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,25.9999999999999" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,25.9999999999999"
-                    Point2="0,29.9999999999999"
-                    Point3="4,29.9999999999999" />
-                  <mssgle:LineSegment
-                    End="54,29.9999999999999" />
-                  <mssgle:CubicBezierSegment
-                    Point1="54,29.9999999999999"
-                    Point2="58,29.9999999999999"
-                    Point3="58,33.9999999999999" />
-                  <mssgle:LineSegment
-                    End="58,52.4999999999999" />
+                    End="0,52.4999999999999" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>

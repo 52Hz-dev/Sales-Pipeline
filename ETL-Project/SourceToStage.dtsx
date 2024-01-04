@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="SourceToStage"
   DTS:PackageType="5"
-  DTS:VersionBuild="274"
-  DTS:VersionGUID="{57C01B6F-E5F9-473F-815C-DFE18B0C14F4}">
+  DTS:VersionBuild="279"
+  DTS:VersionGUID="{373EF525-1133-4339-9939-DD14A1E4F427}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -217,7 +217,7 @@
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
               SQLTask:Connection="{991DF3B3-90F2-4295-A6D0-52616A439A1F}"
-              SQLTask:SqlStatementSource="SELECT LSET,GETDATE() AS CET&#xA; FROM     Data_Flow&#xA;WHERE  (Name = 'DMX_CUSTOMER')"
+              SQLTask:SqlStatementSource="SELECT CONVERT(varchar, LSET, 25) AS LSET, CONVERT(varchar, GETDATE(), 25) AS CET&#xA;FROM     Data_Flow&#xA;WHERE  (Name = 'DMX_CUSTOMER')"
               SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
               <SQLTask:ResultBinding
                 SQLTask:ResultName="0"
@@ -242,7 +242,7 @@
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
               SQLTask:Connection="{991DF3B3-90F2-4295-A6D0-52616A439A1F}"
-              SQLTask:SqlStatementSource="SELECT LSET, GETDATE() AS CET&#xA;FROM     Data_Flow&#xA;WHERE  (Name = 'DMX_SALESORDERDETAIL')"
+              SQLTask:SqlStatementSource="SELECT CONVERT(varchar, LSET, 25) AS LSET, CONVERT(varchar, GETDATE(), 25) AS CET&#xA;FROM     Data_Flow&#xA;WHERE  (Name = 'DMX_SALESORDERDETAIL')"
               SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
               <SQLTask:ResultBinding
                 SQLTask:ResultName="LSET"
@@ -267,7 +267,7 @@
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
               SQLTask:Connection="{991DF3B3-90F2-4295-A6D0-52616A439A1F}"
-              SQLTask:SqlStatementSource="SELECT LSET, GETDATE() AS CET&#xA;FROM     Data_Flow&#xA;WHERE  (Name = 'DMX_SALESORDERHEADER')"
+              SQLTask:SqlStatementSource="SELECT CONVERT(varchar, LSET, 25) AS LSET, CONVERT(varchar, GETDATE(), 25) AS CET&#xA;FROM     Data_Flow&#xA;WHERE  (Name = 'DMX_SALESORDERHEADER')"
               SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
               <SQLTask:ResultBinding
                 SQLTask:ResultName="LSET"
@@ -6526,277 +6526,6 @@ OR (CREATEDATE&gt;=? AND CREATEDATE&lt;?)</property>
                   </outputs>
                 </component>
                 <component
-                  refId="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE\SalesOrderDetail"
-                  componentClassID="Microsoft.OLEDBSource"
-                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
-                  description="OLE DB Source"
-                  name="SalesOrderDetail"
-                  usesDispositions="true"
-                  version="7">
-                  <properties>
-                    <property
-                      dataType="System.Int32"
-                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
-                      name="CommandTimeout">0</property>
-                    <property
-                      dataType="System.String"
-                      description="Specifies the name of the database object used to open a rowset."
-                      name="OpenRowset">[dbo].[SalesOrderDetail]</property>
-                    <property
-                      dataType="System.String"
-                      description="Specifies the variable that contains the name of the database object used to open a rowset."
-                      name="OpenRowsetVariable"></property>
-                    <property
-                      dataType="System.String"
-                      description="The SQL command to be executed."
-                      name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
-                    <property
-                      dataType="System.String"
-                      description="The variable that contains the SQL command to be executed."
-                      name="SqlCommandVariable"></property>
-                    <property
-                      dataType="System.Int32"
-                      description="Specifies the column code page to use when code page information is unavailable from the data source."
-                      name="DefaultCodePage">1252</property>
-                    <property
-                      dataType="System.Boolean"
-                      description="Forces the use of the DefaultCodePage property value when describing character data."
-                      name="AlwaysUseDefaultCodePage">false</property>
-                    <property
-                      dataType="System.Int32"
-                      description="Specifies the mode used to access the database."
-                      name="AccessMode"
-                      typeConverter="AccessMode">0</property>
-                    <property
-                      dataType="System.String"
-                      description="The mappings between the parameters in the SQL command and variables."
-                      name="ParameterMapping"></property>
-                  </properties>
-                  <connections>
-                    <connection
-                      refId="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE\SalesOrderDetail.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[NAUU.DMX]"
-                      connectionManagerRefId="Package.ConnectionManagers[NAUU.DMX]"
-                      description="The OLE DB runtime connection used to access the database."
-                      name="OleDbConnection" />
-                  </connections>
-                  <outputs>
-                    <output
-                      refId="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE\SalesOrderDetail.Outputs[OLE DB Source Output]"
-                      name="OLE DB Source Output">
-                      <outputColumns>
-                        <outputColumn
-                          refId="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE\SalesOrderDetail.Outputs[OLE DB Source Output].Columns[SalesOrderID]"
-                          dataType="r8"
-                          errorOrTruncationOperation="Conversion"
-                          errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE\SalesOrderDetail.Outputs[OLE DB Source Output].ExternalColumns[SalesOrderID]"
-                          lineageId="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE\SalesOrderDetail.Outputs[OLE DB Source Output].Columns[SalesOrderID]"
-                          name="SalesOrderID"
-                          truncationRowDisposition="FailComponent" />
-                        <outputColumn
-                          refId="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE\SalesOrderDetail.Outputs[OLE DB Source Output].Columns[SalesOrderDetailID]"
-                          dataType="r8"
-                          errorOrTruncationOperation="Conversion"
-                          errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE\SalesOrderDetail.Outputs[OLE DB Source Output].ExternalColumns[SalesOrderDetailID]"
-                          lineageId="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE\SalesOrderDetail.Outputs[OLE DB Source Output].Columns[SalesOrderDetailID]"
-                          name="SalesOrderDetailID"
-                          truncationRowDisposition="FailComponent" />
-                        <outputColumn
-                          refId="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE\SalesOrderDetail.Outputs[OLE DB Source Output].Columns[ProductID]"
-                          dataType="r8"
-                          errorOrTruncationOperation="Conversion"
-                          errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE\SalesOrderDetail.Outputs[OLE DB Source Output].ExternalColumns[ProductID]"
-                          lineageId="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE\SalesOrderDetail.Outputs[OLE DB Source Output].Columns[ProductID]"
-                          name="ProductID"
-                          truncationRowDisposition="FailComponent" />
-                        <outputColumn
-                          refId="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE\SalesOrderDetail.Outputs[OLE DB Source Output].Columns[SpecialOfferID]"
-                          dataType="r8"
-                          errorOrTruncationOperation="Conversion"
-                          errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE\SalesOrderDetail.Outputs[OLE DB Source Output].ExternalColumns[SpecialOfferID]"
-                          lineageId="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE\SalesOrderDetail.Outputs[OLE DB Source Output].Columns[SpecialOfferID]"
-                          name="SpecialOfferID"
-                          truncationRowDisposition="FailComponent" />
-                        <outputColumn
-                          refId="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE\SalesOrderDetail.Outputs[OLE DB Source Output].Columns[UnitPrice]"
-                          dataType="r8"
-                          errorOrTruncationOperation="Conversion"
-                          errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE\SalesOrderDetail.Outputs[OLE DB Source Output].ExternalColumns[UnitPrice]"
-                          lineageId="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE\SalesOrderDetail.Outputs[OLE DB Source Output].Columns[UnitPrice]"
-                          name="UnitPrice"
-                          truncationRowDisposition="FailComponent" />
-                        <outputColumn
-                          refId="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE\SalesOrderDetail.Outputs[OLE DB Source Output].Columns[OrderQty]"
-                          dataType="r8"
-                          errorOrTruncationOperation="Conversion"
-                          errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE\SalesOrderDetail.Outputs[OLE DB Source Output].ExternalColumns[OrderQty]"
-                          lineageId="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE\SalesOrderDetail.Outputs[OLE DB Source Output].Columns[OrderQty]"
-                          name="OrderQty"
-                          truncationRowDisposition="FailComponent" />
-                        <outputColumn
-                          refId="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE\SalesOrderDetail.Outputs[OLE DB Source Output].Columns[UnitPriceDiscount]"
-                          dataType="r8"
-                          errorOrTruncationOperation="Conversion"
-                          errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE\SalesOrderDetail.Outputs[OLE DB Source Output].ExternalColumns[UnitPriceDiscount]"
-                          lineageId="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE\SalesOrderDetail.Outputs[OLE DB Source Output].Columns[UnitPriceDiscount]"
-                          name="UnitPriceDiscount"
-                          truncationRowDisposition="FailComponent" />
-                        <outputColumn
-                          refId="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE\SalesOrderDetail.Outputs[OLE DB Source Output].Columns[CarrierTrackingNumber]"
-                          dataType="wstr"
-                          errorOrTruncationOperation="Conversion"
-                          errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE\SalesOrderDetail.Outputs[OLE DB Source Output].ExternalColumns[CarrierTrackingNumber]"
-                          length="255"
-                          lineageId="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE\SalesOrderDetail.Outputs[OLE DB Source Output].Columns[CarrierTrackingNumber]"
-                          name="CarrierTrackingNumber"
-                          truncationRowDisposition="FailComponent" />
-                        <outputColumn
-                          refId="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE\SalesOrderDetail.Outputs[OLE DB Source Output].Columns[DueDate]"
-                          dataType="dbTimeStamp"
-                          errorOrTruncationOperation="Conversion"
-                          errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE\SalesOrderDetail.Outputs[OLE DB Source Output].ExternalColumns[DueDate]"
-                          lineageId="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE\SalesOrderDetail.Outputs[OLE DB Source Output].Columns[DueDate]"
-                          name="DueDate"
-                          truncationRowDisposition="FailComponent" />
-                        <outputColumn
-                          refId="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE\SalesOrderDetail.Outputs[OLE DB Source Output].Columns[ShipDate]"
-                          dataType="dbTimeStamp"
-                          errorOrTruncationOperation="Conversion"
-                          errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE\SalesOrderDetail.Outputs[OLE DB Source Output].ExternalColumns[ShipDate]"
-                          lineageId="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE\SalesOrderDetail.Outputs[OLE DB Source Output].Columns[ShipDate]"
-                          name="ShipDate"
-                          truncationRowDisposition="FailComponent" />
-                      </outputColumns>
-                      <externalMetadataColumns
-                        isUsed="True">
-                        <externalMetadataColumn
-                          refId="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE\SalesOrderDetail.Outputs[OLE DB Source Output].ExternalColumns[SalesOrderID]"
-                          dataType="r8"
-                          name="SalesOrderID" />
-                        <externalMetadataColumn
-                          refId="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE\SalesOrderDetail.Outputs[OLE DB Source Output].ExternalColumns[SalesOrderDetailID]"
-                          dataType="r8"
-                          name="SalesOrderDetailID" />
-                        <externalMetadataColumn
-                          refId="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE\SalesOrderDetail.Outputs[OLE DB Source Output].ExternalColumns[ProductID]"
-                          dataType="r8"
-                          name="ProductID" />
-                        <externalMetadataColumn
-                          refId="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE\SalesOrderDetail.Outputs[OLE DB Source Output].ExternalColumns[SpecialOfferID]"
-                          dataType="r8"
-                          name="SpecialOfferID" />
-                        <externalMetadataColumn
-                          refId="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE\SalesOrderDetail.Outputs[OLE DB Source Output].ExternalColumns[UnitPrice]"
-                          dataType="r8"
-                          name="UnitPrice" />
-                        <externalMetadataColumn
-                          refId="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE\SalesOrderDetail.Outputs[OLE DB Source Output].ExternalColumns[OrderQty]"
-                          dataType="r8"
-                          name="OrderQty" />
-                        <externalMetadataColumn
-                          refId="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE\SalesOrderDetail.Outputs[OLE DB Source Output].ExternalColumns[UnitPriceDiscount]"
-                          dataType="r8"
-                          name="UnitPriceDiscount" />
-                        <externalMetadataColumn
-                          refId="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE\SalesOrderDetail.Outputs[OLE DB Source Output].ExternalColumns[CarrierTrackingNumber]"
-                          dataType="wstr"
-                          length="255"
-                          name="CarrierTrackingNumber" />
-                        <externalMetadataColumn
-                          refId="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE\SalesOrderDetail.Outputs[OLE DB Source Output].ExternalColumns[DueDate]"
-                          dataType="dbTimeStamp"
-                          name="DueDate" />
-                        <externalMetadataColumn
-                          refId="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE\SalesOrderDetail.Outputs[OLE DB Source Output].ExternalColumns[ShipDate]"
-                          dataType="dbTimeStamp"
-                          name="ShipDate" />
-                      </externalMetadataColumns>
-                    </output>
-                    <output
-                      refId="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE\SalesOrderDetail.Outputs[OLE DB Source Error Output]"
-                      isErrorOut="true"
-                      name="OLE DB Source Error Output">
-                      <outputColumns>
-                        <outputColumn
-                          refId="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE\SalesOrderDetail.Outputs[OLE DB Source Error Output].Columns[SalesOrderID]"
-                          dataType="r8"
-                          lineageId="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE\SalesOrderDetail.Outputs[OLE DB Source Error Output].Columns[SalesOrderID]"
-                          name="SalesOrderID" />
-                        <outputColumn
-                          refId="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE\SalesOrderDetail.Outputs[OLE DB Source Error Output].Columns[SalesOrderDetailID]"
-                          dataType="r8"
-                          lineageId="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE\SalesOrderDetail.Outputs[OLE DB Source Error Output].Columns[SalesOrderDetailID]"
-                          name="SalesOrderDetailID" />
-                        <outputColumn
-                          refId="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE\SalesOrderDetail.Outputs[OLE DB Source Error Output].Columns[ProductID]"
-                          dataType="r8"
-                          lineageId="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE\SalesOrderDetail.Outputs[OLE DB Source Error Output].Columns[ProductID]"
-                          name="ProductID" />
-                        <outputColumn
-                          refId="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE\SalesOrderDetail.Outputs[OLE DB Source Error Output].Columns[SpecialOfferID]"
-                          dataType="r8"
-                          lineageId="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE\SalesOrderDetail.Outputs[OLE DB Source Error Output].Columns[SpecialOfferID]"
-                          name="SpecialOfferID" />
-                        <outputColumn
-                          refId="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE\SalesOrderDetail.Outputs[OLE DB Source Error Output].Columns[UnitPrice]"
-                          dataType="r8"
-                          lineageId="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE\SalesOrderDetail.Outputs[OLE DB Source Error Output].Columns[UnitPrice]"
-                          name="UnitPrice" />
-                        <outputColumn
-                          refId="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE\SalesOrderDetail.Outputs[OLE DB Source Error Output].Columns[OrderQty]"
-                          dataType="r8"
-                          lineageId="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE\SalesOrderDetail.Outputs[OLE DB Source Error Output].Columns[OrderQty]"
-                          name="OrderQty" />
-                        <outputColumn
-                          refId="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE\SalesOrderDetail.Outputs[OLE DB Source Error Output].Columns[UnitPriceDiscount]"
-                          dataType="r8"
-                          lineageId="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE\SalesOrderDetail.Outputs[OLE DB Source Error Output].Columns[UnitPriceDiscount]"
-                          name="UnitPriceDiscount" />
-                        <outputColumn
-                          refId="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE\SalesOrderDetail.Outputs[OLE DB Source Error Output].Columns[CarrierTrackingNumber]"
-                          dataType="wstr"
-                          length="255"
-                          lineageId="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE\SalesOrderDetail.Outputs[OLE DB Source Error Output].Columns[CarrierTrackingNumber]"
-                          name="CarrierTrackingNumber" />
-                        <outputColumn
-                          refId="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE\SalesOrderDetail.Outputs[OLE DB Source Error Output].Columns[DueDate]"
-                          dataType="dbTimeStamp"
-                          lineageId="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE\SalesOrderDetail.Outputs[OLE DB Source Error Output].Columns[DueDate]"
-                          name="DueDate" />
-                        <outputColumn
-                          refId="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE\SalesOrderDetail.Outputs[OLE DB Source Error Output].Columns[ShipDate]"
-                          dataType="dbTimeStamp"
-                          lineageId="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE\SalesOrderDetail.Outputs[OLE DB Source Error Output].Columns[ShipDate]"
-                          name="ShipDate" />
-                        <outputColumn
-                          refId="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE\SalesOrderDetail.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
-                          dataType="i4"
-                          lineageId="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE\SalesOrderDetail.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
-                          name="ErrorCode"
-                          specialFlags="1" />
-                        <outputColumn
-                          refId="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE\SalesOrderDetail.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
-                          dataType="i4"
-                          lineageId="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE\SalesOrderDetail.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
-                          name="ErrorColumn"
-                          specialFlags="2" />
-                      </outputColumns>
-                      <externalMetadataColumns />
-                    </output>
-                  </outputs>
-                </component>
-                <component
                   refId="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE\SalesTerritory"
                   componentClassID="Microsoft.OLEDBSource"
                   contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
@@ -7118,211 +6847,6 @@ OR (CREATEDATE&gt;=? AND CREATEDATE&lt;?)</property>
                           refId="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE\SalesTerritoryHistory.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
                           dataType="i4"
                           lineageId="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE\SalesTerritoryHistory.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
-                          name="ErrorColumn"
-                          specialFlags="2" />
-                      </outputColumns>
-                      <externalMetadataColumns />
-                    </output>
-                  </outputs>
-                </component>
-                <component
-                  refId="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE\SALES_ORDER_DETAIL_DMX_STAGE"
-                  componentClassID="Microsoft.OLEDBDestination"
-                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
-                  description="OLE DB Destination"
-                  name="SALES_ORDER_DETAIL_DMX_STAGE"
-                  usesDispositions="true"
-                  version="4">
-                  <properties>
-                    <property
-                      dataType="System.Int32"
-                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
-                      name="CommandTimeout">0</property>
-                    <property
-                      dataType="System.String"
-                      description="Specifies the name of the database object used to open a rowset."
-                      name="OpenRowset">[SALES_ORDER_DETAIL_DMX_STAGE]</property>
-                    <property
-                      dataType="System.String"
-                      description="Specifies the variable that contains the name of the database object used to open a rowset."
-                      name="OpenRowsetVariable"></property>
-                    <property
-                      dataType="System.String"
-                      description="The SQL command to be executed."
-                      name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
-                    <property
-                      dataType="System.Int32"
-                      description="Specifies the column code page to use when code page information is unavailable from the data source."
-                      name="DefaultCodePage">1252</property>
-                    <property
-                      dataType="System.Boolean"
-                      description="Forces the use of the DefaultCodePage property value when describing character data."
-                      name="AlwaysUseDefaultCodePage">false</property>
-                    <property
-                      dataType="System.Int32"
-                      description="Specifies the mode used to access the database."
-                      name="AccessMode"
-                      typeConverter="AccessMode">3</property>
-                    <property
-                      dataType="System.Boolean"
-                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
-                      name="FastLoadKeepIdentity">false</property>
-                    <property
-                      dataType="System.Boolean"
-                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
-                      name="FastLoadKeepNulls">false</property>
-                    <property
-                      dataType="System.String"
-                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
-                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
-                    <property
-                      dataType="System.Int32"
-                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
-                      name="FastLoadMaxInsertCommitSize">2147483647</property>
-                  </properties>
-                  <connections>
-                    <connection
-                      refId="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE\SALES_ORDER_DETAIL_DMX_STAGE.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[NAUU.Stage]"
-                      connectionManagerRefId="Package.ConnectionManagers[NAUU.Stage]"
-                      description="The OLE DB runtime connection used to access the database."
-                      name="OleDbConnection" />
-                  </connections>
-                  <inputs>
-                    <input
-                      refId="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE\SALES_ORDER_DETAIL_DMX_STAGE.Inputs[OLE DB Destination Input]"
-                      errorOrTruncationOperation="Insert"
-                      errorRowDisposition="FailComponent"
-                      hasSideEffects="true"
-                      name="OLE DB Destination Input">
-                      <inputColumns>
-                        <inputColumn
-                          refId="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE\SALES_ORDER_DETAIL_DMX_STAGE.Inputs[OLE DB Destination Input].Columns[SalesOrderID]"
-                          cachedDataType="r8"
-                          cachedName="SalesOrderID"
-                          externalMetadataColumnId="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE\SALES_ORDER_DETAIL_DMX_STAGE.Inputs[OLE DB Destination Input].ExternalColumns[SalesOrderID]"
-                          lineageId="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE\SalesOrderDetail.Outputs[OLE DB Source Output].Columns[SalesOrderID]" />
-                        <inputColumn
-                          refId="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE\SALES_ORDER_DETAIL_DMX_STAGE.Inputs[OLE DB Destination Input].Columns[SalesOrderDetailID]"
-                          cachedDataType="r8"
-                          cachedName="SalesOrderDetailID"
-                          externalMetadataColumnId="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE\SALES_ORDER_DETAIL_DMX_STAGE.Inputs[OLE DB Destination Input].ExternalColumns[SalesOrderDetailID]"
-                          lineageId="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE\SalesOrderDetail.Outputs[OLE DB Source Output].Columns[SalesOrderDetailID]" />
-                        <inputColumn
-                          refId="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE\SALES_ORDER_DETAIL_DMX_STAGE.Inputs[OLE DB Destination Input].Columns[ProductID]"
-                          cachedDataType="r8"
-                          cachedName="ProductID"
-                          externalMetadataColumnId="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE\SALES_ORDER_DETAIL_DMX_STAGE.Inputs[OLE DB Destination Input].ExternalColumns[ProductID]"
-                          lineageId="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE\SalesOrderDetail.Outputs[OLE DB Source Output].Columns[ProductID]" />
-                        <inputColumn
-                          refId="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE\SALES_ORDER_DETAIL_DMX_STAGE.Inputs[OLE DB Destination Input].Columns[SpecialOfferID]"
-                          cachedDataType="r8"
-                          cachedName="SpecialOfferID"
-                          externalMetadataColumnId="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE\SALES_ORDER_DETAIL_DMX_STAGE.Inputs[OLE DB Destination Input].ExternalColumns[SpecialOfferID]"
-                          lineageId="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE\SalesOrderDetail.Outputs[OLE DB Source Output].Columns[SpecialOfferID]" />
-                        <inputColumn
-                          refId="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE\SALES_ORDER_DETAIL_DMX_STAGE.Inputs[OLE DB Destination Input].Columns[UnitPrice]"
-                          cachedDataType="r8"
-                          cachedName="UnitPrice"
-                          externalMetadataColumnId="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE\SALES_ORDER_DETAIL_DMX_STAGE.Inputs[OLE DB Destination Input].ExternalColumns[UnitPrice]"
-                          lineageId="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE\SalesOrderDetail.Outputs[OLE DB Source Output].Columns[UnitPrice]" />
-                        <inputColumn
-                          refId="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE\SALES_ORDER_DETAIL_DMX_STAGE.Inputs[OLE DB Destination Input].Columns[OrderQty]"
-                          cachedDataType="r8"
-                          cachedName="OrderQty"
-                          externalMetadataColumnId="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE\SALES_ORDER_DETAIL_DMX_STAGE.Inputs[OLE DB Destination Input].ExternalColumns[OrderQty]"
-                          lineageId="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE\SalesOrderDetail.Outputs[OLE DB Source Output].Columns[OrderQty]" />
-                        <inputColumn
-                          refId="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE\SALES_ORDER_DETAIL_DMX_STAGE.Inputs[OLE DB Destination Input].Columns[UnitPriceDiscount]"
-                          cachedDataType="r8"
-                          cachedName="UnitPriceDiscount"
-                          externalMetadataColumnId="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE\SALES_ORDER_DETAIL_DMX_STAGE.Inputs[OLE DB Destination Input].ExternalColumns[UnitPriceDiscount]"
-                          lineageId="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE\SalesOrderDetail.Outputs[OLE DB Source Output].Columns[UnitPriceDiscount]" />
-                        <inputColumn
-                          refId="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE\SALES_ORDER_DETAIL_DMX_STAGE.Inputs[OLE DB Destination Input].Columns[CarrierTrackingNumber]"
-                          cachedDataType="wstr"
-                          cachedLength="255"
-                          cachedName="CarrierTrackingNumber"
-                          externalMetadataColumnId="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE\SALES_ORDER_DETAIL_DMX_STAGE.Inputs[OLE DB Destination Input].ExternalColumns[CarrierTrackingNumber]"
-                          lineageId="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE\SalesOrderDetail.Outputs[OLE DB Source Output].Columns[CarrierTrackingNumber]" />
-                        <inputColumn
-                          refId="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE\SALES_ORDER_DETAIL_DMX_STAGE.Inputs[OLE DB Destination Input].Columns[DueDate]"
-                          cachedDataType="dbTimeStamp"
-                          cachedName="DueDate"
-                          externalMetadataColumnId="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE\SALES_ORDER_DETAIL_DMX_STAGE.Inputs[OLE DB Destination Input].ExternalColumns[DueDate]"
-                          lineageId="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE\SalesOrderDetail.Outputs[OLE DB Source Output].Columns[DueDate]" />
-                        <inputColumn
-                          refId="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE\SALES_ORDER_DETAIL_DMX_STAGE.Inputs[OLE DB Destination Input].Columns[ShipDate]"
-                          cachedDataType="dbTimeStamp"
-                          cachedName="ShipDate"
-                          externalMetadataColumnId="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE\SALES_ORDER_DETAIL_DMX_STAGE.Inputs[OLE DB Destination Input].ExternalColumns[ShipDate]"
-                          lineageId="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE\SalesOrderDetail.Outputs[OLE DB Source Output].Columns[ShipDate]" />
-                      </inputColumns>
-                      <externalMetadataColumns
-                        isUsed="True">
-                        <externalMetadataColumn
-                          refId="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE\SALES_ORDER_DETAIL_DMX_STAGE.Inputs[OLE DB Destination Input].ExternalColumns[SalesOrderID]"
-                          dataType="r8"
-                          name="SalesOrderID" />
-                        <externalMetadataColumn
-                          refId="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE\SALES_ORDER_DETAIL_DMX_STAGE.Inputs[OLE DB Destination Input].ExternalColumns[SalesOrderDetailID]"
-                          dataType="r8"
-                          name="SalesOrderDetailID" />
-                        <externalMetadataColumn
-                          refId="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE\SALES_ORDER_DETAIL_DMX_STAGE.Inputs[OLE DB Destination Input].ExternalColumns[ProductID]"
-                          dataType="r8"
-                          name="ProductID" />
-                        <externalMetadataColumn
-                          refId="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE\SALES_ORDER_DETAIL_DMX_STAGE.Inputs[OLE DB Destination Input].ExternalColumns[SpecialOfferID]"
-                          dataType="r8"
-                          name="SpecialOfferID" />
-                        <externalMetadataColumn
-                          refId="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE\SALES_ORDER_DETAIL_DMX_STAGE.Inputs[OLE DB Destination Input].ExternalColumns[UnitPrice]"
-                          dataType="r8"
-                          name="UnitPrice" />
-                        <externalMetadataColumn
-                          refId="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE\SALES_ORDER_DETAIL_DMX_STAGE.Inputs[OLE DB Destination Input].ExternalColumns[OrderQty]"
-                          dataType="r8"
-                          name="OrderQty" />
-                        <externalMetadataColumn
-                          refId="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE\SALES_ORDER_DETAIL_DMX_STAGE.Inputs[OLE DB Destination Input].ExternalColumns[UnitPriceDiscount]"
-                          dataType="r8"
-                          name="UnitPriceDiscount" />
-                        <externalMetadataColumn
-                          refId="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE\SALES_ORDER_DETAIL_DMX_STAGE.Inputs[OLE DB Destination Input].ExternalColumns[CarrierTrackingNumber]"
-                          dataType="wstr"
-                          length="255"
-                          name="CarrierTrackingNumber" />
-                        <externalMetadataColumn
-                          refId="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE\SALES_ORDER_DETAIL_DMX_STAGE.Inputs[OLE DB Destination Input].ExternalColumns[DueDate]"
-                          dataType="dbTimeStamp"
-                          name="DueDate" />
-                        <externalMetadataColumn
-                          refId="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE\SALES_ORDER_DETAIL_DMX_STAGE.Inputs[OLE DB Destination Input].ExternalColumns[ShipDate]"
-                          dataType="dbTimeStamp"
-                          name="ShipDate" />
-                      </externalMetadataColumns>
-                    </input>
-                  </inputs>
-                  <outputs>
-                    <output
-                      refId="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE\SALES_ORDER_DETAIL_DMX_STAGE.Outputs[OLE DB Destination Error Output]"
-                      exclusionGroup="1"
-                      isErrorOut="true"
-                      name="OLE DB Destination Error Output"
-                      synchronousInputId="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE\SALES_ORDER_DETAIL_DMX_STAGE.Inputs[OLE DB Destination Input]">
-                      <outputColumns>
-                        <outputColumn
-                          refId="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE\SALES_ORDER_DETAIL_DMX_STAGE.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
-                          dataType="i4"
-                          lineageId="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE\SALES_ORDER_DETAIL_DMX_STAGE.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
-                          name="ErrorCode"
-                          specialFlags="1" />
-                        <outputColumn
-                          refId="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE\SALES_ORDER_DETAIL_DMX_STAGE.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
-                          dataType="i4"
-                          lineageId="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE\SALES_ORDER_DETAIL_DMX_STAGE.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                           name="ErrorColumn"
                           specialFlags="2" />
                       </outputColumns>
@@ -8295,41 +7819,36 @@ OR (CREATEDATE&gt;=? AND CREATEDATE&lt;?)</property>
                   startId="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE\SalesTerritory.Outputs[OLE DB Source Output]" />
                 <path
                   refId="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE.Paths[OLE DB Source Output4]"
-                  endId="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE\SALES_ORDER_DETAIL_DMX_STAGE.Inputs[OLE DB Destination Input]"
-                  name="OLE DB Source Output"
-                  startId="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE\SalesOrderDetail.Outputs[OLE DB Source Output]" />
-                <path
-                  refId="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE.Paths[OLE DB Source Output5]"
                   endId="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE\PRODUCT_VENDOR_DMX_STAGE.Inputs[OLE DB Destination Input]"
                   name="OLE DB Source Output"
                   startId="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE\ProductVendor.Outputs[OLE DB Source Output]" />
                 <path
-                  refId="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE.Paths[OLE DB Source Output6]"
+                  refId="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE.Paths[OLE DB Source Output5]"
                   endId="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE\PRODUCT_SUB_CATEGORY_DMX_STAGE.Inputs[OLE DB Destination Input]"
                   name="OLE DB Source Output"
                   startId="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE\ProductSubCategory.Outputs[OLE DB Source Output]" />
                 <path
-                  refId="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE.Paths[OLE DB Source Output7]"
+                  refId="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE.Paths[OLE DB Source Output6]"
                   endId="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE\PRODUCT_MODEL_DMX_STAGE.Inputs[OLE DB Destination Input]"
                   name="OLE DB Source Output"
                   startId="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE\ProductModel.Outputs[OLE DB Source Output]" />
                 <path
-                  refId="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE.Paths[OLE DB Source Output8]"
+                  refId="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE.Paths[OLE DB Source Output7]"
                   endId="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE\PRODUCT_CATEGORY_DMX_STAGE.Inputs[OLE DB Destination Input]"
                   name="OLE DB Source Output"
                   startId="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE\ProductCategory.Outputs[OLE DB Source Output]" />
                 <path
-                  refId="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE.Paths[OLE DB Source Output9]"
+                  refId="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE.Paths[OLE DB Source Output8]"
                   endId="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE\PRODUCT_DMX_STAGE.Inputs[OLE DB Destination Input]"
                   name="OLE DB Source Output"
                   startId="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE\Product.Outputs[OLE DB Source Output]" />
                 <path
-                  refId="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE.Paths[OLE DB Source Output10]"
+                  refId="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE.Paths[OLE DB Source Output9]"
                   endId="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE\PERSON_DMX_STAGE.Inputs[OLE DB Destination Input]"
                   name="OLE DB Source Output"
                   startId="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE\Person.Outputs[OLE DB Source Output]" />
                 <path
-                  refId="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE.Paths[OLE DB Source Output11]"
+                  refId="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE.Paths[OLE DB Source Output10]"
                   endId="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE\EMPLOYEE_DMX_STAGE.Inputs[OLE DB Destination Input]"
                   name="OLE DB Source Output"
                   startId="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE\Employee.Outputs[OLE DB Source Output]" />
@@ -14205,7 +13724,7 @@ OR (CREATEDATE&gt;=? AND CREATEDATE&lt;?)</property>
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
               SQLTask:Connection="{991DF3B3-90F2-4295-A6D0-52616A439A1F}"
-              SQLTask:SqlStatementSource="SELECT LSET,GETDATE() AS CET FROM dbo.Data_Flow&#xA;WHERE  (Name = 'TGDD_ADDRESS')"
+              SQLTask:SqlStatementSource="SELECT CONVERT(varchar, LSET, 25) AS LSET, CONVERT(varchar, GETDATE(), 25) AS CET&#xA;FROM     Data_Flow&#xA;WHERE  (Name = 'TGDD_ADDRESS')"
               SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
               <SQLTask:ResultBinding
                 SQLTask:ResultName="LSET"
@@ -14225,12 +13744,12 @@ OR (CREATEDATE&gt;=? AND CREATEDATE&lt;?)</property>
           DTS:LocaleID="-1"
           DTS:ObjectName="GET LSET&amp;CET1"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="1">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
               SQLTask:Connection="{991DF3B3-90F2-4295-A6D0-52616A439A1F}"
-              SQLTask:SqlStatementSource="SELECT LSET, GETDATE() AS CET&#xA;FROM     Data_Flow&#xA;WHERE  (Name = 'TGDD_CUSTOMER')"
+              SQLTask:SqlStatementSource="SELECT CONVERT(varchar, LSET, 25) AS LSET, CONVERT(varchar, GETDATE(), 25) AS CET&#xA;FROM     Data_Flow&#xA;WHERE  (Name = 'TGDD_CUSTOMER')"
               SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
               <SQLTask:ResultBinding
                 SQLTask:ResultName="LSET"
@@ -14250,12 +13769,12 @@ OR (CREATEDATE&gt;=? AND CREATEDATE&lt;?)</property>
           DTS:LocaleID="-1"
           DTS:ObjectName="GET LSET&amp;CET1 1"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="2">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
               SQLTask:Connection="{991DF3B3-90F2-4295-A6D0-52616A439A1F}"
-              SQLTask:SqlStatementSource="SELECT LSET, GETDATE() AS CET&#xA;FROM     Data_Flow&#xA;WHERE  (Name = 'DMX_SALESORDERDETAIL')"
+              SQLTask:SqlStatementSource="SELECT CONVERT(varchar, LSET, 25) AS LSET, CONVERT(varchar, GETDATE(), 25) AS CET&#xA;FROM     Data_Flow&#xA;WHERE  (Name = 'DMX_SALESORDERDETAIL')"
               SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
               <SQLTask:ResultBinding
                 SQLTask:ResultName="LSET"
@@ -14275,12 +13794,12 @@ OR (CREATEDATE&gt;=? AND CREATEDATE&lt;?)</property>
           DTS:LocaleID="-1"
           DTS:ObjectName="GET LSET&amp;CET1 1 1"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="3">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
               SQLTask:Connection="{991DF3B3-90F2-4295-A6D0-52616A439A1F}"
-              SQLTask:SqlStatementSource="SELECT LSET, GETDATE() AS CET&#xA;FROM     Data_Flow&#xA;WHERE  (Name = 'DMX_SALESORDERHEADER')"
+              SQLTask:SqlStatementSource="SELECT CONVERT(varchar, LSET, 25) AS LSET, CONVERT(varchar, GETDATE(), 25) AS CET&#xA;FROM     Data_Flow&#xA;WHERE  (Name = 'DMX_SALESORDERHEADER')"
               SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
               <SQLTask:ResultBinding
                 SQLTask:ResultName="LSET"
@@ -14353,7 +13872,7 @@ OR (CREATEDATE&gt;=? AND CREATEDATE&lt;?)</property>
                     <property
                       dataType="System.String"
                       description="The mappings between the parameters in the SQL command and variables."
-                      name="ParameterMapping">"Parameter0:Input",{A7B2E90B-DB4A-4E73-BA27-BBD4AF4078FA};"Parameter1:Input",{EC51E2D7-2EFE-4F3C-817F-4328346FE8E2};"Parameter2:Input",{A7B2E90B-DB4A-4E73-BA27-BBD4AF4078FA};"Parameter3:Input",{EC51E2D7-2EFE-4F3C-817F-4328346FE8E2};</property>
+                      name="ParameterMapping">"Parameter0:Input",{1A021DDF-638D-421D-B27B-E19C5EBD3652};"Parameter1:Input",{2D848FD0-2146-41BE-B918-100D5A9D4741};"Parameter2:Input",{1A021DDF-638D-421D-B27B-E19C5EBD3652};"Parameter3:Input",{2D848FD0-2146-41BE-B918-100D5A9D4741};</property>
                   </properties>
                   <connections>
                     <connection
@@ -16622,7 +16141,7 @@ OR (CREATEDATE&gt;=? AND CREATEDATE&lt;?)</property>
           DTS:LocaleID="-1"
           DTS:ObjectName="SET LSET1"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="1">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -16646,7 +16165,7 @@ OR (CREATEDATE&gt;=? AND CREATEDATE&lt;?)</property>
           DTS:LocaleID="-1"
           DTS:ObjectName="SET LSET1 1"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="2">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -16670,7 +16189,7 @@ OR (CREATEDATE&gt;=? AND CREATEDATE&lt;?)</property>
           DTS:LocaleID="-1"
           DTS:ObjectName="SET LSET1 1 1"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="3">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -16751,6 +16270,30 @@ OR (CREATEDATE&gt;=? AND CREATEDATE&lt;?)</property>
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint 1 2 1"
           DTS:To="Package\TGDD INCREMENTAL STAGE\Load SalesOrderHeader" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\TGDD INCREMENTAL STAGE.PrecedenceConstraints[Constraint 2]"
+          DTS:CreationName=""
+          DTS:DTSID="{052A2885-4FF6-4CEF-9A5B-9D399835A33A}"
+          DTS:From="Package\TGDD INCREMENTAL STAGE\SET LSET"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 2"
+          DTS:To="Package\TGDD INCREMENTAL STAGE\GET LSET&amp;CET1" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\TGDD INCREMENTAL STAGE.PrecedenceConstraints[Constraint 3]"
+          DTS:CreationName=""
+          DTS:DTSID="{792CF9A7-F7D9-46B6-ABC0-B6BCE46E1223}"
+          DTS:From="Package\TGDD INCREMENTAL STAGE\SET LSET1"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 3"
+          DTS:To="Package\TGDD INCREMENTAL STAGE\GET LSET&amp;CET1 1" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\TGDD INCREMENTAL STAGE.PrecedenceConstraints[Constraint 4]"
+          DTS:CreationName=""
+          DTS:DTSID="{8402D0E1-917F-44A6-B82D-6F3D4AAE4D30}"
+          DTS:From="Package\TGDD INCREMENTAL STAGE\SET LSET1 1"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 4"
+          DTS:To="Package\TGDD INCREMENTAL STAGE\GET LSET&amp;CET1 1 1" />
       </DTS:PrecedenceConstraints>
     </DTS:Executable>
     <DTS:Executable
@@ -17559,6 +17102,108 @@ OR (CREATEDATE&gt;=? AND CREATEDATE&lt;?)</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <EdgeLayout
+          Id="Package\TGDD INCREMENTAL STAGE.PrecedenceConstraints[Constraint 2]"
+          TopLeft="135.914285843531,160.047058611716">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="175.819049065069,-94.3529410236431"
+              Start="0,0"
+              End="175.819049065069,-86.8529410236431">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,-43.3329493801158" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,-43.3329493801158"
+                    Point2="0,-47.3329493801158"
+                    Point3="4,-47.3329493801158" />
+                  <mssgle:LineSegment
+                    End="171.819049065069,-47.3329493801158" />
+                  <mssgle:CubicBezierSegment
+                    Point1="171.819049065069,-47.3329493801158"
+                    Point2="175.819049065069,-47.3329493801158"
+                    Point3="175.819049065069,-51.3329493801158" />
+                  <mssgle:LineSegment
+                    End="175.819049065069,-86.8529410236431" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\TGDD INCREMENTAL STAGE.PrecedenceConstraints[Constraint 3]"
+          TopLeft="338.514287323003,210.988235107776">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-201.466668149687,29.376470523217"
+              Start="0,0"
+              End="-201.466668149687,21.876470523217">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,10.6882352616085" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,10.6882352616085"
+                    Point2="0,14.6882352616085"
+                    Point3="-4,14.6882352616085" />
+                  <mssgle:LineSegment
+                    End="-197.466668149687,14.6882352616085" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-197.466668149687,14.6882352616085"
+                    Point2="-201.466668149687,14.6882352616085"
+                    Point3="-201.466668149687,18.6882352616085" />
+                  <mssgle:LineSegment
+                    End="-201.466668149687,21.876470523217" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\TGDD INCREMENTAL STAGE.PrecedenceConstraints[Constraint 4]"
+          TopLeft="159.295238254387,385.658823150696">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="203.085714784447,-100.341176355522"
+              Start="0,0"
+              End="203.085714784447,-92.841176355522">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,-46.3026773831229" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,-46.3026773831229"
+                    Point2="0,-50.3026773831229"
+                    Point3="4,-50.3026773831229" />
+                  <mssgle:LineSegment
+                    End="199.085714784447,-50.3026773831229" />
+                  <mssgle:CubicBezierSegment
+                    Point1="199.085714784447,-50.3026773831229"
+                    Point2="203.085714784447,-50.3026773831229"
+                    Point3="203.085714784447,-54.3026773831229" />
+                  <mssgle:LineSegment
+                    End="203.085714784447,-92.841176355522" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
@@ -17750,7 +17395,7 @@ OR (CREATEDATE&gt;=? AND CREATEDATE&lt;?)</property>
     design-time-name="Package\DMX INCREMENTAL STAGE\Load Customer">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="197.6,41.6"
           Id="Package\DMX INCREMENTAL STAGE\Load Customer\CUSTOMER_DMX_STAGE"
@@ -17790,9 +17435,7 @@ OR (CREATEDATE&gt;=? AND CREATEDATE&lt;?)</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -17823,7 +17466,7 @@ OR (CREATEDATE&gt;=? AND CREATEDATE&lt;?)</property>
     design-time-name="Package\DMX INCREMENTAL STAGE\Load SalesOrderDetail">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="253.6,41.6"
           Id="Package\DMX INCREMENTAL STAGE\Load SalesOrderDetail\SALES_ORDER_DETAIL_DMX_STAGE"
@@ -17863,9 +17506,7 @@ OR (CREATEDATE&gt;=? AND CREATEDATE&lt;?)</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -17901,7 +17542,7 @@ OR (CREATEDATE&gt;=? AND CREATEDATE&lt;?)</property>
     design-time-name="Package\DMX INCREMENTAL STAGE\Load SalesOrderHeader">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="163.2,41.6"
           Id="Package\DMX INCREMENTAL STAGE\Load SalesOrderHeader\SalesOrderHeader"
@@ -17941,9 +17582,7 @@ OR (CREATEDATE&gt;=? AND CREATEDATE&lt;?)</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -17978,10 +17617,6 @@ OR (CREATEDATE&gt;=? AND CREATEDATE&lt;?)</property>
           Size="190.4,41.6"
           Id="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE\PRODUCT_DMX_STAGE"
           TopLeft="635.192745116331,323.246685235578" />
-        <NodeLayout
-          Size="253.6,41.6"
-          Id="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE\SALES_ORDER_DETAIL_DMX_STAGE"
-          TopLeft="670.907030906643,739.724743205624" />
         <NodeLayout
           Size="103.2,41.6"
           Id="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE\Store"
@@ -18023,10 +17658,6 @@ OR (CREATEDATE&gt;=? AND CREATEDATE&lt;?)</property>
           Id="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE\ProductSubCategory"
           TopLeft="55.7142858328868,626.832866375765" />
         <NodeLayout
-          Size="156,41.6"
-          Id="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE\SalesOrderDetail"
-          TopLeft="657.755103441005,633.27282919996" />
-        <NodeLayout
           Size="176,41.6"
           Id="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE\SalesTerritoryHistory"
           TopLeft="696.530613727629,834.166573366315" />
@@ -18059,7 +17690,7 @@ OR (CREATEDATE&gt;=? AND CREATEDATE&lt;?)</property>
           Id="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE\PRODUCT_CATEGORY_DMX_STAGE"
           TopLeft="68.8662132985255,521.466666476751" />
         <EdgeLayout
-          Id="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE.Paths[OLE DB Source Output10]"
+          Id="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE.Paths[OLE DB Source Output9]"
           TopLeft="395.608163989946,253.536134357068">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -18093,7 +17724,7 @@ OR (CREATEDATE&gt;=? AND CREATEDATE&lt;?)</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE.Paths[OLE DB Source Output9]"
+          Id="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE.Paths[OLE DB Source Output8]"
           TopLeft="679.240817650692,258.394771229914">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -18127,7 +17758,7 @@ OR (CREATEDATE&gt;=? AND CREATEDATE&lt;?)</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE.Paths[OLE DB Source Output8]"
+          Id="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE.Paths[OLE DB Source Output7]"
           TopLeft="133.714285832887,456.614752471087">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -18161,7 +17792,7 @@ OR (CREATEDATE&gt;=? AND CREATEDATE&lt;?)</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE.Paths[OLE DB Source Output7]"
+          Id="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE.Paths[OLE DB Source Output6]"
           TopLeft="444.261225283945,460.380952370101">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -18195,7 +17826,7 @@ OR (CREATEDATE&gt;=? AND CREATEDATE&lt;?)</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE.Paths[OLE DB Source Output6]"
+          Id="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE.Paths[OLE DB Source Output5]"
           TopLeft="142.914285832887,668.432866375765">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -18229,7 +17860,7 @@ OR (CREATEDATE&gt;=? AND CREATEDATE&lt;?)</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE.Paths[OLE DB Source Output5]"
+          Id="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE.Paths[OLE DB Source Output4]"
           TopLeft="432.775510967821,672.199066274779">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -18254,40 +17885,6 @@ OR (CREATEDATE&gt;=? AND CREATEDATE&lt;?)</property>
                     Point3="57.5519274656386,36.425957002832" />
                   <mssgle:LineSegment
                     End="57.5519274656386,57.351914005664" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE.Paths[OLE DB Source Output4]"
-          TopLeft="735.755103441005,674.87282919996">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="61.9519274656386,64.851914005664"
-              Start="0,0"
-              End="61.9519274656386,57.351914005664">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,28.425957002832" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,28.425957002832"
-                    Point2="0,32.425957002832"
-                    Point3="4,32.425957002832" />
-                  <mssgle:LineSegment
-                    End="57.9519274656386,32.425957002832" />
-                  <mssgle:CubicBezierSegment
-                    Point1="57.9519274656386,32.425957002832"
-                    Point2="61.9519274656386,32.425957002832"
-                    Point3="61.9519274656386,36.425957002832" />
-                  <mssgle:LineSegment
-                    End="61.9519274656386,57.351914005664" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -18433,7 +18030,7 @@ OR (CREATEDATE&gt;=? AND CREATEDATE&lt;?)</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE.Paths[OLE DB Source Output11]"
+          Id="Package\LOAD WHOLE TABLE STAGE\DMX2STAGE.Paths[OLE DB Source Output10]"
           TopLeft="143.746031920048,249.769934458054">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -18473,7 +18070,7 @@ OR (CREATEDATE&gt;=? AND CREATEDATE&lt;?)</property>
     design-time-name="Package\LOAD WHOLE TABLE STAGE\TGDD2STAGE">
     <LayoutInfo>
       <GraphLayout
-        Capacity="64" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="64" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="281.6,42.4"
           Id="Package\LOAD WHOLE TABLE STAGE\TGDD2STAGE\PRODUCT_SUB_CATEGORY_TGDD_STAGE"
@@ -18609,9 +18206,7 @@ OR (CREATEDATE&gt;=? AND CREATEDATE&lt;?)</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -18645,9 +18240,7 @@ OR (CREATEDATE&gt;=? AND CREATEDATE&lt;?)</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -18681,9 +18274,7 @@ OR (CREATEDATE&gt;=? AND CREATEDATE&lt;?)</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -18717,9 +18308,7 @@ OR (CREATEDATE&gt;=? AND CREATEDATE&lt;?)</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -18753,9 +18342,7 @@ OR (CREATEDATE&gt;=? AND CREATEDATE&lt;?)</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -18789,9 +18376,7 @@ OR (CREATEDATE&gt;=? AND CREATEDATE&lt;?)</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -18825,9 +18410,7 @@ OR (CREATEDATE&gt;=? AND CREATEDATE&lt;?)</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -18861,9 +18444,7 @@ OR (CREATEDATE&gt;=? AND CREATEDATE&lt;?)</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -18897,9 +18478,7 @@ OR (CREATEDATE&gt;=? AND CREATEDATE&lt;?)</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -18933,9 +18512,7 @@ OR (CREATEDATE&gt;=? AND CREATEDATE&lt;?)</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -18969,9 +18546,7 @@ OR (CREATEDATE&gt;=? AND CREATEDATE&lt;?)</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -19005,9 +18580,7 @@ OR (CREATEDATE&gt;=? AND CREATEDATE&lt;?)</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -19041,9 +18614,7 @@ OR (CREATEDATE&gt;=? AND CREATEDATE&lt;?)</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -19391,7 +18962,7 @@ OR (CREATEDATE&gt;=? AND CREATEDATE&lt;?)</property>
     design-time-name="Package\TGDD INCREMENTAL STAGE\Load Address">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="115.2,41.6"
           Id="Package\TGDD INCREMENTAL STAGE\Load Address\Address"
@@ -19431,9 +19002,7 @@ OR (CREATEDATE&gt;=? AND CREATEDATE&lt;?)</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -19464,7 +19033,7 @@ OR (CREATEDATE&gt;=? AND CREATEDATE&lt;?)</property>
     design-time-name="Package\TGDD INCREMENTAL STAGE\Load Customer">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="197.6,41.6"
           Id="Package\TGDD INCREMENTAL STAGE\Load Customer\CUSTOMER_DMX_STAGE"
@@ -19504,9 +19073,7 @@ OR (CREATEDATE&gt;=? AND CREATEDATE&lt;?)</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -19524,7 +19091,7 @@ OR (CREATEDATE&gt;=? AND CREATEDATE&lt;?)</property>
     design-time-name="Package\TGDD INCREMENTAL STAGE\Load SalesOrderDetail">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="253.6,41.6"
           Id="Package\TGDD INCREMENTAL STAGE\Load SalesOrderDetail\SALES_ORDER_DETAIL_DMX_STAGE"
@@ -19564,9 +19131,7 @@ OR (CREATEDATE&gt;=? AND CREATEDATE&lt;?)</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -19584,7 +19149,7 @@ OR (CREATEDATE&gt;=? AND CREATEDATE&lt;?)</property>
     design-time-name="Package\TGDD INCREMENTAL STAGE\Load SalesOrderHeader">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="163.2,41.6"
           Id="Package\TGDD INCREMENTAL STAGE\Load SalesOrderHeader\SalesOrderHeader"
@@ -19624,9 +19189,7 @@ OR (CREATEDATE&gt;=? AND CREATEDATE&lt;?)</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
